@@ -34,5 +34,10 @@ return [
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
+    'autodesk' => [
+        'clientId' => env('AUTODESK_CLIENT_ID'),
+        'clientSecret' => env('AUTODESK_CLIENT_SECRET'),
+        'bucket' => env('AUTODESK_BUCKET'),
+    ]
 
 ];
