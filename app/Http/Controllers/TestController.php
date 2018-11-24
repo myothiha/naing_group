@@ -3,36 +3,27 @@
 namespace App\Http\Controllers;
 
 use App\Network\AutoDeskApi\AutoDesk;
+use App\Services\FileUploader\SimpleFileUploader;
+use App\Services\Viewers\AutoDesk\AutoDesk3DViewer;
 use Illuminate\Http\Request;
 
 class TestController extends Controller
 {
-    private $autoDesk;
+    private $viewer;
 
     /**
      * TestController constructor.
-     * @param AutoDesk $autoDesk
+     * @param AutoDesk3DViewer $autoDesk3DViewer
      */
-    public function __construct(AutoDesk $autoDesk)
+    public function __construct(AutoDesk3DViewer $autoDesk3DViewer)
     {
-        $this->autoDesk = $autoDesk;
+        $this->viewer = $autoDesk3DViewer;
     }
 
     public function store(Request $request)
     {
-//        $model3D = $this->autoDesk->renderForViewer($request->file);
-        $response = $this->autoDesk->authenticate('data:read data:write data:create bucket:read bucket:create')->getBody()->getContents();
-
-        $token = json_decode($response)->access_token;
-
-        $filename = $request->file('file')->getClientOriginalName();
-        $request->file->move(public_path('uploads/files'), $filename);
-
-        $target = 'uploads/files/hello.dwg';
-
-        $response = $this->autoDesk->uploadFile($target, $token, $filename);
-
-        dd($response->getBody()->getContents());
+//        dd($request->file)
+        $this->viewer->upload($request->file);
     }
 
     public function test()

@@ -11,6 +11,7 @@ namespace App\Network\AutoDeskApi;
 
 use App\Network\HttpClients\Interfaces\HttpClient;
 use Illuminate\Http\UploadedFile;
+use phpDocumentor\Reflection\Types\Resource_;
 
 class AutoDesk
 {
@@ -34,7 +35,6 @@ class AutoDesk
     /**
      * @param $scope
      * @return mixed
-     * @throws \Exception
      */
     public function authenticate($scope)
     {
@@ -48,9 +48,9 @@ class AutoDesk
         ]);
     }
 
-    public function uploadFile($file, $accessToken, $filename)
+    public function uploadFile($pathToFile, $accessToken, $filename)
     {
-        $url = $this->prepareFileUploadUrl(Constants::File_UPLOAD, $filename);
+        $url = Constants::getFileUploadUrl($filename, $this->bucket);
 
         return $this->client->request(HttpClient::PUT_REQUEST, $url, [
             'headers' => [
@@ -61,15 +61,7 @@ class AutoDesk
                 'bucketKey' => $this->bucket,
                 'objectName' => $filename,
             ],
-            'body' => fopen($file, 'r'),
+            'body' => fopen($pathToFile, 'r'),
         ]);
     }
-
-    private function prepareFileUploadUrl(string $url, $filename)
-    {
-        $url = str_replace(':bucket', $this->bucket, $url);
-        $url = str_replace(':object', $filename, $url);
-        return $url;
-    }
-
 }

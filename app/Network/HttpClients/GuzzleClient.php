@@ -21,7 +21,7 @@ class GuzzleClient implements HttpClient
      * @param $baseUri
      * @param float $timeOut
      */
-    public function __construct($baseUri, $timeOut = 2.0)
+    public function __construct($baseUri, $timeOut = 10.0)
     {
         $this->client = new Client([
             // Base URI is used with relative requests

@@ -9,7 +9,10 @@
 namespace App\Services\Viewers\Interfaces;
 
 
+use Illuminate\Http\UploadedFile;
+
 interface Viewer
 {
-
+    function upload(UploadedFile $file);
+    function render($view);
 }
