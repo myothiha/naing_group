@@ -12,6 +12,30 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\ProjectFile newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\ProjectFile query()
  * @mixin \Eloquent
+ * @property int $id
+ * @property string|null $title
+ * @property string $bucket_key
+ * @property string $object_id
+ * @property string $object_key
+ * @property string $sha1
+ * @property string $size
+ * @property string $content_type
+ * @property string $location
+ * @property string $status
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\ProjectFile whereBucketKey($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\ProjectFile whereContentType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\ProjectFile whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\ProjectFile whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\ProjectFile whereLocation($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\ProjectFile whereObjectId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\ProjectFile whereObjectKey($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\ProjectFile whereSha1($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\ProjectFile whereSize($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\ProjectFile whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\ProjectFile whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\ProjectFile whereUpdatedAt($value)
  */
 class ProjectFile extends Model
 {
