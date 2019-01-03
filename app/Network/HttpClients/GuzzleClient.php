@@ -9,6 +9,8 @@
 namespace App\Network\HttpClients;
 
 use App\Network\HttpClients\Interfaces\HttpClient;
+use App\Network\Response\GuzzleResponse;
+use App\Network\Response\ResponseInterface;
 use GuzzleHttp\Client;
 
 class GuzzleClient implements HttpClient
@@ -21,7 +23,7 @@ class GuzzleClient implements HttpClient
      * @param $baseUri
      * @param float $timeOut
      */
-    public function __construct($baseUri, $timeOut = 10.0)
+    public function __construct($baseUri, $timeOut = 100.0)
     {
         $this->client = new Client([
             // Base URI is used with relative requests
@@ -38,23 +40,8 @@ class GuzzleClient implements HttpClient
      * @return mixed|\Psr\Http\Message\ResponseInterface
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    function request($method, $uri = '', array $options = [])
+    function request($method, $uri = '', array $options = []) : ResponseInterface
     {
-        return $this->client->request($method, $uri, $options);
-    }
-
-    function getData($response)
-    {
-        return $response->getBody()->getContents();
-    }
-
-    function getBody($response)
-    {
-        return $response->getBody();
-    }
-
-    function getStatus($response)
-    {
-        return $response->getStatusCode();
+        return new GuzzleResponse($this->client->request($method, $uri, $options));
     }
 }

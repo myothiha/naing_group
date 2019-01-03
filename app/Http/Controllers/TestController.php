@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Network\AutoDeskApi\AutoDesk;
+use App\AutoDesk\Services\Viewers\AutoDeskViewerService;
+use App\ProjectFile;
 use App\Services\FileUploader\SimpleFileUploader;
-use App\Services\Viewers\AutoDesk\AutoDesk3DViewer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class TestController extends Controller
 {
@@ -13,26 +14,41 @@ class TestController extends Controller
 
     /**
      * TestController constructor.
-     * @param AutoDesk3DViewer $autoDesk3DViewer
+     * @param AutoDeskViewerService $autoDeskViewer
      */
-    public function __construct(AutoDesk3DViewer $autoDesk3DViewer)
+    public function __construct(AutoDeskViewerService $autoDeskViewer)
     {
-        $this->viewer = $autoDesk3DViewer;
+        $this->viewer = $autoDeskViewer;
+    }
+
+    public function invcaptcha()
+    {
+        return view('test.sms.invcaptcha');
     }
 
     public function store(Request $request)
     {
-//        dd($request->file)
-        $this->viewer->upload($request->file);
+        $filename = SimpleFileUploader::upload($request->file, ProjectFile::UPLOAD_PATH);
+
+//        $projectFile = $this->viewer->upload($filename);
+//        $derivativeFile = $this->viewer->postSvf($projectFile);
+//        $projectFile->title = $request->title;
+//        $projectFile->save();
+//        sleep(15);
+//        dd($projectFile->urn);
+//        $projectFile = ProjectFile::find(28);
+//        $manifest = $this->viewer->getManifest($projectFile);
+//        $data['filename'] = $projectFile;
+        return $filename;
     }
 
     public function test()
     {
-        try {
-            return dd($this->autoDesk->authenticate('data:read data:write data:create bucket:read bucket:create'));
-        } catch (\Exception $e) {
-            dd($e);
-        }
+        $projectFile = ProjectFile::find(1);
+        $response = $this->viewer->getManifest($projectFile);
+        dd($response->getContents());
+        return $this->viewer->render('test.viewer', $projectFile);
+//        return $response->getRawJson();
     }
 
 }

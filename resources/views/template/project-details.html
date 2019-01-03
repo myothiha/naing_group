@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- fontawwsome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <!-- Scrooll Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Gallery -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" />
+    <link rel="stylesheet" href="css/compact-gallery.css">
+
+    <!-- Owlcarousel CSS -->
+    <link rel="stylesheet" href="owlcarousel/assets/owl.carousel.min.css">
+    <!-- <link rel="stylesheet" href="owlcarousel/assets/owl.theme.default.min.css"> -->
+
+
+    <link rel="icon" href="favicon.png" sizes="16x16" type="image/png">
+
+
+    <title>Project Name- Naing Group</title>
+
+    <style>
+        #sync1 .item {
+            margin: 5px;
+            text-align: center;
+        }
+        
+        #sync2 .item {
+            margin: 5px;
+            cursor: pointer;
+            z-index: 999;
+        }
+        
+        #sync2 .item h1 {
+            font-size: 18px;
+            z-index: 999;
+        }
+        
+        #sync2 .current .item {
+            z-index: 999;
+        }
+        
+        .owl-theme .owl-nav {
+            /*default owl-theme theme reset .disabled:hover links */
+        }
+        
+        .owl-theme .owl-nav [class*='owl-'] {
+            transition: all .3s ease;
+        }
+        
+        .owl-theme .owl-nav [class*='owl-'].disabled:hover {
+            background-color: #D6D6D6;
+        }
+        
+        #sync1.owl-theme {
+            position: relative;
+        }
+        
+        #sync1.owl-theme .owl-next,
+        #sync1.owl-theme .owl-prev {
+            width: 22px;
+            height: 40px;
+            margin-top: -20px;
+            position: absolute;
+            top: 50%;
+        }
+        
+        #sync1.owl-theme .owl-prev {
+            left: 10px;
+        }
+        
+        #sync1.owl-theme .owl-next {
+            right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="#0" class="cd-top js-cd-top cd-top--fade-out cd-top--show">Top</a>
+
+
+    <!-- infonav bar -->
+    <div class="bg-gray">
+        <div class="container">
+            <div class="row p-2">
+                <div class="col-12">
+
+                    <ul class="nav m-2 social-bar justify-content-end">
+                        <div class="mx-4">
+                            <i class="fab fa-facebook-f mx-2"></i>
+                            <i class="fab fa-google-plus-g mx-2"></i>
+                            <i class="fab fa-twitter mx-2"></i>
+                        </div>
+
+                        <div class="mx-4">
+                            <i class="fas fa-phone mx-2"><span class="phone">+951 248 082</span></i>
+                        </div>
+
+                        <div class="mx-4">
+                            <i class="far fa-envelope-open mx-2"><span class="phone">example@help.com</span></i>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nav Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-yellow">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="images/logo.png" alt=""></a>
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+            <div class="navbar-collapse collapse" id="navbarCollapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about-us.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="our-mindstone.html">Our Mindstone</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="our-people.html">Our People</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="csr.html">CSR</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="our-project.html">Our Project</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="business-units.html">Our Business Units</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="faq.html">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contactus.html">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb Bar -->
+    <section class="bg-gray">
+        <div class="container pt-2">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item" aria-current="page"><a href="#">Project Name</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Project Details</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- 3D condo -->
+    <section>
+        <img src="images/project-details.jpg" alt="" class="img-fluid condo">
+    </section>
+
+    <div class="container my-3">
+
+        <div class="row p-3">
+
+            <div class="col-md-8">
+                <h2 class="my-5 properties-title">Featured Properties Name</h2><span class="forsale">For Sale</span>
+                <div class="my-3">
+                    <h5 class="price mt-2">3,50,0000</h5><span class="sq">4000</span>
+
+                </div>
+                <p class="my-3">
+                    Address : 5078 Jensen Key, Port Kaya, WV 73505
+                </p>
+
+                <!-- Item Slider -->
+
+                <div id="sync1" class="owl-carousel owl-theme">
+                    <div class="item">
+                        <img src="/images/inner-01.jpg" class="img-fluid" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="/images/inner-01.jpg" class="img-fluid" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="/images/inner-01.jpg" class="img-fluid" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="/images/inner-01.jpg" class="img-fluid" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="/images/inner-01.jpg" class="img-fluid" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="/images/inner-01.jpg" class="img-fluid" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="/images/inner-01.jpg" class="img-fluid" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="/images/inner-01.jpg" class="img-fluid" alt="">
+                    </div>
+                </div>
+
+                <div id="sync2" class="owl-carousel owl-theme">
+                    <div class="item">
+                        <img src="/images/inner-01.jpg" class="img-fluid" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="/images/inner-01.jpg" class="img-fluid" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="/images/inner-01.jpg" class="img-fluid" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="/images/inner-01.jpg" class="img-fluid" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="/images/inner-01.jpg" class="img-fluid" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="/images/inner-01.jpg" class="img-fluid" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="/images/inner-01.jpg" class="img-fluid" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="/images/inner-01.jpg" class="img-fluid" alt="">
+                    </div>
+                </div>
+
+
+                <h5 class="my-3">Description</h5>
+                <p>
+                    Cooperative: Often referred to as a "co-op", a cooperative is a limited-liability business that can organize as for-profit or not-for-profit. A cooperative differs from a corporation in that it has members, not shareholders, and they share decision-making
+                    authority. Cooperatives are typically classified as either consumer cooperatives or worker cooperatives. Cooperatives are fundamental to the ideology of economic democracy. Cooperative: Often referred to as a "co-op", a cooperative
+                    is a limited-liability business that can organize as for-profit or not-for-profit. A cooperative differs from a corporation in that it has members, not shareholders, and they share decision-making authority. Cooperatives are typically
+                    classified as either consumer cooperatives or worker cooperatives. Cooperatives are fundamental to the ideology of economic democracy.
+
+                </p>
+                <hr>
+
+                <h5 class="my-3">Property Details</h5>
+                <div class="row">
+                    <div class="col-md-4">
+                        <ul class="property-list">
+                            <li>Property Size<span class="list-style"></span>2800<span class="list-sq"></span></li>
+                            <li>Bedrooms<span class="list-style"></span>6</li>
+                            <li>Property Size<span class="list-style"></span><span class="list-price"></span>2800</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="property-list">
+                            <li>Property Type<span class="list-style"></span>6</li>
+                            <li>Bathrooms<span class="list-style"></span>6</li>
+                            <li>Building Age<span class="list-style"></span>2 <span class="list-year"></span></li>
+                        </ul>
+
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="property-list">
+                            <li>Property Type<span class="list-style"></span><span class="list-sale"></span></li>
+                            <li>Property Size<span class="list-style"></span>300<span class="list-sq"></span></li>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+
+
+                <h5 class="my-3">Property Features</h5>
+                <div class="row">
+                    <div class="col-md-4">
+                        <ul class="property-list">
+                            <li><span class="fas fa-air-freshener list-icon"></span> Air Conditioning</li>
+                            <li><span class="fas fa-glass-martini list-icon"></span> Barbeque</li>
+                            <li><span class="fas fa-landmark list-icon"></span> Laundry</li>
+                            <li><span class="fas fa-tv list-icon"></span> TV Cable</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="property-list">
+                            <li><span class="far fa-window-maximize list-icon"></span> Window Coverings</li>
+                            <li><span class="fas fa-swimming-pool list-icon"></span> Swimming Pool</li>
+                            <li><span class="fas fa-shower list-icon"></span> Outdoor Shower</li>
+                            <li><span class="fas fa-dumbbell list-icon"></span> Gym</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="property-list">
+                            <li><span class="fas fa-wifi list-icon"></span> Wifi</li>
+                            <li><span class="fas fa-columns list-icon"></span> Washer</li>
+                            <li><span class="fas fa-stroopwafel list-icon"></span> Microwave</li>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+
+                <h5 class="my-3">Floor Plans</h5>
+                <section class="gallery-block grid-gallery" data-aos="fade-up">
+                    <div class="col-12 item">
+                        <a class="lightbox" href="images/floor.jpg" data-aos="fade-left">
+                            <img class="img-fluid image scale-on-hover" src="images/floor.jpg">
+                        </a>
+                    </div>
+                </section>
+
+
+                <hr>
+
+                <h5 class="my-3">Property Video</h5>
+                <img src="images/map.jpg" alt="" class="img-fluid my-4">
+                <hr>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5>Contacnt Me</h5>
+                        <ul class="agent-list">
+                            <li>Real Estate Broker </li>
+                            <li>ayour@hotmaila.com
+                            </li>
+                            <li>(000) 000-0000</li>
+                            <div class="agent-social">
+                                <i class="fab fa-facebook-f mx-1"></i>
+                                <i class="fab fa-google-plus-g mx-1"></i>
+                                <i class="fab fa-twitter mx-1"></i>
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="col-md-8">
+                        <form>
+                            <div class="form-row">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="First name">
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Last name">
+                                </div>
+                            </div>
+
+                            <div class="form-row my-3">
+                                <div class="col">
+
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Massage" rows="3"></textarea>
+
+                                </div>
+
+                            </div>
+
+                            <button type="button" class="btn btn-primary float-right">Submit</button>
+                        </form>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+            <div class="col-md-4">
+                <h2 class="title my-5">Search Properties</h2>
+                <form>
+
+                    <select class="form-control form-control mt-3 slect">
+                        <option>Status</option>
+                        <option>Yangon</option>
+                        <option>Mandalay</option>
+                      </select>
+                    <select class="form-control form-control my-2 slect">
+                        <option>Type</option>
+                        <option>Yangon</option>
+                        <option>Mandalay</option>
+                      </select>
+                    <select class="form-control form-control mb-2 slect">
+                        <option>City</option>
+                        <option>Yangon</option>
+                        <option>Mandalay</option>
+                      </select>
+
+                    <!-- Range slider: -->
+                    <div class="form-group range">
+                        <label for="formControlRange">MMK(Lakh)- <span><output id="js-output"></output></span></label>
+                        <input type="range" class="form-control-range" id="formControlRange" min="10" // default 0 max="1000" // default 100 step="10" // default 1 value="300" // default min + (max-min)/2 data-orientation="vertical" // default horizontal>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block mb-3">Search Now</button>
+
+                </form>
+
+                <h2 class="title my-5">Featured Properties</h2>
+                <div class="row my-3">
+                    <div class="col-5">
+                        <img src="images/erc.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="col-7">
+                        <h6>Featured Properties Name</h6>
+                        <p>Yangon, No 123 , Maharbandoola Rd, Pabadan Township.</p>
+                        <button type="button" class="btn btn-primary btn-block">Price on request</button>
+
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col-5">
+                        <img src="images/erc.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="col-7">
+                        <h6>Featured Properties Name</h6>
+                        <p>Yangon, No 123 , Maharbandoola Rd, Pabadan Township.</p>
+                        <button type="button" class="btn btn-primary btn-block">Price on request</button>
+
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col-5">
+                        <img src="images/erc.jpg" alt="" class="img-fluid">
+                    </div>
+                    <div class="col-7">
+                        <h6>Featured Properties Name</h6>
+                        <p>Yangon, No 123 , Maharbandoola Rd, Pabadan Township.</p>
+                        <button type="button" class="btn btn-primary btn-block">Price on request</button>
+
+                    </div>
+                </div>
+
+                <h2 class="title my-5">Our Guides</h2>
+                <img src="images/giude.jpg" alt="" class="img-fluid my-3">
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- footer -->
+    <section class="footer-info">
+        <div class="container footer-info">
+            <div class="row py-4 mx-2">
+                <div class="col-lg-3 col-md-6 py-2">
+                    <div class="row d-flex justify-content-center footer-line py-3">
+                        <div class="col-3 align-self-center"><i class="fas fa-2x fa-map-marker"></i></div>
+                        <div class="col-9">
+                            <h6>ADDRESS</h6>
+                            <p class="footer-text">No.117/127, 33rd Street, Kyauktadar Tsp Yangon.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 py-2">
+                    <div class="row d-flex justify-content-center footer-line py-3">
+                        <div class="col-3 align-self-center"><i class="fas fa-2x fa-mobile-alt"></i></div>
+                        <div class="col-9">
+                            <h6>PHONE</h6>
+                            <p class="footer-text">+951 248 082, <br>256 047, 381 707
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 py-2">
+                    <div class="row d-flex justify-content-center footer-line py-3">
+                        <div class="col-3 align-self-center"><i class="fas fa-2x fa-map-marker"></i></div>
+                        <div class="col-9">
+                            <h6>Email</h6>
+                            <p class="footer-text">info@nainggroup.com <br> info@nainggroup.com
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 py-2">
+                    <div class="row d-flex justify-content-center footer-line py-3">
+                        <div class="col-3 align-self-center"><i class="fas fa-2x fa-map-marker"></i></div>
+                        <div class="col-9">
+                            <h6>OFFICE HOURS</h6>
+                            <p class="footer-text">9:00 a.m - 5:00 p.m
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bar">
+        </div>
+
+        <div class="bg-gray py-2">
+            <div class="container">
+                <p class="copy my-2">©2018 by Naing Group | Web Developer : UpSalute, Myanmar.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Optional JavaScript -->
+    <script src="js/backtotop.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script>
+        baguetteBox.run('.grid-gallery', {
+            animation: 'slideIn'
+        });
+    </script>
+
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="owlcarousel/owl.carousel.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+
+            var sync1 = $("#sync1");
+            var sync2 = $("#sync2");
+            var slidesPerPage = 5; //globaly define number of elements per page
+            var syncedSecondary = true;
+
+            sync1.owlCarousel({
+                items: 1,
+                slideSpeed: 2000,
+                nav: false,
+                dots: false,
+                autoplay: true,
+                loop: true,
+                responsiveRefreshRate: 200,
+                navText: ['<svg width="100%" height="100%" viewBox="0 0 11 20"><path style="fill:none;stroke-width: 1px;stroke: #000;" d="M9.554,1.001l-8.607,8.607l8.607,8.606"/></svg>', '<svg width="100%" height="100%" viewBox="0 0 11 20" version="1.1"><path style="fill:none;stroke-width: 1px;stroke: #000;" d="M1.054,18.214l8.606,-8.606l-8.606,-8.607"/></svg>'],
+            }).on('changed.owl.carousel', syncPosition);
+
+            sync2
+                .on('initialized.owl.carousel', function() {
+                    sync2.find(".owl-item").eq(0).addClass("current");
+                })
+                .owlCarousel({
+                    items: slidesPerPage,
+                    dots: false,
+                    nav: false,
+                    smartSpeed: 200,
+                    slideSpeed: 500,
+                    slideBy: slidesPerPage, //alternatively you can slide by 1, this way the active slide will stick to the first item in the second carousel
+                    responsiveRefreshRate: 100
+                }).on('changed.owl.carousel', syncPosition2);
+
+            function syncPosition(el) {
+                //if you set loop to false, you have to restore this next line
+                //var current = el.item.index;
+
+                //if you disable loop you have to comment this block
+                var count = el.item.count - 1;
+                var current = Math.round(el.item.index - (el.item.count / 2) - .5);
+
+                if (current < 0) {
+                    current = count;
+                }
+                if (current > count) {
+                    current = 0;
+                }
+
+                //end block
+
+                sync2
+                    .find(".owl-item")
+                    .removeClass("current")
+                    .eq(current)
+                    .addClass("current");
+                var onscreen = sync2.find('.owl-item.active').length - 1;
+                var start = sync2.find('.owl-item.active').first().index();
+                var end = sync2.find('.owl-item.active').last().index();
+
+                if (current > end) {
+                    sync2.data('owl.carousel').to(current, 100, true);
+                }
+                if (current < start) {
+                    sync2.data('owl.carousel').to(current - onscreen, 100, true);
+                }
+            }
+
+            function syncPosition2(el) {
+                if (syncedSecondary) {
+                    var number = el.item.index;
+                    sync1.data('owl.carousel').to(number, 100, true);
+                }
+            }
+
+            sync2.on("click", ".owl-item", function(e) {
+                e.preventDefault();
+                var number = $(this).index();
+                sync1.data('owl.carousel').to(number, 300, true);
+            });
+        });
+    </script>
+
+
+    <script>
+        AOS.init();
+        AOS.init({
+            // Global settings:
+            disable: false,
+            startEvent: 'DOMContentLoaded',
+            initClassName: 'aos-init',
+            animatedClassName: 'aos-animate',
+            useClassNames: false,
+            disableMutationObserver: false,
+            debounceDelay: 50,
+            throttleDelay: 99,
+            offset: 200,
+            delay: 50,
+            duration: 1000,
+            easing: 'ease',
+            once: true,
+            mirror: false,
+            anchorPlacement: 'top-bottom',
+
+        });
+    </script>
+
+</body>
+
+</html>

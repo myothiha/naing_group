@@ -8,8 +8,7 @@
 
 namespace App\Network\HttpClients\Interfaces;
 
-use Psr\Http\Message\ResponseInterface;
-use stdClass;
+use App\Network\Response\ResponseInterface;
 
 interface HttpClient
 {
@@ -19,8 +18,5 @@ interface HttpClient
     const PUT_REQUEST       = 'PUT';
     const DELETE_REQUEST    = 'DELETE';
 
-    function request($method, $uri, array $params);
-    function getData($response);
-    function getBody($response);
-    function getStatus($response);
+    function request($method, $uri, array $params) : ResponseInterface;
 }
