@@ -20,7 +20,8 @@ class BlogcategoryController extends Controller
         $blogcategorys = Blogcategory::orderBy('created_at', 'desc')->get();
 
         return view('admin.blogcategorys.index',[
-            'blogcategorys' => $blogcategorys
+            'blogcategorys'     => $blogcategorys,
+            'mainblog'          => 'active',
             ]);
     }
 

@@ -74,11 +74,13 @@
                                                 <td>{{ $no++ }}</td>
                                                 <td>{{ $csr->title }}</td>
                                                 <td>{{ $csr->description }}</td>
-                                                <td width="15%"><img src="{{ $csr->featureimage }}" class="img-fluid"></td>
+                                                <td width="15%"><img src="{{ $csr->featureimage }}" class="img-fluid" ></td>
                                                 <td>
                                                     <form action="{{action('CsrController@destroy',        $csr->id) }}" method="Post">
                                                         <input type="hidden" name="_method" value="delete">
                                                         {{ csrf_field() }}
+                                                        <a class="btn btn-dark"
+                                                        href="{{ action('CsrimageController@index', $csr->id) }}">Images</a>
                                                         <a class="btn btn-warning mb-2" href="{{action('CsrController@edit',        $csr->id) }}">Edit</a>
 
                                                         <input type="submit" class="btn btn-danger" value="Delete">

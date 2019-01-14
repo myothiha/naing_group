@@ -19,7 +19,8 @@ class IndexdataController extends Controller
     {
        $indexdatas = Indexdata::all();
        return view('admin.indexdatas.index',[
-            'indexdatas' => $indexdatas
+            'indexdatas' => $indexdatas,
+            'menu'           => 'active',
         ]);
     }
 

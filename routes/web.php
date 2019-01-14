@@ -51,7 +51,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
 	Route::resource('milestone',								'MilestoneController');
 
+	Route::resource('blogcategory',								'BlogcategoryController');
+
 	Route::resource('blog',										'BlogController');
+	
+	Route::resource('tag',										'TagController');
 
 	Route::resource('business',									'BusinessController');
 
@@ -59,10 +63,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
 	Route::resource('csr',										'CsrController');
 
+	Route::resource('csr/{csrId}/csrimage',						'CsrimageController');	
+
 	Route::resource('teamcategory',				    			'TeamcategoryController');
 
-	Route::resource('blogcategory',								'BlogcategoryController');
+	Route::resource('team',										'TeamController');
 
-	Route::resource('tag',										'TagController');
 
 });

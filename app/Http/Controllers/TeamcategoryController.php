@@ -17,7 +17,8 @@ class TeamcategoryController extends Controller
         $teamcategorys = Teamcategory::orderBy('created_at','desc')->get();
 
         return view('admin.teamcategorys.index',[
-            'teamcategorys' => $teamcategorys
+            'teamcategorys' => $teamcategorys,
+            'mainteam'       => 'active',
             ]);
     }
 

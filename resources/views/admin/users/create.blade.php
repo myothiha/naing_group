@@ -7,7 +7,7 @@
         <!--BEGIN BREADCRUMB-->
         <div class="breadcrumb-pageheader">
             <ol class="breadcrumb sm-breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ action('UserController@index') }}">DataTable</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Register Form</li>
             </ol>
             <h6 class="sm-pagetitle--style-1 has_page_title">Register Form</h6>

@@ -19,7 +19,8 @@ class GalleryController extends Controller
     {
         $gallerys      = Gallery::orderBy('created_at', 'desc')->paginate(10);
         return view('admin.gallerys.index',[
-            'gallerys'     => $gallerys
+            'gallerys'     => $gallerys,
+            'projecttag'        => 'active',
             ]);
     }
 

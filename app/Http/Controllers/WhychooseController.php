@@ -20,7 +20,8 @@ class WhychooseController extends Controller
     {
         $whychooses  = Whychoose::orderBy('created_at', 'desc')->paginate(10);
         return view('admin.whychooses.index',[
-            'whychooses'     => $whychooses
+            'whychooses'     => $whychooses,
+            'menu'           => 'active',
             ]);
     }
 
