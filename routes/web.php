@@ -23,46 +23,42 @@ Route::get('/invcaptcha', 'TestController@invcaptcha');
 Route::resource('/projectFiles', 'ProjectFileController');
 
 
+Route::get('login', 'LoginController@login')->name('login');
 
+Route::post('admin/login', 'LoginController@authenticated');
 
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
-Route::get('login',    											'LoginController@login')->name('login');
+    Route::get('/', 'HomeslideController@index');
 
-Route::post('admin/login',   									'LoginController@authenticated');
+    Route::resource('user', 'UserController');
 
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
+    Route::resource('homeslide', 'HomeslideController');
 
+    Route::resource('whychoose', 'WhychooseController');
 
-	Route::get('/',												'HomeslideController@index');
+    Route::resource('faq', 'FaqController');
 
-	Route::resource('user',										'UserController');
+    Route::resource('about', 'AboutController');
 
-	Route::resource('homeslide',								'HomeslideController');
+    Route::resource('indexdata', 'IndexdataController');
 
-	Route::resource('whychoose',								'WhychooseController');
+    Route::resource('gallery', 'GalleryController');
 
-	Route::resource('faq',										'FaqController');
+    Route::resource('milestone', 'MilestoneController');
 
-	Route::resource('about',									'AboutController');
+    Route::resource('blog', 'BlogController');
 
-	Route::resource('indexdata',								'IndexdataController');
+    Route::resource('business', 'BusinessController');
 
-	Route::resource('gallery',									'GalleryController');
+    Route::resource('business/{businessId}/businessimage', 'BusinessimageController');
 
-	Route::resource('milestone',								'MilestoneController');
+    Route::resource('csr', 'CsrController');
 
-	Route::resource('blog',										'BlogController');
+    Route::resource('teamcategory', 'TeamcategoryController');
 
-	Route::resource('business',									'BusinessController');
+    Route::resource('blogcategory', 'BlogcategoryController');
 
-	Route::resource('business/{businessId}/businessimage',		'BusinessimageController');
-
-	Route::resource('csr',										'CsrController');
-
-	Route::resource('teamcategory',				    			'TeamcategoryController');
-
-	Route::resource('blogcategory',								'BlogcategoryController');
-
-	Route::resource('tag',										'TagController');
+    Route::resource('tag', 'TagController');
 
 });
