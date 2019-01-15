@@ -18,8 +18,9 @@ class BusinessimageController extends Controller
         $business = Business::find($businessId);
         $businessimages = $business->businessimages;
         return view('admin.businessimages.index', [
-            'business' => $business,
-            'businessimages' => $businessimages,
+            'business'              => $business,
+            'businessimages'        => $businessimages,
+            'mainbusiness',          => 'active',
         ]);
     }
 
@@ -76,7 +77,7 @@ class BusinessimageController extends Controller
      * @param  \App\Businessimage  $businessimage
      * @return \Illuminate\Http\Response
      */
-    public function edit($businessimageId,$businessId)
+    public function edit($businessId, $businessimageId)
     {
         $business = Business::find($businessId);
         $businessimage = Businessimage::find($businessimageId);
@@ -93,7 +94,7 @@ class BusinessimageController extends Controller
      * @param  \App\Businessimage  $businessimage
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$businessimageId, $businessId)
+    public function update(Request $request, $businessId, $businessimageId)
     {
         $business = Business::find($businessId);
         $businessimage = Businessimage::find($businessimageId);
@@ -103,12 +104,12 @@ class BusinessimageController extends Controller
             $imagePath = $request->prevImage;
         }
 
-        $businessimage->image = $imagePath ?? '';
-        $businessimage->business_id = $businessId;
-        $business->images()->save($businessimageId);
+        $businessimage->image = $imagePath;
+        $businessimage->save();
 
         return redirect("/admin/business/{$businessId}/businessimage");
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -116,10 +117,10 @@ class BusinessimageController extends Controller
      * @param  \App\Businessimage  $businessimage
      * @return \Illuminate\Http\Response
      */
-    public function destroy($businessimage_id)
+    public function destroy($businessId, $businessimageId)
     {
-        $businessimage= Businessimage::find($id);
-        $businessimage->delete();
+        $business = Businessimage::find($businessimageId);
+        $business->delete();
         return redirect("/admin/business/{$businessId}/businessimage");
     }
 }

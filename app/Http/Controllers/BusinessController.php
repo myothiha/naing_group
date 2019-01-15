@@ -20,7 +20,8 @@ class BusinessController extends Controller
     {
         $business      = Business::orderBy('created_at', 'desc')->paginate(10);
         return view('admin.business.index',[
-            'business'     => $business
+            'business'          => $business,
+            'mainbusiness'      => 'active',
             ]);
     }
 

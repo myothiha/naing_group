@@ -19,7 +19,8 @@ class AboutController extends Controller
     {
         $abouts  = About::all();
         return view('admin.abouts.index',[
-            'abouts'     => $abouts
+            'abouts'            => $abouts,
+            'menu'              => 'active',
             ]);
     }
 

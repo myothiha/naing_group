@@ -20,7 +20,8 @@ class FaqController extends Controller
     {
         $faqs  = Faq::orderBy('created_at', 'desc')->paginate(10);
         return view('admin.faqs.index',[
-            'faqs'     => $faqs
+            'faqs'          => $faqs,
+            'mainfaq'       => 'active'
             ]);
     }
 

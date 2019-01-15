@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Util\Uploader\Image;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
+use App\Csrimage;
 
 class CsrController extends Controller
 {
@@ -19,7 +20,8 @@ class CsrController extends Controller
     {
         $csrs      = Csr::orderBy('created_at', 'desc')->paginate(10);
         return view('admin.csrs.index',[
-            'csrs'     => $csrs
+            'csrs'          => $csrs,
+            'maincsr'       => 'active',
             ]);
     }
 
@@ -51,6 +53,15 @@ class CsrController extends Controller
         $csr->description                  = $request->description ?? '';
         $csr->featureimage                 = $imagePath ?? '';
         $csr->save();
+
+        foreach($request->gallery as $image)
+        {
+            $csrimage = Image::upload($image, '/uploads/csrs/');
+
+            $image = new Csrimage();
+            $image->image = $csrimage;
+            $csr->csrimages()->save($image);
+        }
 
         return redirect('admin/csr');    }
 

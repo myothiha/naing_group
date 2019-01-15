@@ -19,7 +19,8 @@ class HomeslideController extends Controller
     {
         $homeslides      = Homeslide::orderBy('created_at', 'desc')->paginate(10);
         return view('admin.homeslides.index',[
-            'homeslides'     => $homeslides
+            'homeslides'     => $homeslides,
+            'menu'           => 'active',
             ]);
     }
 

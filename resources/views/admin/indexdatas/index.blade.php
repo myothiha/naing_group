@@ -10,7 +10,7 @@
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                 <li class="breadcrumb-item active" aria-current="page">DataTables</li>
             </ol>
-            <h6 class="sm-pagetitle--style-1 has_page_title">DataTables About Us</h6>
+            <h6 class="sm-pagetitle--style-1 has_page_title">DataTables Index Data</h6>
         </div>
         <!--END BREADCRUMB-->
 
@@ -43,7 +43,7 @@
                                     </a>
                                 </div>
                                 <h6 class="sm-header">
-                                    DataTables About Us
+                                    DataTables Index Data
                                 </h6>
                             </div>
                             <div class="sm-box">

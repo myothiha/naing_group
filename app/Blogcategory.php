@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Blogcategory extends Model
 {
-	 protected $table = 'blogcategories';
+	protected $table = 'blogcategories';
     public $timestamps = false;
 
     public function blogs()

@@ -19,7 +19,8 @@ class MilestoneController extends Controller
     {
         $milestones      = Milestone::orderBy('created_at', 'desc')->paginate(10);
         return view('admin.milestones.index',[
-            'milestones'     => $milestones
+            'milestones'                => $milestones,
+            'mainmilestone'             => 'active',
             ]);
     }
 

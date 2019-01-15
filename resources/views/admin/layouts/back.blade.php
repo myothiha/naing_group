@@ -154,11 +154,6 @@
                 <ul data-menu="submenu-6" id="submenu-6" class="menu__level" tabindex="-1" role="menu"
                     aria-label="Applications">
                     <li class="menu__item" role="menuitem">
-                        <a class="menu__link" href="sm_scrumboard.html">
-                            <i class="icon ion-ios-rose-outline"></i> Blog
-                        </a>
-                    </li>
-                    <li class="menu__item" role="menuitem">
                         <a class="menu__link" href="/admin/blogcategory">
                             <i class="icon ion-ios-refresh-outline"></i> Category
                         </a>
@@ -166,6 +161,11 @@
                     <li class="menu__item" role="menuitem">
                         <a class="menu__link" data-submenu="submenu-7" aria-owns="submenu-5" href="/admin/tag">
                             <i class="icon ion-ios-cog-outline"></i> Popular Tag
+                        </a>
+                    </li>
+                    <li class="menu__item" role="menuitem">
+                        <a class="menu__link" href="sm_scrumboard.html">
+                            <i class="icon ion-ios-rose-outline"></i> Blog
                         </a>
                     </li>
                 </ul>
@@ -306,7 +306,7 @@
                                      id="navbar_main">
                                     <!-- BEGIN NAVBAR LINKS -->
                                     <ul class="navbar-nav">
-                                        <li class="nav-item dropdown active">
+                                        <li class="nav-item dropdown {{ $menu ?? "" }}">
                                             <a href="javascript:void(0)" class="nav-link dropdown-toggle"
                                                data-toggle="dropdown">
                                                 <i class="icon ion-ios-home-outline icon_nav"></i> Home Pages
@@ -333,7 +333,7 @@
                                             </ul>
                                         </li>
 
-                                        <li class="nav-item dropdown ">
+                                        <li class="nav-item dropdown {{ $projecttag ?? "" }}">
                                             <a class="nav-link dropdown-toggle" href="javascript:void(0)"
                                                data-toggle="dropdown"
                                                aria-haspopup="true" aria-expanded="false">
@@ -361,25 +361,25 @@
                                             </div>
                                         </li>
 
-                                        <li class="nav-item">
+                                        <li class="nav-item {{ $mainmilestone ?? "" }}">
                                             <a class="nav-link" href="/admin/milestone">
                                                 <i class="icon ion-ios-compose-outline icon_nav"></i> Mile-Stones
                                             </a>
                                         </li>                                       
 
-                                        <li class="nav-item">
+                                        <li class="nav-item {{ $maincsr ?? "" }}">
                                             <a class="nav-link" href="/admin/csr">
                                                 <i class="icon ion-ios-briefcase-outline icon_nav"></i> CSRs
                                             </a>
                                         </li>
 
-                                        <li class="nav-item">
+                                        <li class="nav-item {{ $mainbusiness ?? "" }}">
                                             <a class="nav-link" href="/admin/business">
                                                 <i class="icon ion-ios-bookmarks-outline icon_nav"></i> Business Units
                                             </a>
                                         </li>
 
-                                        <li class="nav-item dropdown ">
+                                        <li class="nav-item dropdown {{ $mainteam ?? "" }}">
                                             <a class="nav-link dropdown-toggle" href="javascript:void(0)"
                                                data-toggle="dropdown"
                                                aria-haspopup="true" aria-expanded="false">
@@ -407,13 +407,13 @@
                                             </div>
                                         </li>
                                         
-                                        <li class="nav-item">
+                                        <li class="nav-item {{ $mainfaq ?? "" }}">
                                             <a class="nav-link" href="/admin/faq">
                                                 <i class="icon ion-ios-cog-outline icon_nav"></i> FAQs
                                             </a>
                                         </li>
 
-                                        <li class="nav-item dropdown ">
+                                        <li class="nav-item dropdown {{ $mainblog ?? "" }}">
                                             <a class="nav-link dropdown-toggle" href="javascript:void(0)"
                                                data-toggle="dropdown"
                                                aria-haspopup="true" aria-expanded="false">

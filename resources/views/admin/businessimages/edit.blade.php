@@ -8,8 +8,7 @@
         <!--BEGIN BREADCRUMB-->
         <div class="breadcrumb-pageheader">
             <ol class="breadcrumb sm-breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item"><a href="javascript:void(0)">DataTable</a></li>
+                <li class="breadcrumb-item"><a href="{{ action('BusinessimageController@index') }})">DataTable</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Edit Business Gallery Form</li>
             </ol>
             <h6 class="sm-pagetitle--style-1 has_page_title">Edit Business Gallery Form</h6>
@@ -47,18 +46,18 @@
 		                        </h6>
 		                    </div>
 		                    <div class="sm-box">
-		                    	<form class="form-horizontal" action="{{ action('BusinessimageController@edit', [$business->id, $businessimage->id]) }}" method="post"
+		                    	<form class="form-horizontal" action="{{ action('BusinessimageController@update', [$business->id, $businessimage->id]) }}" method="post"
 				                      enctype="multipart/form-data">
 
 				                    {{ csrf_field() }}
 				                    <input type="hidden" name="_method" value="PUT">
 
-				                    <img src="{{ $businessimage->image }}" width="300px">
+				                    <img src="{{ $businessimage->image }}"width="300px">
 
 				                    <div class="form-group">
-				                        <label for="image" class=" form-control-label">Business Image</label>
+				                        <label for="image" class=" form-control-label">Business Images</label>
 				                        <input type="hidden" name="prevImage" value="{{ $businessimage->image }}">
-				                        <input type="file" name="image" class="form-control">
+				                        <input type="file" name="currentImage" class="form-control">
 				                    </div>
 
 				                    <div class="form-group">

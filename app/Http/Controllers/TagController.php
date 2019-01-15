@@ -19,7 +19,8 @@ class TagController extends Controller
         $tags   = Tag::orderBy('created_at', 'desc')->get();
 
         return view('admin.tags.index',[
-            'tags'  => $tags
+            'tags'              => $tags,
+            'mainblog'          =>'active',
             ]);
     }
 
