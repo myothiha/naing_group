@@ -14,7 +14,12 @@ class ProjectTypeController extends Controller
      */
     public function index()
     {
-        //
+        $projecttypes = ProjectType::orderBy('created_at', 'desc')->get();
+
+        return view('admin.types.index',[
+            'projecttypes'          => $projecttypes,
+            'mainproject'           => 'active',
+            ]);
     }
 
     /**
@@ -24,7 +29,7 @@ class ProjectTypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.types.create');
     }
 
     /**
@@ -35,7 +40,12 @@ class ProjectTypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $projecttype = new ProjectType;
+
+        $projecttype->name         = $request->name ?? '';
+        $projecttype->save();
+
+        return redirect('admin/projecttype');
     }
 
     /**
@@ -55,9 +65,13 @@ class ProjectTypeController extends Controller
      * @param  \App\ProjectType  $projectType
      * @return \Illuminate\Http\Response
      */
-    public function edit(ProjectType $projectType)
+    public function edit($id)
     {
-        //
+        $projecttype  = ProjectType::find($id);
+        return view('admin.types.edit', [
+
+            'projecttype' => $projecttype
+            ]);
     }
 
     /**
@@ -67,9 +81,14 @@ class ProjectTypeController extends Controller
      * @param  \App\ProjectType  $projectType
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ProjectType $projectType)
+    public function update(Request $request, $id)
     {
-        //
+        $projecttype  = ProjectType::find($id);
+
+        $projecttype->name         = $request->name ?? '';
+        $projecttype->save();
+
+        return redirect('admin/projecttype');
     }
 
     /**
@@ -78,8 +97,12 @@ class ProjectTypeController extends Controller
      * @param  \App\ProjectType  $projectType
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProjectType $projectType)
+    public function destroy($id)
     {
-        //
+        $projecttype  = ProjectType::find($id);
+
+        $projecttype->delete();
+
+        return redirect('admin/projecttype');
     }
 }

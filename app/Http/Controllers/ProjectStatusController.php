@@ -14,7 +14,12 @@ class ProjectStatusController extends Controller
      */
     public function index()
     {
-        //
+         $status = ProjectStatus::orderBy('created_at', 'desc')->get();
+
+        return view('admin.status.index',[
+            'status'                 => $status,
+            'mainproject'           => 'active',
+            ]);
     }
 
     /**
@@ -24,8 +29,9 @@ class ProjectStatusController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.status.create');
     }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -35,7 +41,12 @@ class ProjectStatusController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $status = new ProjectStatus;
+
+        $status->name         = $request->name ?? '';
+        $status->save();
+
+        return redirect('admin/status');
     }
 
     /**
@@ -55,9 +66,14 @@ class ProjectStatusController extends Controller
      * @param  \App\ProjectStatus  $projectStatus
      * @return \Illuminate\Http\Response
      */
-    public function edit(ProjectStatus $projectStatus)
+    public function edit($id)
     {
-        //
+        $status  = ProjectStatus::find($id);
+
+       return view('admin.status.edit',[
+            'status'        => $status
+
+       ]);
     }
 
     /**
@@ -67,9 +83,15 @@ class ProjectStatusController extends Controller
      * @param  \App\ProjectStatus  $projectStatus
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ProjectStatus $projectStatus)
+    public function update(Request $request, $id)
     {
-        //
+
+        $status   = ProjectStatus::find($id);
+
+        $status->name         = $request->name ?? '';
+        $status->save();
+
+        return redirect('admin/status');
     }
 
     /**
@@ -78,8 +100,11 @@ class ProjectStatusController extends Controller
      * @param  \App\ProjectStatus  $projectStatus
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProjectStatus $projectStatus)
+    public function destroy($id)
     {
-        //
+        $status  = ProjectStatus::find($id);
+        $status->delete();
+
+        return redirect('admin/status');
     }
 }

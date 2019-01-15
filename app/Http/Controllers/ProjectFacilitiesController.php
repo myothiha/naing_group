@@ -14,7 +14,11 @@ class ProjectFacilitiesController extends Controller
      */
     public function index()
     {
-        //
+         $facilitys      = ProjectFacilities::orderBy('created_at', 'desc')->paginate(10);
+        return view('admin.facilitys.index',[
+            'facilitys'             => $facilitys,
+            'mainproject'           => 'active',
+            ]);
     }
 
     /**
@@ -24,7 +28,7 @@ class ProjectFacilitiesController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.facilitys.create');
     }
 
     /**
@@ -35,7 +39,13 @@ class ProjectFacilitiesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $facility = new ProjectFacilities;
+
+        $facility->name         = $request->name ?? '';
+        $facility->icon         = $request->icon ?? '';
+        $facility->save();
+
+        return redirect('admin/projectfacilities');
     }
 
     /**
@@ -55,9 +65,13 @@ class ProjectFacilitiesController extends Controller
      * @param  \App\ProjectFacilities  $projectFacilities
      * @return \Illuminate\Http\Response
      */
-    public function edit(ProjectFacilities $projectFacilities)
+    public function edit($id)
     {
-        //
+        $projectFacilities = ProjectFacilities::find($id);
+
+        return view('admin.facilitys.edit',[
+            'projectFacilities'         => $projectFacilities
+        ]);
     }
 
     /**
@@ -67,9 +81,16 @@ class ProjectFacilitiesController extends Controller
      * @param  \App\ProjectFacilities  $projectFacilities
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ProjectFacilities $projectFacilities)
+    public function update(Request $request, $id)
     {
-        //
+
+        $facility = ProjectFacilities::find($id);
+
+        $facility->name         = $request->name ?? '';
+        $facility->icon         = $request->icon ?? '';
+        $facility->save();
+
+        return redirect('admin/projectfacilities');
     }
 
     /**
@@ -78,8 +99,12 @@ class ProjectFacilitiesController extends Controller
      * @param  \App\ProjectFacilities  $projectFacilities
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProjectFacilities $projectFacilities)
+    public function destroy($id)
     {
-        //
+        $projectFacilities = ProjectFacilities::find($id);
+
+        $projectFacilities->delete();
+
+        return redirect('admin/projectfacilities');
     }
 }

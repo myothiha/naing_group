@@ -14,7 +14,12 @@ class CityController extends Controller
      */
     public function index()
     {
-        //
+        $citys = City::orderBy('created_at', 'desc')->get();
+
+        return view('admin.citys.index',[
+            'citys'                 => $citys,
+            'mainproject'           => 'active',
+            ]);
     }
 
     /**
@@ -24,7 +29,7 @@ class CityController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.citys.create');
     }
 
     /**
@@ -35,7 +40,12 @@ class CityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $city = new City;
+
+        $city->name         = $request->name ?? '';
+        $city->save();
+
+        return redirect('admin/city');
     }
 
     /**
@@ -55,9 +65,13 @@ class CityController extends Controller
      * @param  \App\City  $city
      * @return \Illuminate\Http\Response
      */
-    public function edit(City $city)
+    public function edit($id)
     {
-        //
+       $city  = City::find($id);
+
+       return view('admin.citys.edit',[
+            'city'   =>$city
+       ]);
     }
 
     /**
@@ -67,9 +81,14 @@ class CityController extends Controller
      * @param  \App\City  $city
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, City $city)
+    public function update(Request $request, $id)
     {
-        //
+        $city  = City::find($id);
+
+        $city->name         = $request->name ?? '';
+        $city->save();
+
+        return redirect('admin/city');
     }
 
     /**
@@ -78,8 +97,13 @@ class CityController extends Controller
      * @param  \App\City  $city
      * @return \Illuminate\Http\Response
      */
-    public function destroy(City $city)
+    public function destroy($id)
     {
-        //
+        $city  = City::find($id);
+
+
+        $city->delete();
+
+        return redirect('admin/city');
     }
 }

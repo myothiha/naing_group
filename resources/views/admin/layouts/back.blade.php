@@ -126,6 +126,26 @@
                 <ul data-menu="submenu-2" id="submenu-2" class="menu__level" tabindex="-1" role="menu"
                     aria-label="UI Elements">
                     <li class="menu__item" role="menuitem">
+                        <a class="menu__link" href="/admin/projectfacilities">
+                            <i class="icon ion-ios-albums-outline"></i> Project Facility
+                        </a>
+                    </li>
+                    <li class="menu__item" role="menuitem">
+                        <a class="menu__link" href="/admin/projecttype">
+                            <i class="icon ion-ios-alarm-outline"></i> Project Type
+                        </a>
+                    </li>
+                    <li class="menu__item" role="menuitem">
+                        <a class="menu__link" href="/admin/status">
+                            <i class="icon ion-ios-albums-outline"></i> Project Status
+                        </a>
+                    </li>
+                    <li class="menu__item" role="menuitem">
+                        <a class="menu__link" href="/admin/city">
+                            <i class="icon ion-ios-alarm-outline"></i> City
+                        </a>
+                    </li>
+                    <li class="menu__item" role="menuitem">
                         <a class="menu__link" href="/admin/project">
                             <i class="icon ion-ios-albums-outline"></i> Our Project
                         </a>
@@ -333,7 +353,7 @@
                                             </ul>
                                         </li>
 
-                                        <li class="nav-item dropdown {{ $projecttag ?? "" }}">
+                                        <li class="nav-item dropdown {{ $mainproject ?? "" }}">
                                             <a class="nav-link dropdown-toggle" href="javascript:void(0)"
                                                data-toggle="dropdown"
                                                aria-haspopup="true" aria-expanded="false">
@@ -343,6 +363,30 @@
                                             <div class="dropdown-menu">
                                                 <div class="mega-dropdown-menu row row-no-padding">
                                                     <ul class="megadropdown-links">
+                                                        <li>
+                                                            <a class="dropdown-item"
+                                                               href="/admin/projectfacilities">
+                                                                Projects Facility
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="dropdown-item"
+                                                               href="/admin/projecttype">
+                                                                Projects Type
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="dropdown-item"
+                                                               href="/admin/status">
+                                                                Projects Status
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="dropdown-item"
+                                                               href="/admin/city">
+                                                                City
+                                                            </a>
+                                                        </li>
                                                         <li>
                                                             <a class="dropdown-item"
                                                                href="/admin/project">

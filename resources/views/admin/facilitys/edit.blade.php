@@ -8,16 +8,16 @@
         <!--BEGIN BREADCRUMB-->
         <div class="breadcrumb-pageheader">
             <ol class="breadcrumb sm-breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ action('BlogController@index') }}">DataTable</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Edit Blog Form</li>
+                <li class="breadcrumb-item"><a href="{{ action('ProjectFacilitiesController@index') }}">DataTable</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Edit Project Facility</li>
             </ol>
-            <h6 class="sm-pagetitle--style-1 has_page_title">Edit Blog Form</h6>
+            <h6 class="sm-pagetitle--style-1 has_page_title">Edit Project Facility</h6>
         </div>
 
 		<div class="sm-content">
 		    <div class="sm-content-box">
 		        <div class="row">
-		            <div class="col-lg-12">
+		            <div class="col-lg-6">
 		                <div class="sm-wrapper" data-sortable-id="sm_form_elements_1">
 		                    <div class="title_box sm-header-style-1">
 		                        <div class="sm-actions">
@@ -42,43 +42,23 @@
 		                            </a>
 		                        </div>
 		                        <h6 class="sm-header">
-		                            Edit Blog Form
+		                            Edit Project Facility Form
 		                        </h6>
 		                    </div>
 		                    <div class="sm-box">
-		                    	<form class="form-default" action="{{ action('BlogController@update', $blog->id) }}" method="post" enctype="multipart/form-data">
+		                    	<form class="form-default" action="{{ action('ProjectFacilitiesController@update', $projectFacilities->id) }}" method="post" enctype="multipart/form-data">
 		                    	{{ csrf_field() }}
 
 								<input type="hidden" name="_method" value="PUT">
 
 		                            <hr class="m-t-0">
-		                            <div class="row">
-		                                <div class="col-12">
-		                                    <div class="form-group">
-		                                        <label for="title">Title</label>
-		                                        <input name="title" type="text" class="form-control" value="{{ $blog->title }}">
-		                                    </div>
-		                                </div>
-		                            </div>
 
 		                            <div class="row">
 		                                <div class="col-lg-12">
 		                                    <div class="form-group has-feedback">
-		                                        <label for="image">Image</label>
-		                                        <img src="{{ $blog->featureimage }}" width="100" class="img-fluid">
-
-												<input name="featureimage" type="file" class="form-control" >
-
-												<input type="hidden" name="prev_image" value="{{ $blog->featureimage }}">
-		                                    </div>
-		                                </div>
-		                            </div>
-									
-									<div class="row">
-		                                <div class="col-12">
-		                                    <div class="form-group">
-		                                        <label for="description">Description</label>
-		                                        <textarea name="description" type="text" class="form-control">{{ $blog->description }}</textarea>
+		                                        <label for="name">Name</label>
+		                                        <input type="text" id="title" name="name"
+		                                               class="form-control" value="{{ $projectFacilities->name }}">
 		                                    </div>
 		                                </div>
 		                            </div>
@@ -86,30 +66,16 @@
 		                            <div class="row">
 		                                <div class="col-12">
 		                                    <div class="form-group">
-		                                        <label for="author">Author</label>
-		                                        <input name="author" type="text" class="form-control" value="{{ $blog->author }}">
-		                                    </div>
-		                                </div>
-		                            </div>
-
-		                            <div class="row">
-		                                <div class="col-12">
-		                                    <div class="form-group">
-		                                        <label for="author">Blog Category</label>
-		                                        <select name="blogcategory_id" class="form-control" type="select">
-													@foreach($blogcategorys as $blogcategory)
-												<option value="{{ $blogcategory->id }}" {{ $blogcategory->id==$blog->blogcategory_id ? 'selected' : '' }} >
-													{{ $blogcategory->name }}
-												</option>
-													@endforeach
-												</select>
+		                                        <label for="icon">Icon</label>
+		                                        <input  name="icon" 
+		                                               type="text" class="form-control" value="{{ $projectFacilities->icon}}">
 		                                    </div>
 		                                </div>
 		                            </div>
 
 		                            <div class="row m-t-20">
 		                                <div class="col-lg-12">
-		                                    <input type="submit" class="btn btn-primary" value="Update">
+		                                   <input type="submit" class="btn btn-primary" value="Update">
 		                                </div>
 		                            </div>
 		                        </form>

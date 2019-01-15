@@ -69,5 +69,17 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
 	Route::resource('team',										'TeamController');
 
+	Route::resource('status',									'ProjectStatusController');
+
+	Route::resource('projecttype',								'ProjectTypeController');
+
+	Route::resource('city',										'CityController');
+
+	Route::resource('projectfacilities',						'ProjectFacilitiesController');
+
+	Route::resource('project',									'ProjectController');
+
+	
+
 
 });

@@ -15,6 +15,8 @@ class CreateProjectFacilitiesTable extends Migration
     {
         Schema::create('project_facilities', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name')->nullable();
+            $table->string('icon')->nullable();
             $table->timestamps();
         });
     }
