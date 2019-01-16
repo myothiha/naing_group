@@ -244,7 +244,7 @@
                                                     </a>
                                                     <div class="dropdown-menu dropdown-menu-right dropdown-scale">
                                                         <h6 class="dropdown-header">Navigation</h6>
-                                                        <a class="dropdown-item" href="javascript:void(0)">
+                                                        <a class="dropdown-item" href="/admin/message">
                                                             <span class="float-right badge badge-primary">4</span>
                                                             <i class="ion-ios-email-outline icon-lg text-primary"></i>Messages
                                                         </a>
@@ -632,5 +632,6 @@
 <!-- APP JS -->
 <script src="\assets/js/app.js"></script>
 <script src="\assets/js/sm_dashboard_01.js"></script>
+<script src="\assets/js/sm_chat_application.js"></script>
 </body>
 </html>

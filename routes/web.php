@@ -79,6 +79,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
 	Route::resource('project',									'ProjectController');
 
+	Route::resource('message',									'MessageController');
+
 	
 
 
