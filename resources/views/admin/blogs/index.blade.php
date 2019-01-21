@@ -64,7 +64,6 @@
                                         <th>Description</th>
                                         <th>Author</th>
                                         <th>Category</th>
-                                        <th>Feature Image</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
@@ -78,7 +77,6 @@
                                                 <td>{{ $blog->description }}</td>
                                                 <td>{{ $blog->author }}</td>
                                                 <td>{{ $blog->blogcategories->name }}</td>
-                                                <td width="15%"><img src="{{ $blog->featureimage }}" class="img-fluid"></td>
                                                 <td>
                                                     <form action="{{action('BlogController@destroy',        $blog->id) }}" method="Post">
                                                         <input type="hidden" name="_method" value="delete">

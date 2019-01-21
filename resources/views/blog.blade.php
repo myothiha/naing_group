@@ -64,28 +64,19 @@
                 <h2 class="title">CATEGORIES</h2><br>
 
                 <div class="my-3">
-                    <a class="btn btn-primary my-1" href="#">Money</a>
-                    <a class="btn btn-primary my-1" href="#">Investments</a>
-                    <a class="btn btn-primary my-1" href="#">Business</a>
-                    <a class="btn btn-primary my-1" href="#">Stocks</a>
-                    <a class="btn btn-primary my-1" href="#">Idea</a>
-                    <a class="btn btn-primary my-1" href="#">Employee</a>
-                    <a class="btn btn-primary my-1" href="#">Solutions</a>
-                    <a class="btn btn-primary my-1" href="#">Team</a>
+                    <ul class="nav flex-column my-2">
+                        @foreach($blogcategorys as $blogcategory)
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">{{ $blogcategory->name }}</a>
+                        </li>
+                        @endforeach
+                    </ul>
                 </div>
 
 
             </div>
 
-            <nav aria-label="Page navigation example" class="m-3">
-                <ul class="pagination">
-                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                </ul>
-            </nav>
+            {{ $blogs->links() }}
 
         </div>
 

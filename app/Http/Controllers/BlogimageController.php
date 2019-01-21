@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Blogimage;
+use App\Blog;
 use Illuminate\Http\Request;
+use App\Util\Uploader\Image;
 
 class BlogimageController extends Controller
 {
@@ -12,9 +14,14 @@ class BlogimageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($blogId)
     {
-        //
+        $blog = Blog::find($blogId);
+        $blogimages = $blog->blogimages;
+        return view('admin.blogimages.index', [
+            'blog'              => $blog,
+            'blogimages'        => $blogimages,
+        ]);
     }
 
     /**
@@ -22,9 +29,12 @@ class BlogimageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($blogId)
     {
-        //
+       $blog = Blog::find($blogId);
+        return view("admin.blogimages.create", [
+            'blog' => $blog,
+        ]);
     }
 
     /**
@@ -33,9 +43,21 @@ class BlogimageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $blogId)
     {
-        //
+        $blog = Blog::find($blogId);
+
+        if($request->file('image')){
+
+        $imagePath = Image::upload( $request->file('image') , '/uploads/blogs/');
+        }
+        $blogimage = new Blogimage;
+
+        $blogimage->image             = $imagePath ?? '';
+        $blogimage->blog_id = $blogId;
+        $blogimage->save();
+
+        return redirect("/admin/blog/{$blogId}/blogimage");
     }
 
     /**
@@ -55,9 +77,14 @@ class BlogimageController extends Controller
      * @param  \App\Blogimage  $blogimage
      * @return \Illuminate\Http\Response
      */
-    public function edit(Blogimage $blogimage)
+    public function edit($blogId, $blogimageId)
     {
-        //
+        $blog = Blog::find($blogId);
+        $blogimage = blogimage::find($blogimageId);
+        return view("admin.blogimages.edit", [
+            'blog' => $blog,
+            'blogimage' => $blogimage,
+        ]);
     }
 
     /**
@@ -67,9 +94,20 @@ class BlogimageController extends Controller
      * @param  \App\Blogimage  $blogimage
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Blogimage $blogimage)
+    public function update(Request $request, $blogId, $blogimageId)
     {
-        //
+        $blog = Blog::find($blogId);
+        $blogimage = Blogimage::find($blogimageId);
+        if ($request->currentImage) {
+            $imagePath = Image::upload($request->currentImage, '/uploads/blogs/');
+        } else {
+            $imagePath = $request->prevImage;
+        }
+
+        $blogimage->image = $imagePath;
+        $blogimage->save();
+
+        return redirect("/admin/blog/{$blogId}/blogimage");
     }
 
     /**
@@ -78,8 +116,10 @@ class BlogimageController extends Controller
      * @param  \App\Blogimage  $blogimage
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Blogimage $blogimage)
+    public function destroy($blogId, $blogimageId)
     {
-        //
+        $blog = blogimage::find($blogimageId);
+        $blog->delete();
+        return redirect("/admin/blog/{$blogId}/blogimage");
     }
 }

@@ -8,7 +8,7 @@ use App\Homeslide;
 use App\Csr;
 use App\About;
 use App\Project;
-use App\whychoose;
+use App\Whychoose;
 use App\Indexdata;
 use App\Business;
 use App\Faq;
@@ -16,6 +16,8 @@ use App\Milestone;
 use App\Blog;
 use App\Businessimage;
 use App\Csrimage;
+use App\Blogimage;
+use App\Blogcategory;
 
 class FrontController extends Controller
 {
@@ -23,7 +25,7 @@ class FrontController extends Controller
     	$homeslides 		= Homeslide::all();
     	$about 				= About::find(1);
     	$projects  			= Project::all();
-    	$whychoose  		= whychoose::get();
+    	$whychoose  		= Whychoose::get();
     	$indexdata 			= Indexdata::find(1);
     	$business 			= Business::get();
     	$faq 				= Faq::get();
@@ -40,7 +42,7 @@ class FrontController extends Controller
 
     public function about(){
     	$about = About::find(1);
-    	$whychoose  		= whychoose::get();
+    	$whychoose  		= Whychoose::get();
     	return view('about',[
     		'about'  => $about,
     		'whychoose' 	=> $whychoose,
@@ -104,14 +106,20 @@ class FrontController extends Controller
 
     public function blog(){
     	$blogs   = Blog::orderBy('created_at','desc')->paginate(6);
+        $blogcategorys   = Blogcategory::all();
     	return view('blog',[
     		'blogs'  => $blogs,
+            'blogcategorys'    => $blogcategorys
     	]);
     }
 
     public function blogdetail(Blog $blog){
+        $blogs  = Blog::limit(3)->orderBy('id', 'desc')->get();
+        $blogcategorys   = Blogcategory::all();
     	return view('blogdetail',[
-    		'blog'		=> $blog
+            'blog'      => $blog,
+            'blogs'     => $blogs,
+            'blogcategorys'    => $blogcategorys
     	]);
     }
 

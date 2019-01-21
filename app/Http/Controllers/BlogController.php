@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Blog;
 use App\Blogcategory;
 use App\Tag;
+use App\Blogimage;
 use Illuminate\Http\Request;
 use App\Util\Uploader\Image;
 use Carbon\Carbon;
@@ -66,7 +67,7 @@ class BlogController extends Controller
             $blogimage = Image::upload($image, '/uploads/blogs/');
 
             $image = new Blogimage();
-            $image->image = $csrimage;
+            $image->image = $blogimage;
             $blog->blogimages()->save($image);
         }
 

@@ -36,21 +36,14 @@
                         <h6 class="" data-aos="fade-right">Blog Gallery</h6>
 
                         <div class="row">
+                            @foreach($blog->blogimages as $image)
                             <div class="col-md-4 col-6 item">
-                                <a class="lightbox" href="img/image1.jpg" data-aos="fade-left">
-                                    <img class="img-fluid image scale-on-hover" src="img/image1.jpg">
+                                <a class="lightbox" href="{{ $image->image }}" data-aos="fade-left">
+                                    <img class="img-fluid image scale-on-hover" src="{{ $image->image }}">
                                 </a>
                             </div>
-                            <div class="col-md-4 col-6 item">
-                                <a class="lightbox" href="img/image2.jpg" data-aos="fade-left">
-                                    <img class="img-fluid image scale-on-hover" src="img/image2.jpg">
-                                </a>
-                            </div>
-                            <div class="col-md-4 col-6 item">
-                                <a class="lightbox" href="img/image3.jpg" data-aos="fade-left">
-                                    <img class="img-fluid image scale-on-hover" src="img/image3.jpg">
-                                </a>
-                            </div>
+                            @endforeach
+                            
 
                         </div>
 
@@ -62,21 +55,12 @@
                 <h2 class="title">CATEGORIES</h2>
 
                 <ul class="nav flex-column my-2">
+                    @foreach($blogcategorys as $blogcategory)
                     <li class="nav-item">
-                        <a class="nav-link" href="#">BUSINESS</a>
+                        <a class="nav-link" href="#">{{ $blogcategory->name }}</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">INVESTMENT</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">ACCOUNTING</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">SERVICES</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">TAXES & TERMS</a>
-                    </li>
+                    @endforeach
+                    
                 </ul>
 
                 <h2 class="title">POPULAR TAGS</h2><br>
@@ -105,37 +89,24 @@
     <section class="joyus py-4">
         <div class="container my-4">
             <h6 class="text-white" data-aos="fade-down">RELATED Our Blog</h6>
-            <div class="row" data-aos="fade-up">
-                <div class="col-md-4">
-                    <a href="">
-                        <img src="images/detail-01.jpg" alt="" class="img-fluid border border-secondary">
-                        <div class="date-tiem">
-                            <div class="date-ico"><i class="fas fa-calendar-alt"></i></div>
-                            <div class="time"><span class="date">21</span> <span class="text-white">Dec 2018</span></div>
-                        </div>
+            <div class="row" data-aos="fade-up">               
 
-                        <h6 class="text-white my-3">RELATED CSR TITLE</h6>
-                        <p class="text-white">Asperiores, tenetur, blanditiis, quaerat odit ex exercitationem pariatur quibusdam veritatis quisquam</p>
+                @foreach($blogs as $blog)
+                <div class="col-md-4">
+                    <a href="/blogdetail/{{ $blog->id }}">
+                    <img src="{{ $blog->featureimage }}" alt="" class="img-fluid border border-secondary">
+                    <div class="date-tiem">
+                        <div class="date-ico"><i class="fas fa-calendar-alt"></i></div>
+                        <div class="time"><span class="date"></span> <span class="text-white">{{ $blog->created_at }}</span></div>
+                    </div>
+                    <h6 class="text-white my-3">{{ $blog->title }}</h6>
+                    <p class="text-white">{!! substr(strip_tags($blog->description), 0, 400) !!}</p>
+
                     </a>
                 </div>
-                <div class="col-md-4">
-                    <img src="images/detail-01.jpg" alt="" class="img-fluid border border-secondary">
-                    <div class="date-tiem">
-                        <div class="date-ico"><i class="fas fa-calendar-alt"></i></div>
-                        <div class="time"><span class="date">21</span> <span class="text-white">Dec 2018</span></div>
-                    </div>
-                    <h6 class="text-white my-3">RELATED CSR TITLE</h6>
-                    <p class="text-white">Asperiores, tenetur, blanditiis, quaerat odit ex exercitationem pariatur quibusdam veritatis quisquam</p>
-                </div>
-                <div class="col-md-4">
-                    <img src="images/detail-01.jpg" alt="" class="img-fluid border border-secondary">
-                    <div class="date-tiem">
-                        <div class="date-ico"><i class="fas fa-calendar-alt"></i></div>
-                        <div class="time"><span class="date">21</span> <span class="text-white">Dec 2018</span></div>
-                    </div>
-                    <h6 class="text-white my-3">RELATED CSR TITLE</h6>
-                    <p class="text-white">Asperiores, tenetur, blanditiis, quaerat odit ex exercitationem pariatur quibusdam veritatis quisquam</p>
-                </div>
+
+                @endforeach
+                
             </div>
         </div>
     </section>

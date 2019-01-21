@@ -8,10 +8,10 @@
         <!--BEGIN BREADCRUMB-->
         <div class="breadcrumb-pageheader">
             <ol class="breadcrumb sm-breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ action('BusinessimageController@index', $business->id) }})">DataTable</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Edit Business Gallery Form</li>
+                <li class="breadcrumb-item"><a href="{{ action('BlogimageController@index', $blog->id) }})">DataTable</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Edit Blog Gallery Form</li>
             </ol>
-            <h6 class="sm-pagetitle--style-1 has_page_title">Edit Business Gallery Form</h6>
+            <h6 class="sm-pagetitle--style-1 has_page_title">Edit Blog Gallery Form</h6>
         </div>
 
 		<div class="sm-content">
@@ -42,21 +42,21 @@
 		                            </a>
 		                        </div>
 		                        <h6 class="sm-header">
-		                            Edit Business Gallery Form
+		                            Edit Blog Gallery Form
 		                        </h6>
 		                    </div>
 		                    <div class="sm-box">
-		                    	<form class="form-horizontal" action="{{ action('BusinessimageController@update', [$business->id, $businessimage->id]) }}" method="post"
+		                    	<form class="form-horizontal" action="{{ action('BlogimageController@update', [$blog->id, $blogimage->id]) }}" method="post"
 				                      enctype="multipart/form-data">
 
 				                    {{ csrf_field() }}
 				                    <input type="hidden" name="_method" value="PUT">
 
-				                    <img src="{{ $businessimage->image }}"width="300px">
+				                    <img src="{{ $blogimage->image }}"width="300px">
 
 				                    <div class="form-group">
-				                        <label for="image" class=" form-control-label">Business Images</label>
-				                        <input type="hidden" name="prevImage" value="{{ $businessimage->image }}">
+				                        <label for="image" class=" form-control-label">Blog Images</label>
+				                        <input type="hidden" name="prevImage" value="{{ $blogimage->image }}">
 				                        <input type="file" name="currentImage" class="form-control">
 				                    </div>
 

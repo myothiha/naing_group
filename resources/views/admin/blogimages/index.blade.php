@@ -7,6 +7,7 @@
         <!--BEGIN BREADCRUMB-->
         <div class="breadcrumb-pageheader">
             <ol class="breadcrumb sm-breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ action('BlogController@index') }}">BlogTable</a></li>
                 <li class="breadcrumb-item active" aria-current="page">DataTables</li>
             </ol>
             <h6 class="sm-pagetitle--style-1 has_page_title">DataTables Blog Gallery</h6>
