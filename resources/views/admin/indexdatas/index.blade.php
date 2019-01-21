@@ -49,11 +49,13 @@
                             <div class="sm-box">
                                 
 
-                                <div id="toolbar" style="margin-bottom: 10px;">
-                                    <button id="remove" class="btn btn-warning">
-                                        <i class="ion-ios-plus"></i><a href="{{ action("IndexdataController@create") }}"> Add New
-                                    </a></button>
-                                </div>
+                                @if ($indexdatas->count() < 1)
+                                    <div id="toolbar" style="margin-bottom: 10px;">
+                                        <button id="remove" class="btn btn-warning">
+                                            <i class="ion-ios-plus"></i><a href="{{ action("IndexdataController@create") }}"> Add New
+                                            </a></button>
+                                    </div>
+                                @endif
                                 
 
                                 <table id="data-table" class="table table-striped table-bordered">

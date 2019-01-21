@@ -22,6 +22,7 @@ use App\Blogcategory;
 class FrontController extends Controller
 {
     public function index(){
+
     	$homeslides 		= Homeslide::all();
     	$about 				= About::find(1);
     	$projects  			= Project::all();
@@ -29,6 +30,7 @@ class FrontController extends Controller
     	$indexdata 			= Indexdata::find(1);
     	$business 			= Business::get();
     	$faq 				= Faq::get();
+
     	return view('index',[
     		'homeslides'  	=> $homeslides,
     		'about'  		=> $about,
@@ -123,7 +125,7 @@ class FrontController extends Controller
     	]);
     }
 
-    public function contact(){
-    	return veiw('contact');
+    public function contact() {
+    	return view('contact');
     }
 }

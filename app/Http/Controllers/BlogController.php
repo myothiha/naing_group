@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Blog;
 use App\Blogcategory;
+use App\Blogimage;
 use App\Tag;
 use App\Blogimage;
 use Illuminate\Http\Request;
