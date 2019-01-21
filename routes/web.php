@@ -11,7 +11,7 @@
 |
 */
 
-use Illuminate\Support\Facades\Route;
+use Routes\HMT;
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,19 +19,13 @@ Route::get('/', function () {
 
 Route::get('/test', 'TestController@test');
 Route::get('/invcaptcha', 'TestController@invcaptcha');
-
 Route::resource('/projectFiles', 'ProjectFileController');
 
+Route::get('login','LoginController@login')->name('login');
 
+Route::post('admin/login', 'LoginController@authenticated');
 
-
-
-Route::get('login',    											'LoginController@login')->name('login');
-
-Route::post('admin/login',   									'LoginController@authenticated');
-
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
-
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
 	Route::get('/',												'HomeslideController@index');
 
@@ -63,7 +57,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
 	Route::resource('csr',										'CsrController');
 
-	Route::resource('csr/{csrId}/csrimage',						'CsrimageController');	
+	Route::resource('csr/{csrId}/csrimage',						'CsrimageController');
 
 	Route::resource('teamcategory',				    			'TeamcategoryController');
 
@@ -81,7 +75,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
 	Route::resource('message',									'MessageController');
 
-	
-
-
+	HMT::routes();
 });
