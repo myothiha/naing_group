@@ -59,6 +59,15 @@ class BlogController extends Controller
         $blog->featureimage                 = $imagePath ?? '';
         $blog->save();
 
+        foreach($request->gallery as $image)
+        {
+            $blogimage = Image::upload($image, '/uploads/blogs/');
+
+            $image = new Blogimage();
+            $image->image = $csrimage;
+            $blog->blogimages()->save($image);
+        }
+
         return redirect('admin/blog');
     }
 

@@ -53,7 +53,7 @@
 		                            <div class="row">
 		                                <div class="col-12">
 		                                    <div class="form-group">
-		                                        <label for="icon">Icon</label>
+		                                        <label for="icon">Icon (Example, fa-trophy, fa-edit, etc...) </label>
 		                                        <input name="icon" placeholder="Enter Icon name "
 		                                               type="text" class="form-control">
 		                                    </div>

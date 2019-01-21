@@ -68,6 +68,15 @@
 		                                    </div>
 		                                </div>
 		                            </div>
+
+		                            <div class="row">
+		                                <div class="col-lg-12">
+		                                    <div class="form-group">
+		                                        <label for="image">Gallery</label>
+		                                        <input type="file" name="gallery[]" class="form-control">
+		                                    </div>
+		                                </div>
+		                            </div>
 									
 									<div class="row">
 		                                <div class="col-12">

@@ -8,7 +8,7 @@
         <!--BEGIN BREADCRUMB-->
         <div class="breadcrumb-pageheader">
             <ol class="breadcrumb sm-breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ action('HomesliderController@index') }}">DataTable</a></li>
+                <li class="breadcrumb-item"><a href="{{ action('HomeslideController@index') }}">DataTable</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Add New Image</li>
             </ol>
             <h6 class="sm-pagetitle--style-1 has_page_title">Add New Image</h6>
