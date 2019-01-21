@@ -3,6 +3,8 @@
 namespace App\Jobs;
 
 use App\AutoDesk\Services\Viewers\ViewerServiceInterface;
+use App\Constant;
+use App\Project;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -13,20 +15,20 @@ class ProjectFileUploadJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected $projectTitle;
+    protected $project;
     protected $pathToFile;
     protected $filename;
 
     /**
      * Create a new job instance.
      *
-     * @param $projectTitle
+     * @param Project $project
      * @param $pathToFile
      * @param $filename
      */
-    public function __construct($projectTitle, $pathToFile, $filename)
+    public function __construct(Project $project, $pathToFile, $filename)
     {
-        $this->projectTitle = $projectTitle;
+        $this->project = $project;
         $this->pathToFile = $pathToFile;
         $this->filename = $filename;
     }
@@ -40,10 +42,10 @@ class ProjectFileUploadJob implements ShouldQueue
     public function handle(ViewerServiceInterface $viewer)
     {
         $projectFile = $viewer->upload($this->pathToFile, $this->filename);
-        $projectFile->title = $this->projectTitle;
-        $projectFile->save();
+        $this->project->projectFile()->save($projectFile);
+        $this->project->updateFileStatus(Constant::UPLOADED);
 //        $derivativeFile = $this->viewer->postSvf($projectFile);
         //Dispatch Project File to Derivative queue
-        ProjectFileDerivativeJob::dispatch($projectFile);
+        ProjectFileDerivativeJob::dispatch($this->project);
     }
 }

@@ -3,28 +3,30 @@
 namespace App\Jobs;
 
 use App\AutoDesk\Services\Viewers\ViewerServiceInterface;
+use App\Constant;
+use App\Project;
 use App\ProjectFile;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\Log;
+use Log;
 
 class AutoDeskManifestJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected $projectFile;
+    protected $project;
 
     /**
      * Create a new job instance.
      *
-     * @param ProjectFile $projectFile
+     * @param Project $project
      */
-    public function __construct(ProjectFile $projectFile)
+    public function __construct(Project $project)
     {
-        $this->projectFile = $projectFile;
+        $this->project = $project;
     }
 
     /**
@@ -35,20 +37,21 @@ class AutoDeskManifestJob implements ShouldQueue
      */
     public function handle(ViewerServiceInterface $viewer)
     {
-        $manifest = $viewer->getManifest($this->projectFile)->getContents();
+        $manifest = $viewer->getManifest($this->project->projectFile)->getContents();
         $status = $manifest->status;
 
         Log::debug('AutoDesk Status: ' . $status);
         Log::debug('AutoDesk Progress: ' . $manifest->progress);
 
-        $this->projectFile->updateStatus($status);
+        $this->project->updateFileStatus(Constant::COMPLETE);
+        $this->project->projectFile->updateStatus($status);
 
         Log::debug('Manifest Processing..');
 
         if ($status == ProjectFile::STATUS_PENDING
         OR $status == ProjectFile::STATUS_IN_PROGRESS) {
-            $this->projectFile->updateStatus($status);
-            static::dispatch($this->projectFile)
+            $this->project->projectFile->updateStatus($status);
+            static::dispatch($this->project)
                 ->delay(now()->addMinute(1));
         }
     }

@@ -20,7 +20,7 @@ class BusinessimageController extends Controller
         return view('admin.businessimages.index', [
             'business'              => $business,
             'businessimages'        => $businessimages,
-            'mainbusiness',          => 'active',
+            'mainbusiness'          => 'active',
         ]);
     }
 

@@ -12,8 +12,6 @@ use App\AutoDesk\Api\AutoDeskApi;
 use App\AutoDesk\Repositories\ProjectFileRepositoryInterface;
 use App\Network\Response\ResponseInterface;
 use App\ProjectFile;
-use App\Services\FileUploader\SimpleFileUploader;
-use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Cache;
 
 /**
@@ -86,13 +84,13 @@ class AutoDeskViewerService implements ViewerServiceInterface
 
     /**
      * @param $view
-     * @param $project
+     * @param $projectFile
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function render($view, $project)
+    public function render($view, $projectFile)
     {
         return view($view, [
-            'urn' => $project->urn,
+            'urn' => $projectFile->urn,
             'access_token' => $this->getToken(),
         ]);
     }

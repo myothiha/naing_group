@@ -41,7 +41,6 @@ class ProjectFileRepository implements ProjectFileRepositoryInterface
         $this->model->content_type  = $contentType;
         $this->model->location      = $location;
         $this->model->status        = $status;
-        $this->model->save();
 
         return $this->model;
     }

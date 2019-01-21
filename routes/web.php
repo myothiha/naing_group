@@ -11,19 +11,12 @@
 |
 */
 
-use Illuminate\Support\Facades\Route;
-
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('/test', 'TestController@test');
 Route::get('/invcaptcha', 'TestController@invcaptcha');
-
-Route::resource('/projectFiles', 'ProjectFileController');
-
-
-
 
 
 Route::get('login',    											'LoginController@login')->name('login');
@@ -35,7 +28,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
 	Route::get('/',												'HomeslideController@index');
 
-	Route::resource('user',										'UserController');
+    Route::get('/{project}/projectFiles/create', 'ProjectFileController@create');
+    Route::post('/{project}/projectFiles', 'ProjectFileController@store');
+    Route::get('/projectFiles/{projectFile}', 'ProjectFileController@show');
+
+
+    Route::resource('user',										'UserController');
 
 	Route::resource('homeslide',								'HomeslideController');
 
@@ -78,8 +76,4 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 	Route::resource('projectfacilities',						'ProjectFacilitiesController');
 
 	Route::resource('project',									'ProjectController');
-
-	
-
-
 });

@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
@@ -15,6 +14,7 @@ class CreateProjectFilesTable extends Migration
     {
         Schema::create('project_files', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('project_id');
             $table->string('title')->nullable();
             $table->string('bucket_key');
             $table->string('object_id');
@@ -25,6 +25,10 @@ class CreateProjectFilesTable extends Migration
             $table->string('location');
             $table->string('status')->default(\App\ProjectFile::STATUS_PENDING);
             $table->timestamps();
+
+            $table->foreign('project_id')
+                ->references('id')->on('projects')
+                ->onDelete('cascade');
         });
     }
 

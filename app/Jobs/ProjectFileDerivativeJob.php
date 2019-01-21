@@ -3,27 +3,29 @@
 namespace App\Jobs;
 
 use App\AutoDesk\Services\Viewers\ViewerServiceInterface;
+use App\Constant;
+use App\Project;
 use App\ProjectFile;
 use Illuminate\Bus\Queueable;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
 
 class ProjectFileDerivativeJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected $projectFile;
+    protected $project;
 
     /**
      * Create a new job instance.
      *
-     * @param ProjectFile $projectFile
+     * @param Project $project
      */
-    public function __construct(ProjectFile $projectFile)
+    public function __construct(Project $project)
     {
-        $this->projectFile = $projectFile;
+        $this->project = $project;
     }
 
     /**
@@ -34,9 +36,10 @@ class ProjectFileDerivativeJob implements ShouldQueue
      */
     public function handle(ViewerServiceInterface $viewer)
     {
-        $viewer->postSvf($this->projectFile);
+        $viewer->postSvf($this->project->projectFile);
+        $this->project->updateFileStatus(Constant::PROCESSING);
 
-        AutoDeskManifestJob::dispatch($this->projectFile)
+        AutoDeskManifestJob::dispatch($this->project)
             ->delay(now()->addMinute(1));
     }
 }

@@ -1,9 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProjectFacilitiesTable extends Migration
+class CreateRoomFeaturesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +13,8 @@ class CreateProjectFacilitiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('project_facilities', function (Blueprint $table) {
+        Schema::create('room_features', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->nullable();
-            $table->string('icon')->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ class CreateProjectFacilitiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('project_facilities');
+        Schema::dropIfExists('room_features');
     }
 }

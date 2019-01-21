@@ -36,6 +36,9 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\ProjectFile whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\ProjectFile whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\ProjectFile whereUpdatedAt($value)
+ * @property int $project_id
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\ProjectFile whereProjectId($value)
+ * @property-read \App\Project $project
  */
 class ProjectFile extends Model
 {
@@ -47,6 +50,11 @@ class ProjectFile extends Model
     public const STATUS_TIMEOUT     = "timeout";
 
     public const UPLOAD_PATH = '/uploads/files/';
+
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
+    }
 
     public function getUrnAttribute()
     {

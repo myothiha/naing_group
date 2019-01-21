@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\AutoDesk\Services\Viewers\ViewerServiceInterface;
+use App\Constant;
 use App\Jobs\ProjectFileUploadJob;
+use App\Project;
 use App\ProjectFile;
 use Illuminate\Http\Request;
 
@@ -38,27 +40,33 @@ class ProjectFileController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     * @param Project $project
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Project $project)
     {
-        return view('admin.projectFiles.create');
+        return view('admin.projectFiles.create', [
+            'project' => $project
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
+     * @param Project $project
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Project $project)
     {
         $filename = $request->filename;
+        $project->updateFileStatus(Constant::UPLOADING);
+
         $pathToFile = public_path(ProjectFile::UPLOAD_PATH) . $filename;
 
-        ProjectFileUploadJob::dispatch($request->title, $pathToFile, $filename);
+        ProjectFileUploadJob::dispatch($project, $pathToFile, $filename);
 
-//        $projectFile = $this->viewer->upload($pathToFile, $filename);
+        //        $projectFile = $this->viewer->upload($pathToFile, $filename);
 //        $derivativeFile = $this->viewer->postSvf($projectFile);
         //Dispatch Project File to Derivative queue
 //        ProjectFileDerivativeJob::dispatch($projectFile);
@@ -66,7 +74,7 @@ class ProjectFileController extends Controller
 //        dd($projectFile->urn);
 //        $projectFile = ProjectFile::find(28);
 //        $manifest = $this->viewer->getManifest($projectFile);
-        return redirect('/projectFiles');
+        return redirect()->action('ProjectController@index');
     }
 
     /**
@@ -77,7 +85,7 @@ class ProjectFileController extends Controller
      */
     public function show(ProjectFile $projectFile)
     {
-        return $this->viewer->render('test.viewer', $projectFile);
+        return $this->viewer->render('admin.projects.viewer', $projectFile);
     }
 
     /**
