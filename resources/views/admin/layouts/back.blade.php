@@ -223,7 +223,7 @@
                                         <nav class="top-navbar-menu">
                                             <ul class="top-menu">
                                                 <li class="d-none d-lg-inline-block">
-                                                    <a href="user">Create account</a>
+                                                    <a href="/admin/user">Create account</a>
                                                 </li>
                                                 <li>
                                                     <a href="javascript:void(0)" id="btn-search">
@@ -271,7 +271,7 @@
                         <!-- BEGIN SEARCH -->
                         <div class="search sm_bg_2">
                             <i id="btn-search-close" class="icon-close btn--search-close"></i>
-                            <form class="search__form" action="index.html">
+                            <form class="search__form" action="/admin/">
                                 <input class="search__input" name="search" type="search" placeholder="Search.."
                                        autocomplete="off"
                                        spellcheck="false"/>

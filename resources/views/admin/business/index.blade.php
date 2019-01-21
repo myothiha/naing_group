@@ -73,7 +73,9 @@
                                             <tr class="odd gradeX">
                                                 <td>{{ $no++ }}</td>
                                                 <td>{{ $data->title }}</td>
+
                                                 <td>{{ $data->description }}</td>
+                                                <td width="15%"><img src="{{ $data->featureimage }}" class="img-fluid"></td>
                                                 
                                                 <td>
                                                     <form action="{{action('BusinessController@destroy',        $data->id) }}" method="Post">
