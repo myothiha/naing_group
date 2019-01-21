@@ -21,7 +21,7 @@ Route::get('/test', 'TestController@test');
 
 Route::get('/invcaptcha', 'TestController@invcaptcha');
 
-Route::get('/index',						'FrontController@index');
+Route::get('/',						'FrontController@index');
 
 Route::get('/about',						'FrontController@about');
 

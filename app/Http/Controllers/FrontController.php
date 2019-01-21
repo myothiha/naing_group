@@ -8,7 +8,7 @@ use App\Homeslide;
 use App\Csr;
 use App\About;
 use App\Project;
-use App\whychoose;
+use App\Whychoose;
 use App\Indexdata;
 use App\Business;
 use App\Faq;
@@ -20,13 +20,15 @@ use App\Csrimage;
 class FrontController extends Controller
 {
     public function index(){
+
     	$homeslides 		= Homeslide::all();
     	$about 				= About::find(1);
     	$projects  			= Project::all();
-    	$whychoose  		= whychoose::get();
+    	$whychoose  		= Whychoose::get();
     	$indexdata 			= Indexdata::find(1);
     	$business 			= Business::get();
     	$faq 				= Faq::get();
+
     	return view('index',[
     		'homeslides'  	=> $homeslides,
     		'about'  		=> $about,
@@ -115,7 +117,7 @@ class FrontController extends Controller
     	]);
     }
 
-    public function contact(){
-    	return veiw('contact');
+    public function contact() {
+    	return view('contact');
     }
 }

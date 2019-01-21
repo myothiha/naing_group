@@ -33,34 +33,34 @@
             <div class="navbar-collapse collapse" id="navbarCollapse">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/index">Home</a>
+                        <a class="nav-link" href="{{ action('FrontController@index') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/about">About Us</a>
+                        <a class="nav-link" href="{{ action('FrontController@about') }}">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/milestone">Our Milestone</a>
+                        <a class="nav-link" href="{{ action('FrontController@milestone') }}">Our Milestone</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/team">Our People</a>
+                        <a class="nav-link" href="{{ action('FrontController@team') }}">Our People</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="csr">CSR</a>
+                        <a class="nav-link" href="{{ action('FrontController@csr') }}">CSR</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="project">Our Project</a>
+                        <a class="nav-link" href="{{ action('FrontController@project') }}">Our Project</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/business">Our Business Units</a>
+                        <a class="nav-link" href="{{ action('FrontController@business') }}">Our Business Units</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/faq">FAQ</a>
+                        <a class="nav-link" href="{{ action('FrontController@faq') }}">FAQ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="blog">Blog</a>
+                        <a class="nav-link" href="{{ action('FrontController@blog') }}">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/contact">Contact Us</a>
+                        <a class="nav-link" href="{{ action('FrontController@contact') }}">Contact Us</a>
                     </li>
                 </ul>
             </div>
