@@ -23,6 +23,8 @@ class CreateProjectsTable extends Migration
             $table->unsignedInteger('project_type_id');
             $table->unsignedInteger('city_id');
             $table->unsignedInteger('price');
+            $table->unsignedInteger('floor');
+            $table->string('file_status')->default(\App\Constant::NO_FILE);
             $table->timestamps();
         });
     }

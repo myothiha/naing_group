@@ -55,8 +55,6 @@ Route::get('login','LoginController@login')->name('login');
 
 Route::post('admin/login', 'LoginController@authenticated');
 
-
-
 Route::get('login',    											'LoginController@login')->name('login');
 
 Route::post('admin/login',   									'LoginController@authenticated');
@@ -66,7 +64,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
 	Route::get('/',												'HomeslideController@index');
 
-	Route::resource('user',										'UserController');
+    Route::get('/{project}/projectFiles/create', 'ProjectFileController@create');
+    Route::post('/{project}/projectFiles', 'ProjectFileController@store');
+    Route::get('/projectFiles/{projectFile}', 'ProjectFileController@show');
+
+
+    Route::resource('user',										'UserController');
 
 	Route::resource('homeslide',								'HomeslideController');
 

@@ -633,5 +633,9 @@
 <script src="\assets/js/app.js"></script>
 <script src="\assets/js/sm_dashboard_01.js"></script>
 <script src="\assets/js/sm_chat_application.js"></script>
+
+@yield('scripts')
+
 </body>
 </html>
+

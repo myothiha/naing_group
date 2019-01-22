@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 /**
  * App\RoomFeature
  *
@@ -18,6 +19,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\RoomFeature whereUpdatedAt($value)
  * @mixin \Eloquent
  */
+
 class RoomFeature extends Model
 {
     //

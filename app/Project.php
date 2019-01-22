@@ -39,6 +39,9 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Project whereProjectTypeId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Project whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string $file_status
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Project whereFileStatus($value)
+ * @property-read \App\ProjectFile $projectFile
  */
 class Project extends Model
 {
@@ -57,8 +60,26 @@ class Project extends Model
         return $this->belongsTo('App\ProjectType', 'project_type_id');
     }
 
+    public function projectFile()
+    {
+        return $this->hasOne(ProjectFile::class);
+    }
+
     public function facilities()
     {
         return $this->belongsToMany('App\ProjectFacilities', 'project_project_facilities', 'project_id', 'project_facilities_id');
+    }
+
+
+    public function updateFileStatus($status)
+    {
+        $this->file_status = $status;
+        $this->save();
+        return $this;
+    }
+
+    public function rooms()
+    {
+        return $this->hasMany('App\Room');
     }
 }

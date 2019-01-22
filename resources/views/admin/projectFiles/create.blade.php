@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('admin.layouts.back')
 
 @section('title', 'Page Title')
 
@@ -13,7 +13,7 @@
             Index
         </li>
         <li class="breadcrumb-item">
-            <a href="{{ action('ProjectFileController@index') }}">List</a>
+            <a href="{{ action('ProjectController@index') }}">List</a>
         </li>
 
         <li class="breadcrumb-item active">
@@ -25,7 +25,7 @@
 @section('content')
 
     <!-- Content Section -->
-    <form action="{{ action('ProjectFileController@store') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ action('ProjectFileController@store', $project->id) }}" method="post" enctype="multipart/form-data">
 
         {{ csrf_field() }}
 
@@ -78,7 +78,7 @@
             ajax.addEventListener("load", completeHandler, false);
             ajax.addEventListener("error", errorHandler, false);
             ajax.addEventListener("abort", abortHandler, false);
-            ajax.open("POST", "/api/fileUpload"); // http://www.developphp.com/video/JavaScript/File-Upload-Progress-Bar-Meter-Tutorial-Ajax-PHP
+            ajax.open("POST", "{{ action('TestController@store') }}"); // http://www.developphp.com/video/JavaScript/File-Upload-Progress-Bar-Meter-Tutorial-Ajax-PHP
             //use file_upload_parser.php from above url
             ajax.send(formdata);
         }
