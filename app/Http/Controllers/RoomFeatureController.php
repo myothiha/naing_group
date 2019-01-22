@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+
 use App\RoomFeature;
 use Illuminate\Http\Request;
 
 class RoomFeatureController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -30,7 +32,7 @@ class RoomFeatureController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -41,7 +43,7 @@ class RoomFeatureController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\RoomFeature  $roomFeature
+     * @param  \App\RoomFeature $roomFeature
      * @return \Illuminate\Http\Response
      */
     public function show(RoomFeature $roomFeature)
@@ -52,7 +54,7 @@ class RoomFeatureController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\RoomFeature  $roomFeature
+     * @param  \App\RoomFeature $roomFeature
      * @return \Illuminate\Http\Response
      */
     public function edit(RoomFeature $roomFeature)
@@ -63,8 +65,8 @@ class RoomFeatureController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\RoomFeature  $roomFeature
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\RoomFeature $roomFeature
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, RoomFeature $roomFeature)
@@ -75,7 +77,7 @@ class RoomFeatureController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\RoomFeature  $roomFeature
+     * @param  \App\RoomFeature $roomFeature
      * @return \Illuminate\Http\Response
      */
     public function destroy(RoomFeature $roomFeature)

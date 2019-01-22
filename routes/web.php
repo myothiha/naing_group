@@ -11,20 +11,56 @@
 |
 */
 
+use Routes\HMT;
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('/test', 'TestController@test');
+
 Route::get('/invcaptcha', 'TestController@invcaptcha');
 
+Route::get('/',						'FrontController@index');
+
+Route::get('/about',						'FrontController@about');
+
+Route::get('/milestone',					'FrontController@milestone');
+
+Route::get('/team',							'FrontController@team');
+
+Route::get('/csr',							'FrontController@csr');
+
+Route::get('/csrdetail/{csr}',				'FrontController@csrdetail');
+
+Route::get('/project',						'FrontController@project');
+
+Route::get('/projectdetail/{project}',		'FrontController@projectdetail');
+
+Route::get('/business',						'FrontController@business');
+
+Route::get('/businessdetail/{business}',	'FrontController@businessdetail');
+
+Route::get('/faq',							'FrontController@faq');
+
+Route::get('/blog',							'FrontController@blog');
+
+Route::get('/blogdetail/{blog}',			'FrontController@blogdetail');
+
+Route::get('/contact',						'FrontController@contact');
+
+Route::resource('/projectFiles', 'ProjectFileController');
+
+Route::get('login','LoginController@login')->name('login');
+
+Route::post('admin/login', 'LoginController@authenticated');
 
 Route::get('login',    											'LoginController@login')->name('login');
 
 Route::post('admin/login',   									'LoginController@authenticated');
 
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
 	Route::get('/',												'HomeslideController@index');
 
@@ -52,6 +88,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 	Route::resource('blogcategory',								'BlogcategoryController');
 
 	Route::resource('blog',										'BlogController');
+
+	Route::resource('blog/{blogId}/blogimage', 				 	'BlogimageController');
 	
 	Route::resource('tag',										'TagController');
 
@@ -61,7 +99,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
 	Route::resource('csr',										'CsrController');
 
-	Route::resource('csr/{csrId}/csrimage',						'CsrimageController');	
+	Route::resource('csr/{csrId}/csrimage',						'CsrimageController');
 
 	Route::resource('teamcategory',				    			'TeamcategoryController');
 
@@ -76,4 +114,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 	Route::resource('projectfacilities',						'ProjectFacilitiesController');
 
 	Route::resource('project',									'ProjectController');
+
+	Route::resource('message',									'MessageController');
+
+	HMT::routes();
 });

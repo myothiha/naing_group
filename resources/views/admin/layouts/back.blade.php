@@ -223,7 +223,7 @@
                                         <nav class="top-navbar-menu">
                                             <ul class="top-menu">
                                                 <li class="d-none d-lg-inline-block">
-                                                    <a href="user">Create account</a>
+                                                    <a href="/admin/user">Create account</a>
                                                 </li>
                                                 <li>
                                                     <a href="javascript:void(0)" id="btn-search">
@@ -244,7 +244,7 @@
                                                     </a>
                                                     <div class="dropdown-menu dropdown-menu-right dropdown-scale">
                                                         <h6 class="dropdown-header">Navigation</h6>
-                                                        <a class="dropdown-item" href="javascript:void(0)">
+                                                        <a class="dropdown-item" href="/admin/message">
                                                             <span class="float-right badge badge-primary">4</span>
                                                             <i class="ion-ios-email-outline icon-lg text-primary"></i>Messages
                                                         </a>
@@ -271,7 +271,7 @@
                         <!-- BEGIN SEARCH -->
                         <div class="search sm_bg_2">
                             <i id="btn-search-close" class="icon-close btn--search-close"></i>
-                            <form class="search__form" action="index.html">
+                            <form class="search__form" action="/admin/">
                                 <input class="search__input" name="search" type="search" placeholder="Search.."
                                        autocomplete="off"
                                        spellcheck="false"/>
@@ -632,6 +632,7 @@
 <!-- APP JS -->
 <script src="\assets/js/app.js"></script>
 <script src="\assets/js/sm_dashboard_01.js"></script>
+<script src="\assets/js/sm_chat_application.js"></script>
 
 @yield('scripts')
 

@@ -79,7 +79,7 @@
                                                     <form action="{{action('WhychooseController@destroy',        $whychoose->id) }}" method="Post">
                                                         <input type="hidden" name="_method" value="delete">
                                                         {{ csrf_field() }}
-                                                        <a class="btn btn-warning" href="{{action('WhychooseController@edit',        $whychoose->id) }}">Edit</a>
+                                                        <a class="btn btn-warning mb-2" href="{{action('WhychooseController@edit',        $whychoose->id) }}">Edit</a>
 
                                                         <input type="submit" class="btn btn-danger" value="Delete">
                                                     </form>

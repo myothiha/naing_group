@@ -33,10 +33,21 @@ class Blog extends Model
 {
 
 	protected $table   = 'blogs';
-    public $timestamps =  false;
 
     public function blogcategories()
     {
         return $this->belongsTo('App\Blogcategory','blogcategory_id');
     }
+
+    public function blogimages()
+    {
+        return $this->hasMany('App\Blogimage','blog_id');
+    }
+
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class, 'blog_tag');
+    }
+    
 }

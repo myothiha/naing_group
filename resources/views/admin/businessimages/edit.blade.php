@@ -8,7 +8,7 @@
         <!--BEGIN BREADCRUMB-->
         <div class="breadcrumb-pageheader">
             <ol class="breadcrumb sm-breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ action('BusinessimageController@index') }})">DataTable</a></li>
+                <li class="breadcrumb-item"><a href="{{ action('BusinessimageController@index', $business->id) }})">DataTable</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Edit Business Gallery Form</li>
             </ol>
             <h6 class="sm-pagetitle--style-1 has_page_title">Edit Business Gallery Form</h6>

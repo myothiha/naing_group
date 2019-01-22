@@ -33,7 +33,7 @@ class CsrimageController extends Controller
      */
     public function create($csrId)
     {
-       $csr= Business::find($csrId);
+       $csr= Csr::find($csrId);
         return view("admin.csrimages.create", [
             'csr' => $csr,
         ]);

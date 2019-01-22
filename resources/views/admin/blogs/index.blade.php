@@ -64,7 +64,6 @@
                                         <th>Description</th>
                                         <th>Author</th>
                                         <th>Category</th>
-                                        <th>Feature Image</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
@@ -78,11 +77,12 @@
                                                 <td>{{ $blog->description }}</td>
                                                 <td>{{ $blog->author }}</td>
                                                 <td>{{ $blog->blogcategories->name }}</td>
-                                                <td width="15%"><img src="{{ $blog->featureimage }}" class="img-fluid"></td>
                                                 <td>
                                                     <form action="{{action('BlogController@destroy',        $blog->id) }}" method="Post">
                                                         <input type="hidden" name="_method" value="delete">
                                                         {{ csrf_field() }}
+                                                        <a class="btn btn-dark mb-2"
+                                                        href="{{ action('BlogimageController@index', $blog->id) }}">Images</a>
                                                         <a class="btn btn-warning mb-2" href="{{action('BlogController@edit',        $blog->id) }}">Edit</a>
 
                                                         <input type="submit" class="btn btn-danger" value="Delete">
