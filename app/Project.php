@@ -70,10 +70,16 @@ class Project extends Model
         return $this->belongsToMany('App\ProjectFacilities', 'project_project_facilities', 'project_id', 'project_facilities_id');
     }
 
+
     public function updateFileStatus($status)
     {
         $this->file_status = $status;
         $this->save();
         return $this;
+    }
+
+    public function rooms()
+    {
+        return $this->hasMany('App\Room');
     }
 }
