@@ -28,6 +28,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Blog whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Blog whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Blogimage[] $blogimages
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Tag[] $tags
  */
 class Blog extends Model
 {

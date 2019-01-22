@@ -42,6 +42,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $file_status
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Project whereFileStatus($value)
  * @property-read \App\ProjectFile $projectFile
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Room[] $rooms
  */
 class Project extends Model
 {

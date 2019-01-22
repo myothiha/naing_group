@@ -47,7 +47,6 @@
                                 </h6>
                             </div>
                             <div class="sm-box">
-                                
 
                                 @if ($indexdatas->count() < 1)
                                     <div id="toolbar" style="margin-bottom: 10px;">
@@ -56,7 +55,6 @@
                                             </a></button>
                                     </div>
                                 @endif
-                                
 
                                 <table id="data-table" class="table table-striped table-bordered">
                                     <thead>
