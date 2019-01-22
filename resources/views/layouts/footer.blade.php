@@ -23,7 +23,7 @@
             </div>
             <div class="col-lg-3 col-md-6 py-2">
                 <div class="row d-flex justify-content-center footer-line py-3">
-                    <div class="col-3 align-self-center"><i class="fas fa-2x fa-map-marker"></i></div>
+                    <div class="col-3 align-self-center"><i class="fas fa-2x fa-envelope"></i></div>
                     <div class="col-9">
                         <h6>Email</h6>
                         <p class="footer-text">info@nainggroup.com <br> info@nainggroup.com
@@ -33,7 +33,7 @@
             </div>
             <div class="col-lg-3 col-md-6 py-2">
                 <div class="row d-flex justify-content-center footer-line py-3">
-                    <div class="col-3 align-self-center"><i class="fas fa-2x fa-map-marker"></i></div>
+                    <div class="col-3 align-self-center"><i class="fas fa-clock fa-2x"></i></div>
                     <div class="col-9">
                         <h6>OFFICE HOURS</h6>
                         <p class="footer-text">9:00 a.m - 5:00 p.m

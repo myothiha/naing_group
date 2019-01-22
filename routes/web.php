@@ -114,5 +114,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
 	Route::resource('message',									'MessageController');
 
+	Route::resource('contact',									'ContactController');
+
 	HMT::routes();
 });
