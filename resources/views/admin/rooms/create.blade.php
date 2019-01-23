@@ -17,7 +17,7 @@
 		<div class="sm-content">
 		    <div class="sm-content-box">
 		        <div class="row">
-		            <div class="col-lg-6">
+		            <div class="col-lg-12">
 		                <div class="sm-wrapper" data-sortable-id="sm_form_elements_1">
 		                    <div class="title_box sm-header-style-1">
 		                        <div class="sm-actions">
@@ -42,7 +42,7 @@
 		                            </a>
 		                        </div>
 		                        <h6 class="sm-header">
-		                            Room Type Form
+		                            Create Room Form
 		                        </h6>
 		                    </div>
 		                    <div class="sm-box">

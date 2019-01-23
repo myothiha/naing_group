@@ -42,7 +42,7 @@
 		                            </a>
 		                        </div>
 		                        <h6 class="sm-header">
-		                            Edit Project Type Form
+		                            Edit Room Type Form
 		                        </h6>
 		                    </div>
 		                    <div class="sm-box">
