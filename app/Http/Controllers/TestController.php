@@ -46,7 +46,6 @@ class TestController extends Controller
     {
         $projectFile = ProjectFile::find(1);
         $response = $this->viewer->getManifest($projectFile);
-        dd($response->getContents());
         return $this->viewer->render('test.viewer', $projectFile);
 //        return $response->getRawJson();
     }

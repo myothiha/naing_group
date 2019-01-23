@@ -1,6 +1,6 @@
 <header class="fixed-top">
     <!-- infonav bar -->
-    <div class="">
+    <div class="" id="hidable">
         <div class="container">
             <div class="row p-2">
                 <div class="col-12 home-index">

@@ -68,7 +68,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::post('/{project}/projectFiles', 'ProjectFileController@store');
     Route::get('/projectFiles/{projectFile}', 'ProjectFileController@show');
 
-
     Route::resource('user',										'UserController');
 
 	Route::resource('homeslide',								'HomeslideController');

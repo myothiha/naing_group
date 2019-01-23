@@ -2,25 +2,33 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Carbon\Carbon;
-use App\Homeslide;
-use App\Csr;
 use App\About;
+use App\AutoDesk\Services\Viewers\AutoDeskViewerService;
+use App\Blog;
+use App\Blogcategory;
+use App\Business;
+use App\Csr;
+use App\Faq;
+use App\Homeslide;
+use App\Indexdata;
+use App\Milestone;
 use App\Project;
 use App\Whychoose;
-use App\Indexdata;
-use App\Business;
-use App\Faq;
-use App\Milestone;
-use App\Blog;
-use App\Businessimage;
-use App\Csrimage;
-use App\Blogimage;
-use App\Blogcategory;
 
 class FrontController extends Controller
 {
+
+    private $viewer;
+
+    /**
+     * TestController constructor.
+     * @param AutoDeskViewerService $autoDeskViewer
+     */
+    public function __construct(AutoDeskViewerService $autoDeskViewer)
+    {
+        $this->viewer = $autoDeskViewer;
+    }
+
     public function index(){
 
     	$homeslides 		= Homeslide::all();
@@ -75,14 +83,20 @@ class FrontController extends Controller
     	]);
     }
 
-    public function project(){
-    	return view('project');
+    public function project() {
+
+        $projects = Project::all();
+
+    	return view('project', [
+    	    'projects' => $projects,
+        ]);
     }
 
-    public function projectdetail(Project $project){
-    	return view('projectdetail',[
-    		'project'  => $project
-    	]);
+    public function projectdetail(Project $project) {
+
+        return $this->viewer->render('projectdetail', $project->projectFile, [
+            'project'  => $project,
+        ]);
     }
 
     public function business(){

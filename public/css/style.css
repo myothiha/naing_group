@@ -1,4 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+#MyViewerDiv {
+    width: 100%;
+    height: 100vh;
+    background-color: #F0F8FF;
+}
+
 body {
     font-family: roboto, sans-serif;
     font-style: normal;
