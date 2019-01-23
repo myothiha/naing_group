@@ -71,10 +71,10 @@
                                                 <td>{{ $no++ }}</td>
                                                 <td>{{ $room->name }}</td>
                                                 <td>
-                                                    <form action="{{action('RoomController@destroy',       [$room->id, $project->id]) }}" method="Post">
+                                                    <form action="{{action('RoomController@destroy',       [$project->id, $room->id]) }}" method="Post">
                                                         <input type="hidden" name="_method" value="delete">
                                                         {{ csrf_field() }}
-                                                        <a class="btn btn-warning" href="{{action('RoomController@edit',        [$room->id, $project->id]) }}">Edit</a>
+                                                        <a class="btn btn-warning" href="{{action('RoomController@edit', [$project->id, $room->id]) }}">Edit</a>
 
                                                         <input type="submit" class="btn btn-danger" value="Delete">
                                                     </form>
