@@ -53,23 +53,16 @@
         <div class="container my-4">
             <h6 class="text-white" data-aos="fade-down">RELATED Our Business</h6>
             <div class="row" data-aos="fade-up">
+                @foreach($businesses as $data)
                 <div class="col-md-4">
-                    <a href="">
-                        <img src="images/detail-01.jpg" alt="" class="img-fluid border border-secondary">
-                        <h6 class="text-white my-3">RELATED CSR TITLE</h6>
-                        <p class="text-white">Asperiores, tenetur, blanditiis, quaerat odit ex exercitationem pariatur quibusdam veritatis quisquam</p>
+                    <a href="/businessdetail/{{ $data->id }}">
+                        <img src="{{ $data->featureimage }}" alt="" class="img-fluid border border-secondary">
+                        <h6 class="text-white my-3">{{ $data->title }}</h6>
+                        <p class="text-white">{!! substr(strip_tags($data->description), 0, 400) !!}</p>
                     </a>
                 </div>
-                <div class="col-md-4">
-                    <img src="images/detail-01.jpg" alt="" class="img-fluid border border-secondary">
-                    <h6 class="text-white my-3">RELATED CSR TITLE</h6>
-                    <p class="text-white">Asperiores, tenetur, blanditiis, quaerat odit ex exercitationem pariatur quibusdam veritatis quisquam</p>
-                </div>
-                <div class="col-md-4">
-                    <img src="images/detail-01.jpg" alt="" class="img-fluid border border-secondary">
-                    <h6 class="text-white my-3">RELATED CSR TITLE</h6>
-                    <p class="text-white">Asperiores, tenetur, blanditiis, quaerat odit ex exercitationem pariatur quibusdam veritatis quisquam</p>
-                </div>
+                @endforeach
+                
             </div>
         </div>
     </section>

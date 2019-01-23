@@ -47,7 +47,7 @@
 		                    </div>
 		                    <div class="sm-box">
 		                    	@include('errors.list')
-		                    	<form class="form-default" action="{{ action('IndexdataController@update', $indexdata->id) }}" method="post" enctype="multipart/form-data">
+		                    	<form class="form-default" action="{{ action('ContactController@update', $contact->id) }}" method="post" enctype="multipart/form-data">
 		                    	{{ csrf_field() }}
 
 								<input type="hidden" name="_method" value="PUT">
@@ -56,26 +56,17 @@
 		                            <div class="row">
 		                                <div class="col-12">
 		                                    <div class="form-group">
-		                                        <label for="title">Title</label>
-		                                       <input type="text" name="title" class="form-control" value="{{ $indexdata->title }}">
+		                                        <label for="address">Address</label>
+		                                       <input type="text" name="address" class="form-control" value="{{ $contact->address }}">
 		                                    </div>
 		                                </div>
 		                            </div>
 
-		                            <div class="row">
-		                                <div class="col-lg-12">
-		                                    <div class="form-group has-feedback">
-		                                        <label for="description">Description</label>
-												<textarea type="text" class="form-control" name="description">{{ $indexdata->description }}</textarea>
-		                                    </div>
-		                                </div>
-		                            </div>
-									
 									<div class="row">
 		                                <div class="col-12">
 		                                    <div class="form-group">
-		                                        <label for="project">Total Project</label>
-		                                        <input type="text" name="project" class="form-control" value="{{ $indexdata->project }}">
+		                                        <label for="phone">Phone Number</label>
+		                                        <input type="text" name="phone" class="form-control" value="{{ $contact->phone }}">
 		                                    </div>
 		                                </div>
 		                            </div>
@@ -83,8 +74,8 @@
 		                            <div class="row">
 		                                <div class="col-12">
 		                                    <div class="form-group">
-		                                        <label for="staff">Total Staff</label>
-		                                        <input type="text" name="staff" class="form-control" value="{{ $indexdata->staff }}">
+		                                        <label for="mail">Email</label>
+		                                        <input type="text" name="mail" class="form-control" value="{{ $contact->mail }}">
 		                                    </div>
 		                                </div>
 		                            </div>
@@ -92,21 +83,12 @@
 		                            <div class="row">
 		                                <div class="col-12">
 		                                    <div class="form-group">
-		                                        <label for="investment">Total Investment</label>
-		                                        <input type="text" name="investment" class="form-control" value="{{ $indexdata->investment }}">
+		                                        <label for="office">Office Hours</label>
+		                                        <input type="text" name="office" class="form-control" value="{{ $contact->office }}">
 		                                    </div>
 		                                </div>
 		                            </div>
-
-		                            <div class="row">
-		                                <div class="col-12">
-		                                    <div class="form-group">
-		                                        <label for="taxation">Total Taxation</label>
-		                                        <input type="text" name="taxation" class="form-control" value="{{ $indexdata->taxation }}">
-		                                    </div>
-		                                </div>
-		                            </div>
-
+		                            
 		                            <div class="row m-t-20">
 		                                <div class="col-lg-12">
 		                                    <input type="submit" class="btn btn-primary" value="Update">

@@ -169,6 +169,11 @@
                             <i class="icon ion-log-in"></i> Our Teams
                         </a>
                     </li>
+                    <li class="menu__item" role="menuitem">
+                        <a class="menu__link" href="/admin/contact">
+                            <i class="icon ion-log-in"></i> Contact Us
+                        </a>
+                    </li>
                 </ul>
                 <!-- SUBMENU 6 -->
                 <ul data-menu="submenu-6" id="submenu-6" class="menu__level" tabindex="-1" role="menu"
@@ -443,6 +448,12 @@
                                                             <a class="dropdown-item"
                                                                href="/admin/team">
                                                                 Our Team
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="dropdown-item"
+                                                               href="/admin/contact">
+                                                                Contact Us
                                                             </a>
                                                         </li>
                                                        

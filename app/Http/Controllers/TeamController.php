@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Team;
 use Illuminate\Http\Request;
 use App\Util\Uploader\Image;
-use App\Teamcategory;
 
 class TeamController extends Controller
 {
@@ -30,10 +29,7 @@ class TeamController extends Controller
      */
     public function create()
     {
-        $teamcategories = Teamcategory::all();
-        return view('admin.teams.create',[
-            'teamcategories' => $teamcategories
-            ]);
+        return view('admin.teams.create');
     }
 
     /**
@@ -50,10 +46,11 @@ class TeamController extends Controller
         }
         $team = new Team;
 
-        $team->teamcategory_id              = $request->teamcategory_id ?? '';
+        $team->type                         = $request->type ?? '';
         $team->facebook                     = $request->facebook ?? '';
         $team->position                     = $request->position ?? '';
         $team->name                         = $request->name ?? '';
+        $team->biography                    = $request->biography ?? '';
         $team->google                       = $request->google ?? '';
         $team->twitter                      = $request->twitter ?? '';
         $team->image                        = $imagePath ?? '';
@@ -81,11 +78,9 @@ class TeamController extends Controller
      */
     public function edit(Team $team)
     {
-        $teamcategorys = Teamcategory::all();
         return view('admin.teams.edit', [
 
             'team' => $team,
-            'teamcategorys' => $teamcategorys
             ]);
     }
 
@@ -107,10 +102,11 @@ class TeamController extends Controller
             $imagePath = $request->prev_image;
         }
 
-        $team->teamcategory_id              = $request->teamcategory_id ?? '';
+        $team->type                         = $request->type ?? '';
         $team->facebook                     = $request->facebook ?? '';
         $team->position                     = $request->position ?? '';
         $team->name                         = $request->name ?? '';
+        $team->biography                    = $request->biography ?? '';        
         $team->google                       = $request->google ?? '';
         $team->twitter                      = $request->twitter ?? '';
         $team->image                        = $imagePath ?? '';

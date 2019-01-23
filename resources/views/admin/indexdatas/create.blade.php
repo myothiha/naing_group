@@ -46,6 +46,7 @@
 		                        </h6>
 		                    </div>
 		                    <div class="sm-box">
+		                    	@include('errors.list')
 		                    	<form  action="{{ action('IndexdataController@store') }}" method="post" enctype="multipart/form-data">
 		                    	{{ csrf_field() }}
 

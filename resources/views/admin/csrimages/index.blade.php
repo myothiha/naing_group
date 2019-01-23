@@ -50,9 +50,8 @@
                                 
 
                                 <div id="toolbar" style="margin-bottom: 10px;">
-                                    <button id="remove" class="btn btn-warning">
-                                        <i class="ion-ios-plus"></i><a href="{{ action('CsrimageController@create', $csr->id ) }}"> Add New
-                                    </a></button>
+                                    <a class="btn btn-warning" href="{{ action('CsrimageController@create', $csr->id ) }}"><i class="ion-ios-plus"></i> Add New
+                                    </a>
                                 </div>
                                 
 

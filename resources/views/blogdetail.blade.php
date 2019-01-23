@@ -66,14 +66,10 @@
                 <h2 class="title">POPULAR TAGS</h2><br>
 
                 <div class="my-3">
-                    <a class="btn btn-primary my-1" href="#">Money</a>
-                    <a class="btn btn-primary my-1" href="#">Investments</a>
-                    <a class="btn btn-primary my-1" href="#">Business</a>
-                    <a class="btn btn-primary my-1" href="#">Stocks</a>
-                    <a class="btn btn-primary my-1" href="#">Idea</a>
-                    <a class="btn btn-primary my-1" href="#">Employee</a>
-                    <a class="btn btn-primary my-1" href="#">Solutions</a>
-                    <a class="btn btn-primary my-1" href="#">Team</a>
+                    @foreach($tags as $tag)
+                    <a class="btn btn-primary my-1" href="#">{{ $tag->name }}</a>
+                    @endforeach
+                    
                 </div>
 
 
@@ -97,7 +93,7 @@
                     <img src="{{ $blog->featureimage }}" alt="" class="img-fluid border border-secondary">
                     <div class="date-tiem">
                         <div class="date-ico"><i class="fas fa-calendar-alt"></i></div>
-                        <div class="time"><span class="date"></span> <span class="text-white">{{ $blog->created_at }}</span></div>
+                        <div class="time"><span class="date"></span> <span class="text-white">{{ $blog->created_at->subMonth()->format('F') }}</span></div>
                     </div>
                     <h6 class="text-white my-3">{{ $blog->title }}</h6>
                     <p class="text-white">{!! substr(strip_tags($blog->description), 0, 400) !!}</p>

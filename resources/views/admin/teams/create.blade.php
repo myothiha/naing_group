@@ -53,14 +53,14 @@
 		                            <div class="row">
 		                                <div class="col-12">
 		                                    <div class="form-group">
-		                                        <label for="author">Team Category</label>
-		                                        <select name="teamcategory_id" class="form-control" type="select">
+		                                        <label for="type">Type</label>
+		                                        <select name="type" class="form-control" type="select">
 													<option>select one</option>
-														@foreach($teamcategories as $teamcategory)
-															<option value="{{ $teamcategory->id }}">{{ $teamcategory->title }}</option>
-																
-														@endforeach
-													</select>
+													<option value="FEC">FEC</option>
+													<option value="Honorable">Honorable</option>
+													<option value="Representative">Representative</option>			
+													
+												</select>
 		                                    </div>
 		                                </div>
 		                            </div>
@@ -91,6 +91,16 @@
 		                                        <label for="name">Name</label>
 		                                        <input  name="name" placeholder="Enter Your Name "
 		                                               type="text" class="form-control">
+		                                    </div>
+		                                </div>
+		                            </div>
+
+		                            <div class="row">
+		                                <div class="col-12">
+		                                    <div class="form-group">
+		                                        <label for="biography">Biography</label>
+		                                        <textarea  name="biography" placeholder="Enter Your biography "
+		                                               type="text" class="form-control"></textarea>
 		                                    </div>
 		                                </div>
 		                            </div>

@@ -135,36 +135,35 @@
                         <h6 class=" " data-aos="fade-left">The Construction Company</h6>
                     </div>
                     <div class="row justify-content-end">
-                        <h1 class=" " data-aos="fade-right">AWESOME FACTS</h1>
+                        <h1 class=" " data-aos="fade-right">{{ $indexdata->title }}</h1>
                     </div>
                     <div class="row justify-content-end">
                         <div class="col-lg-8 " data-aos="fade-down">
-                            <p class="text-right">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a metus pellentesque, scelerisque ex sed, volutpat nisi. Curabitur tortor mi, eleifend ornare lobortis non. Nulla porta purus quis iaculis ultrices. Proin aliquam
-                                sem at nibh hendrerit sagittis. Nullam ornare odio eu lacus tincidunt malesuada.
+                            <p class="text-right">{{ $indexdata->description }}
 
                             </p>
                         </div>
                     </div>
                     <div class="row my-2 justify-content-end">
                         <div class="col-md-2 col-6 my-2">
-                            <span class='numscroller' data-min='1' data-max='6' data-delay='0.7' data-increment='1'>1</span>
+                            <span class='numscroller' data-min='1' data-max='6' data-delay='0.7' data-increment='1'>{{ $indexdata->project }}</span>
                             <img src="/images/project-icon01.png" alt="" class="project-icon">
                             <p class="project-text">Total Project</p>
                         </div>
                         <div class="col-md-2 col-6 my-2">
-                            <span class='numscroller' data-min='1' data-max='6' data-delay='0.7' data-increment='1'>1</span>
+                            <span class='numscroller' data-min='1' data-max='6' data-delay='0.7' data-increment='1'>{{ $indexdata->staff }}</span>
                             <img src="/images/project-icon02.png" alt="" class="project-icon">
                             <p class="project-text">Total Staffs</p>
                         </div>
                         <div class="col-md-2 col-6 my-2">
-                            <span class='numscroller' data-min='1' data-max='10' data-delay='0.7' data-increment='1'>1</span>
+                            <span class='numscroller' data-min='1' data-max='10' data-delay='0.7' data-increment='1'>{{ $indexdata->investment }}</span>
                             <img src="/images/project-icon03.png" alt="" class="project-icon">
                             <p class="project-text">Our Investments </p>
                         </div>
                         <div class="col-md-2 col-6 my-2">
-                            <span class='numscroller' data-min='1' data-max='20' data-delay='0.7' data-increment='1'>1</span>
+                            <span class='numscroller' data-min='1' data-max='20' data-delay='0.7' data-increment='1'>{{ $indexdata->taxation }}</span>
                             <img src="/images/project-icon04.png" alt="" class="project-icon">
-                            <p class="project-text">Total Project</p>
+                            <p class="project-text">Total Taxation</p>
                         </div>
 
                     </div>

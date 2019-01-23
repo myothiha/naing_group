@@ -44,21 +44,12 @@
                 <h2 class="title">POPULAR TAGS</h2>
 
                 <ul class="nav flex-column my-2">
+                    @foreach($tags as $tag)
                     <li class="nav-item">
-                        <a class="nav-link" href="#">BUSINESS</a>
+                        <a class="nav-link" href="#">{{ $tag->name }}</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">INVESTMENT</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">ACCOUNTING</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">SERVICES</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">TAXES & TERMS</a>
-                    </li>
+                    @endforeach
+                    
                 </ul>
 
                 <h2 class="title">CATEGORIES</h2><br>

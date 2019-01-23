@@ -48,13 +48,15 @@
                             </div>
                             <div class="sm-box">
                                 
+                                @if($abouts->count() < 1)
 
                                 <div id="toolbar" style="margin-bottom: 10px;">
-                                    <button id="remove" class="btn btn-warning">
-                                        <i class="ion-ios-plus"></i><a href="{{ action("AboutController@create") }}"> Add New
-                                    </a></button>
+                                    <a href="{{ action("AboutController@create") }}" class="btn btn-warning">
+                                        <i class="ion-ios-plus"></i> Add New
+                                    </a>
                                 </div>
-                                
+
+                                @endif
 
                                 <table id="data-table" class="table table-striped table-bordered">
                                     <thead>

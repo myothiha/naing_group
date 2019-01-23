@@ -56,13 +56,13 @@
 		                            <div class="row">
 		                                <div class="col-12">
 		                                    <div class="form-group">
-		                                        <label for="category">Team Category</label>
-		                                        <select name="teamcategory_id" class="form-control" type="select">
-													@foreach($teamcategorys as $teamcategory)
-												<option value="{{ $teamcategory->id }}" {{ $teamcategory->id==$team->teamcategory_id ? 'selected' : '' }} >
-													{{ $teamcategory->title }}
-												</option>
-													@endforeach
+		                                        <label for="type">Type</label>
+		                                        <select name="type" class="form-control" type="select">
+													<option>select one</option>
+													<option value="FEC">FEC</option>
+													<option value="Honorable">Honorable</option>
+													<option value="Representative">Representative</option>			
+													
 												</select>
 		                                    </div>
 		                                </div>
@@ -98,6 +98,16 @@
 		                                        <label for="name">Name</label>
 		                                        <input  name="name" placeholder="Enter Your Name "
 		                                               type="text" class="form-control" value="{{ $team->name }}">
+		                                    </div>
+		                                </div>
+		                            </div>
+
+		                            <div class="row">
+		                                <div class="col-12">
+		                                    <div class="form-group">
+		                                        <label for="biography">Biography</label>
+		                                        <textarea  name="biography" placeholder="Enter Your biography "
+		                                               type="text" class="form-control">{{ $team->biography }}</textarea>
 		                                    </div>
 		                                </div>
 		                            </div>

@@ -15,7 +15,7 @@ class CreateTeamsTable extends Migration
     {
         Schema::create('teams', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('teamcategory_id')->nullable();
+            $table->string('type')->nullable();
             $table->text('image')->nullable();
             $table->string('name')->nullable();
             $table->string('position')->nullable();

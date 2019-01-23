@@ -6,7 +6,7 @@
                     <div class="col-3 align-self-center"><i class="fas fa-2x fa-map-marker "></i></div>
                     <div class="col-9">
                         <h6>ADDRESS</h6>
-                        <p class="footer-text">No.117/127, 33rd Street, Kyauktadar Tsp Yangon.
+                        <p class="footer-text">{{ $contact->address }}
                         </p>
                     </div>
                 </div>
@@ -16,7 +16,7 @@
                     <div class="col-3 align-self-center"><i class="fas fa-2x fa-mobile-alt"></i></div>
                     <div class="col-9">
                         <h6>PHONE</h6>
-                        <p class="footer-text">+951 248 082, <br>256 047, 381 707
+                        <p class="footer-text">{{ $contact->phone }}
                         </p>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
                     <div class="col-3 align-self-center"><i class="fas fa-2x fa-envelope"></i></div>
                     <div class="col-9">
                         <h6>Email</h6>
-                        <p class="footer-text">info@nainggroup.com <br> info@nainggroup.com
+                        <p class="footer-text">{{ $contact->mail }}
                         </p>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                     <div class="col-3 align-self-center"><i class="fas fa-clock fa-2x"></i></div>
                     <div class="col-9">
                         <h6>OFFICE HOURS</h6>
-                        <p class="footer-text">9:00 a.m - 5:00 p.m
+                        <p class="footer-text">{{ $contact->office }}
                         </p>
                     </div>
                 </div>

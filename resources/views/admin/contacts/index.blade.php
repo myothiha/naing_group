@@ -7,10 +7,9 @@
         <!--BEGIN BREADCRUMB-->
         <div class="breadcrumb-pageheader">
             <ol class="breadcrumb sm-breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                 <li class="breadcrumb-item active" aria-current="page">DataTables</li>
             </ol>
-            <h6 class="sm-pagetitle--style-1 has_page_title">DataTables Home Slide Image</h6>
+            <h6 class="sm-pagetitle--style-1 has_page_title">DataTables Contact Us</h6>
         </div>
         <!--END BREADCRUMB-->
 
@@ -43,42 +42,46 @@
                                     </a>
                                 </div>
                                 <h6 class="sm-header">
-                                    DataTables Slide Image
+                                    DataTables Contact Us
                                 </h6>
                             </div>
                             <div class="sm-box">
                                 
 
-                                <div id="toolbar" style="margin-bottom: 10px;">
-                                    <a class="btn btn-warning" href="{{ action('HomeslideController@create') }}"><i class="ion-ios-plus"></i> Add New
-                                    </a>
-                                </div>
+                                @if ($contacts->count() < 1)
+                                    <div id="toolbar" style="margin-bottom: 10px;">
+                                            <a class="btn btn-warning" href="{{ action("ContactController@create") }}"><i class="ion-ios-plus"></i> Add New
+                                            </a>
+                                    </div>
+                                @endif
                                 
 
                                 <table id="data-table" class="table table-striped table-bordered">
                                     <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Title 1</th>
-                                        <th>Title 2</th>
-                                        <th>Image Slider</th>
+                                        <th>Address</th>
+                                        <th>Phone Number</th>
+                                        <th>Email</th>
+                                        <th>Office Hours</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <?php $no=1; ?>
-                                        @foreach($homeslides as $homeslide)
+                                        @foreach($contacts as $contact)
 
                                             <tr class="odd gradeX">
                                                 <td>{{ $no++ }}</td>
-                                                <td>{{ $homeslide->title1 }}</td>
-                                                <td>{{ $homeslide->title2 }}</td>
-                                                <td width="15%"><img src="{{ $homeslide->image }}" class="img-fluid"></td>
+                                                <td>{{ $contact->address }}</td>
+                                                <td>{{ $contact->phone }}</td>
+                                                <td>{{ $contact->mail }}</td>
+                                                <td>{{ $contact->office }}</td>
                                                 <td>
-                                                    <form action="{{action('HomeslideController@destroy',        $homeslide->id) }}" method="Post">
+                                                    <form action="{{action('ContactController@destroy',        $contact->id) }}" method="Post">
                                                         <input type="hidden" name="_method" value="delete">
                                                         {{ csrf_field() }}
-                                                        <a class="btn btn-warning" href="{{action('HomeslideController@edit',        $homeslide->id) }}">Edit</a>
+                                                        <a class="btn btn-warning mb-2" href="{{action('ContactController@edit',        $contact->id) }}">Edit</a>
 
                                                         <input type="submit" class="btn btn-danger" value="Delete">
                                                     </form>

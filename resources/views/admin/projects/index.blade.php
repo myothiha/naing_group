@@ -51,7 +51,7 @@
 
                                     <div id="toolbar" style="margin-bottom: 10px;">
                                         <a id="remove" class="btn btn-warning"
-                                           href="{{ action("ProjectController@create") }}">
+                                           href="{{ action('ProjectController@create') }}">
                                             <i class="ion-ios-plus"></i> Add New
                                         </a>
                                     </div>

@@ -49,10 +49,9 @@
                             <div class="sm-box">
                                 
 
-                                <div id="toolbar" style="margin-bottom: 10px;">
-                                    <button id="remove" class="btn btn-warning">
-                                        <i class="ion-ios-plus"></i><a href="{{ action('BlogcategoryController@create') }}"> Add New
-                                    </a></button>
+                                <div id="toolbar" style="margin-bottom: 10px;">                                    
+                                        <a class="btn btn-warning" type="button" href="{{ action('BlogcategoryController@create') }}"><i class="ion-ios-plus"></i> Add New
+                                    </a>
                                 </div>
                                 
 

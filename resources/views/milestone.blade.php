@@ -25,8 +25,8 @@
     </div>
 
     <div class="container my-4">
-        @foreach($milestones as $milestone)
         <div class="row my-4">
+        @foreach($milestones as $milestone)
             <div class="col-md-3" data-toggle="modal" data-target="#mondstone{{ $milestone->id}}">
                 <div class="card" data-aos="fade-up">
                     <img class="mindstone-img img-fluid" src="{{ $milestone->image }}" alt="Card image cap">
@@ -68,8 +68,8 @@
                 </div>
             </div>
 
-        </div>
         @endforeach
+        </div>
     {{ $milestones->links() }}
     </div>
     

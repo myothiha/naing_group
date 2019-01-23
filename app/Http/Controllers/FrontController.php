@@ -18,6 +18,9 @@ use App\Businessimage;
 use App\Csrimage;
 use App\Blogimage;
 use App\Blogcategory;
+use App\Contact;
+use App\Tag;
+use App\Team;
 
 class FrontController extends Controller
 {
@@ -59,7 +62,20 @@ class FrontController extends Controller
     }
 
     public function team(){
-    	return view('team');
+
+        $founder            = Team::where('type', '=', 'FEC')->get();
+        $organization       = Team::where('type', '=', 'Honorable')->get();
+        $represent          = Team::where('type', '=', 'Representative')->get();
+        $about              = About::first();
+        $founders           = Team::first();
+        // return response($founder);
+    	return view('team', [
+            'founder'           => $founder,
+            'organization'      => $organization,
+            'represent'         => $represent,
+            'about'             => $about,
+            'founders'          => $founders
+        ]);
     }
 
     public function csr(){
@@ -70,8 +86,10 @@ class FrontController extends Controller
     }
 
     public function csrdetail(Csr $csr){
+        $csrs       = Csr::Limit(3)->get();
     	return view('csrdetail',[
-    		'csr'	=> $csr
+    		'csr'	=> $csr,
+            'csrs'  => $csrs,
     	]);
     }
 
@@ -94,8 +112,10 @@ class FrontController extends Controller
     }
 
     public function businessdetail(Business $business){
+        $businesses = Business::limit(3)->get();
     	return view('businessdetail',[
-    		'business'  => $business
+    		'business'  => $business,
+            'businesses' => $businesses,
     	]);
     }
 
@@ -109,23 +129,29 @@ class FrontController extends Controller
     public function blog(){
     	$blogs   = Blog::orderBy('created_at','desc')->paginate(6);
         $blogcategorys   = Blogcategory::all();
+        $tags           = Tag::all();
     	return view('blog',[
     		'blogs'  => $blogs,
-            'blogcategorys'    => $blogcategorys
+            'blogcategorys'    => $blogcategorys,
+            'tags'              => $tags
     	]);
     }
 
     public function blogdetail(Blog $blog){
         $blogs  = Blog::limit(3)->orderBy('id', 'desc')->get();
         $blogcategorys   = Blogcategory::all();
+        $tags           = Tag::all();
     	return view('blogdetail',[
             'blog'      => $blog,
             'blogs'     => $blogs,
-            'blogcategorys'    => $blogcategorys
+            'blogcategorys'    => $blogcategorys,
+            'tags'              => $tags
     	]);
     }
 
     public function contact() {
-    	return view('contact');
+    	return view('contact',[
+            'contact'  => $contact,
+        ]);
     }
 }

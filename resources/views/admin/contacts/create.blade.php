@@ -8,10 +8,10 @@
         <!--BEGIN BREADCRUMB-->
         <div class="breadcrumb-pageheader">
             <ol class="breadcrumb sm-breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ action('IndexdataController@index') }}">DataTable</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Edit Index Data Form</li>
+                <li class="breadcrumb-item"><a href="{{ action('ContactController@index') }}">DataTable</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Add New Contact Us Form</li>
             </ol>
-            <h6 class="sm-pagetitle--style-1 has_page_title">Edit Index Data Form</h6>
+            <h6 class="sm-pagetitle--style-1 has_page_title">Add New Contact Us Form</h6>
         </div>
 
 		<div class="sm-content">
@@ -42,31 +42,20 @@
 		                            </a>
 		                        </div>
 		                        <h6 class="sm-header">
-		                            Edit Index Data Form
+		                            Contact Us Form
 		                        </h6>
 		                    </div>
 		                    <div class="sm-box">
-		                    	@include('errors.list')
-		                    	<form class="form-default" action="{{ action('IndexdataController@update', $indexdata->id) }}" method="post" enctype="multipart/form-data">
+		                    	<form  action="{{ action('ContactController@store') }}" method="post" enctype="multipart/form-data">
 		                    	{{ csrf_field() }}
-
-								<input type="hidden" name="_method" value="PUT">
 
 		                            <hr class="m-t-0">
 		                            <div class="row">
 		                                <div class="col-12">
 		                                    <div class="form-group">
-		                                        <label for="title">Title</label>
-		                                       <input type="text" name="title" class="form-control" value="{{ $indexdata->title }}">
-		                                    </div>
-		                                </div>
-		                            </div>
-
-		                            <div class="row">
-		                                <div class="col-lg-12">
-		                                    <div class="form-group has-feedback">
-		                                        <label for="description">Description</label>
-												<textarea type="text" class="form-control" name="description">{{ $indexdata->description }}</textarea>
+		                                        <label for="address">Address</label>
+		                                        <input name="address" placeholder="Enter Address "
+		                                               type="text" class="form-control">
 		                                    </div>
 		                                </div>
 		                            </div>
@@ -74,8 +63,9 @@
 									<div class="row">
 		                                <div class="col-12">
 		                                    <div class="form-group">
-		                                        <label for="project">Total Project</label>
-		                                        <input type="text" name="project" class="form-control" value="{{ $indexdata->project }}">
+		                                        <label for="phone">Phone Number</label>
+		                                        <input name="phone" placeholder="Example Phone number "
+		                                               type="text" class="form-control">
 		                                    </div>
 		                                </div>
 		                            </div>
@@ -83,8 +73,9 @@
 		                            <div class="row">
 		                                <div class="col-12">
 		                                    <div class="form-group">
-		                                        <label for="staff">Total Staff</label>
-		                                        <input type="text" name="staff" class="form-control" value="{{ $indexdata->staff }}">
+		                                        <label for="email">Email</label>
+		                                        <input name="mail" placeholder="Example email "
+		                                               type="text" class="form-control">
 		                                    </div>
 		                                </div>
 		                            </div>
@@ -92,24 +83,16 @@
 		                            <div class="row">
 		                                <div class="col-12">
 		                                    <div class="form-group">
-		                                        <label for="investment">Total Investment</label>
-		                                        <input type="text" name="investment" class="form-control" value="{{ $indexdata->investment }}">
-		                                    </div>
-		                                </div>
-		                            </div>
-
-		                            <div class="row">
-		                                <div class="col-12">
-		                                    <div class="form-group">
-		                                        <label for="taxation">Total Taxation</label>
-		                                        <input type="text" name="taxation" class="form-control" value="{{ $indexdata->taxation }}">
+		                                        <label for="office">Office Hours</label>
+		                                        <input name="office" placeholder="Example office hours "
+		                                               type="text" class="form-control">
 		                                    </div>
 		                                </div>
 		                            </div>
 
 		                            <div class="row m-t-20">
 		                                <div class="col-lg-12">
-		                                    <input type="submit" class="btn btn-primary" value="Update">
+		                                    <input type="submit" class="btn btn-primary" value="Add New">
 		                                </div>
 		                            </div>
 		                        </form>

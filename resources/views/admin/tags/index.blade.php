@@ -50,9 +50,8 @@
                                 
 
                                 <div id="toolbar" style="margin-bottom: 10px;">
-                                    <button id="remove" class="btn btn-warning">
-                                        <i class="ion-ios-plus"></i><a href="{{ action('TagController@create') }}"> Add New
-                                    </a></button>
+                                    <a id="remove" class="btn btn-warning" href="{{ action('TagController@create') }}"><i class="ion-ios-plus"></i> Add New
+                                    </a>
                                 </div>
                                 
 

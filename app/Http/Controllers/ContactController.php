@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Contact;
 use Illuminate\Http\Request;
 
+use Carbon\Carbon;
+
 class ContactController extends Controller
 {
     /**
@@ -14,7 +16,11 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        $contacts = Contact::all();
+       return view('admin.contacts.index',[
+            'contacts'          => $contacts,
+            'mainteam'           => 'active',
+        ]);
     }
 
     /**
@@ -24,7 +30,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.contacts.create');
     }
 
     /**
@@ -35,7 +41,15 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $contact = new Contact;
+
+        $contact->address                   = $request->address;
+        $contact->phone                     = $request->phone;
+        $contact->mail                      = $request->mail;
+        $contact->office                    = $request->office;
+        $contact->save();
+
+        return redirect('admin/contact');
     }
 
     /**
@@ -55,9 +69,14 @@ class ContactController extends Controller
      * @param  \App\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contact $contact)
+    public function edit($id)
     {
-        //
+        $contact = Contact::find($id);
+
+        return view('admin.contacts.edit',[
+
+            'contact' => $contact
+             ]);
     }
 
     /**
@@ -67,9 +86,16 @@ class ContactController extends Controller
      * @param  \App\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contact $contact)
+    public function update(Request $request, $id)
     {
-        //
+        $contact = Contact::find($id);
+        $contact->address               = $request->address;
+        $contact->mail                  = $request->mail;
+        $contact->phone                 = $request->phone;
+        $contact->office                = $request->office;
+        $contact->save();
+
+        return redirect('admin/contact');
     }
 
     /**
@@ -78,8 +104,11 @@ class ContactController extends Controller
      * @param  \App\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contact $contact)
+    public function destroy($id)
     {
-        //
+        $indexdata = Indexdata::find($id);
+      $indexdata->delete();
+
+      return redirect('admin/indexdata');
     }
 }

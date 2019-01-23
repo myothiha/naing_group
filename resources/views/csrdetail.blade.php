@@ -36,7 +36,7 @@
 
             <div class="row">
                 @foreach($csr->csrimages as $image)
-                <div class="col-md-3 col-6 item">
+                <div class="col-md-3 col-6 item my-3">
                     <a class="lightbox" href="{{ $image->image }}" data-aos="fade-left">
                         <img class="img-fluid image scale-on-hover" src="{{ $image->image }}">
                     </a>
@@ -53,36 +53,22 @@
         <div class="container my-4">
             <h6 class="text-white" data-aos="fade-down">RELATED Our Business</h6>
             <div class="row" data-aos="fade-up">
+                @foreach($csrs as $csr)
                 <div class="col-md-4">
                     <a href="">
-                        <img src="images/detail-01.jpg" alt="" class="img-fluid border border-secondary">
+                        <img src="{{ $csr->image }}" alt="" class="img-fluid border border-secondary">
                         <div class="date-tiem">
                             <div class="date-ico"><i class="fas fa-calendar-alt"></i></div>
-                            <div class="time"><span class="date">21</span> <span class="text-white">Dec 2018</span></div>
+                            <div class="time"><span class="date">{{ $csr->created_at }}</span> <span class="text-white"></span></div>
                         </div>
 
-                        <h6 class="text-white my-3">RELATED CSR TITLE</h6>
-                        <p class="text-white">Asperiores, tenetur, blanditiis, quaerat odit ex exercitationem pariatur quibusdam veritatis quisquam</p>
+                        <h6 class="text-white my-3">{{ $csr->title }}</h6>
+                        <p class="text-white">{{ $csr->description }}</p>
                     </a>
                 </div>
-                <div class="col-md-4">
-                    <img src="images/detail-01.jpg" alt="" class="img-fluid border border-secondary">
-                    <div class="date-tiem">
-                        <div class="date-ico"><i class="fas fa-calendar-alt"></i></div>
-                        <div class="time"><span class="date">21</span> <span class="text-white">Dec 2018</span></div>
-                    </div>
-                    <h6 class="text-white my-3">RELATED CSR TITLE</h6>
-                    <p class="text-white">Asperiores, tenetur, blanditiis, quaerat odit ex exercitationem pariatur quibusdam veritatis quisquam</p>
-                </div>
-                <div class="col-md-4">
-                    <img src="images/detail-01.jpg" alt="" class="img-fluid border border-secondary">
-                    <div class="date-tiem">
-                        <div class="date-ico"><i class="fas fa-calendar-alt"></i></div>
-                        <div class="time"><span class="date">21</span> <span class="text-white">Dec 2018</span></div>
-                    </div>
-                    <h6 class="text-white my-3">RELATED CSR TITLE</h6>
-                    <p class="text-white">Asperiores, tenetur, blanditiis, quaerat odit ex exercitationem pariatur quibusdam veritatis quisquam</p>
-                </div>
+
+                @endforeach
+                
             </div>
         </div>
     </section>

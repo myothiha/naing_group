@@ -10,7 +10,7 @@
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                 <li class="breadcrumb-item active" aria-current="page">DataTables</li>
             </ol>
-            <h6 class="sm-pagetitle--style-1 has_page_title">DataTables Blogs</h6>
+            <h6 class="sm-pagetitle--style-1 has_page_title">DataTables Our People</h6>
         </div>
         <!--END BREADCRUMB-->
 
@@ -43,16 +43,15 @@
                                     </a>
                                 </div>
                                 <h6 class="sm-header">
-                                    DataTables Blogs
+                                    DataTables Our People
                                 </h6>
                             </div>
                             <div class="sm-box">
                                 
 
                                 <div id="toolbar" style="margin-bottom: 10px;">
-                                    <button id="remove" class="btn btn-warning">
-                                        <i class="ion-ios-plus"></i><a href="{{ action("TeamController@create") }}"> Add New
-                                    </a></button>
+                                        <a id="remove" class="btn btn-warning" href="{{ action('TeamController@create') }}"><i class="ion-ios-plus"></i> Add New
+                                    </a>
                                 </div>
                                 
 
@@ -60,10 +59,11 @@
                                     <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Team Category</th>
+                                        <th>Type</th>
                                         <th>Photo</th>
                                         <th>Position</th>
                                         <th>Name</th>
+                                        <th>Biography</th>
                                         <th>Facebook</th>
                                         <th>Google</th>
                                         <th>Twitter</th>
@@ -76,10 +76,11 @@
 
                                             <tr class="odd gradeX">
                                                 <td>{{ $no++ }}</td>
-                                                <td>{{ $team->teamcategories->title }}</td>
+                                                <td>{{ $team->type }}</td>
                                                 <td width="15%"><img src="{{ $team->image }}" class="img-fluid"></td>
                                                 <td>{{ $team->position }}</td>
                                                 <td>{{ $team->name }}</td>
+                                                <td>{{ $team->biography }}</td>
                                                 <td>{{ $team->facebook }}</td>
                                                 <td>{{ $team->google }}</td>
                                                 <td>{{ $team->twitter }}</td>
