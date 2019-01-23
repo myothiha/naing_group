@@ -11,6 +11,7 @@ class RoomController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Project $project
      * @return \Illuminate\Http\Response
      */
     public function index(Project $project)
@@ -26,6 +27,7 @@ class RoomController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     * @param Project $project
      * @return \Illuminate\Http\Response
      */
     public function create(Project $project)
@@ -38,7 +40,8 @@ class RoomController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
+     * @param Project $project
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, Project $project)
@@ -74,10 +77,11 @@ class RoomController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Room  $room
+     * @param  \App\Room $room
+     * @param Project $project
      * @return \Illuminate\Http\Response
      */
-    public function edit(Room $room, Project $project)
+    public function edit(Project $project, Room $room)
     {
         return view('admin.room.edit', [
             'project' => $project,
@@ -88,8 +92,9 @@ class RoomController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Room  $room
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Room $room
+     * @param Project $project
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Room $room, Project $project)
@@ -105,19 +110,21 @@ class RoomController extends Controller
         $room->project_id   = $request->project_id ?? '';
         $room->save();
 
-        return redirect("admin/project/$request->project_id/room");
+        return redirect("admin/project/{$request->project_id}/room");
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Room  $room
+     * @param Request $request
+     * @param  \App\Room $room
+     * @param Project $project
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
-    public function destroy(Room $room, Project $project)
+    public function destroy(Request $request, Project $project, Room $room)
     {
         $room->delete();
-
-        return redirect("admin/project/$request->project_id/room");
+        return redirect("admin/project/{$project->id}/room");
     }
 }

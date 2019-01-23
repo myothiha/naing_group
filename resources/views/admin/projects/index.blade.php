@@ -102,6 +102,10 @@
                                                         method="Post">
                                                         <input type="hidden" name="_method" value="delete">
                                                         {{ csrf_field() }}
+
+                                                        <a class="btn btn-warning"
+                                                           href="{{action('RoomController@index',        $project->id) }}">Rooms</a>
+
                                                         <a class="btn btn-warning"
                                                            href="{{action('ProjectController@edit',        $project->id) }}">Edit</a>
 

@@ -68,6 +68,7 @@ class ProjectController extends Controller
 
         $project->name = $request->name ?? '';
         $project->description = $request->description ?? '';
+        $project->floor = $request->floor ?? 5;
         $project->price = $request->price ?? '';
         $project->project_status_id = $request->project_status_id ?? '';
         $project->project_type_id = $request->project_type_id ?? '';
@@ -76,7 +77,6 @@ class ProjectController extends Controller
         $project->banner_image = $imagePathBanner ?? '';
         $project->map = $request->map ?? '';
         $project->save();
-
 
         return redirect('admin/project');
     }
