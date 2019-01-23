@@ -97,13 +97,18 @@
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    <form
-                                                        action="{{ action('ProjectController@destroy',        $project->id) }}"
-                                                        method="Post">
+                                                    <form action="{{ action('ProjectController@destroy', $project->id) }}"
+                                                          method="Post">
+
                                                         <input type="hidden" name="_method" value="delete">
+
                                                         {{ csrf_field() }}
+
                                                         <a class="btn btn-warning"
-                                                           href="{{action('ProjectController@edit',        $project->id) }}">Edit</a>
+                                                           href="{{action('RoomController@index', $project->id) }}">Rooms</a>
+
+                                                        <a class="btn btn-warning"
+                                                           href="{{action('ProjectController@edit', $project->id) }}">Edit</a>
 
                                                         <input type="submit" class="btn btn-danger" value="Delete">
                                                     </form>

@@ -42,6 +42,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $file_status
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Project whereFileStatus($value)
  * @property-read \App\ProjectFile $projectFile
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Room[] $rooms
+ * @property int $floor
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Project whereFloor($value)
  */
 class Project extends Model
 {
@@ -69,7 +72,6 @@ class Project extends Model
     {
         return $this->belongsToMany('App\ProjectFacilities', 'project_project_facilities', 'project_id', 'project_facilities_id');
     }
-
 
     public function updateFileStatus($status)
     {

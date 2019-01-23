@@ -146,22 +146,22 @@
                     </div>
                     <div class="row my-2 justify-content-end">
                         <div class="col-md-2 col-6 my-2">
-                            <span class='numscroller' data-min='1' data-max='6' data-delay='0.7' data-increment='1'>{{ $indexdata->project }}</span>
+                            <span class='numscroller' data-min='1' data-max='{{ $indexdata->project }}' data-delay='0.7' data-increment='1'></span>
                             <img src="/images/project-icon01.png" alt="" class="project-icon">
                             <p class="project-text">Total Project</p>
                         </div>
                         <div class="col-md-2 col-6 my-2">
-                            <span class='numscroller' data-min='1' data-max='6' data-delay='0.7' data-increment='1'>{{ $indexdata->staff }}</span>
+                            <span class='numscroller' data-min='1' data-max='{{ $indexdata->staff }}' data-delay='0.7' data-increment='1'></span>
                             <img src="/images/project-icon02.png" alt="" class="project-icon">
                             <p class="project-text">Total Staffs</p>
                         </div>
                         <div class="col-md-2 col-6 my-2">
-                            <span class='numscroller' data-min='1' data-max='10' data-delay='0.7' data-increment='1'>{{ $indexdata->investment }}</span>
+                            <span class='numscroller' data-min='1' data-max='{{ $indexdata->investment }}' data-delay='0.7' data-increment='1'></span>
                             <img src="/images/project-icon03.png" alt="" class="project-icon">
                             <p class="project-text">Our Investments </p>
                         </div>
                         <div class="col-md-2 col-6 my-2">
-                            <span class='numscroller' data-min='1' data-max='20' data-delay='0.7' data-increment='1'>{{ $indexdata->taxation }}</span>
+                            <span class='numscroller' data-min='1' data-max='{{ $indexdata->taxation }}' data-delay='0.7' data-increment='1'></span>
                             <img src="/images/project-icon04.png" alt="" class="project-icon">
                             <p class="project-text">Total Taxation</p>
                         </div>

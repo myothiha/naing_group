@@ -17,6 +17,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\RoomStatus whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\RoomStatus whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string $name
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\RoomStatus whereName($value)
  */
 class RoomStatus extends Model
 {

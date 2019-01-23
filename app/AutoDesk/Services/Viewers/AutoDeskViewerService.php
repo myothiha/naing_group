@@ -85,13 +85,15 @@ class AutoDeskViewerService implements ViewerServiceInterface
     /**
      * @param $view
      * @param $projectFile
+     * @param array $param
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function render($view, $projectFile)
+    public function render($view, $projectFile, $param = [])
     {
         return view($view, [
             'urn' => $projectFile->urn,
             'access_token' => $this->getToken(),
+            $param,
         ]);
     }
 

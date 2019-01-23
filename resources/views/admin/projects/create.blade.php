@@ -97,7 +97,16 @@
 		                                    </div>
 		                                </div>
 		                            </div>
-									
+
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="floor">Floor</label>
+                                                <input name="floor" placeholder="Enter total Number of Floor For that Project"
+                                                       type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
 
 		                            <div class="row">
 		                                <div class="col-12">
@@ -159,8 +168,7 @@
                                         	<label for="status">Facility</label>
                                         	@foreach($facilities as $facility)
                                             <div class="checkbox">
-
-                                                <input type="checkbox" id="chkRemember" name="facilities[]" value="{{ $facility->id }}" checked>
+                                                <input type="checkbox" id="chkRemember" name="facilities[]" value="{{ $facility->id }}">
                                                 <label for="chkRemember">{{ $facility->name }}</label>
                                             </div>
                                              @endforeach

@@ -20,11 +20,12 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects      = Project::orderBy('created_at', 'desc')->paginate(10);
-        return view('admin.projects.index',[
-            'projects'          => $projects,
-            'mainproject'       => 'active',
-            ]);
+        $projects = Project::orderBy('created_at', 'desc')->paginate(10);
+
+        return view('admin.projects.index', [
+            'projects' => $projects,
+            'mainproject' => 'active',
+        ]);
     }
 
     /**
@@ -34,49 +35,48 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        $facilities                 = ProjectFacilities::all();
-        $cities                     = City::all();
-        $project_statuses           = ProjectStatus::all();
-        $project_types              = ProjectType::all();
-        return view('admin.projects.create',[
-            'facilities'            => $facilities,
-            'cities'                => $cities,
-            'project_statuses'      => $project_statuses,
-            'project_types'         => $project_types,
-            ]);
+        $facilities = ProjectFacilities::all();
+        $cities = City::all();
+        $project_statuses = ProjectStatus::all();
+        $project_types = ProjectType::all();
+        return view('admin.projects.create', [
+            'facilities' => $facilities,
+            'cities' => $cities,
+            'project_statuses' => $project_statuses,
+            'project_types' => $project_types,
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        if($request->file('feature_image')){
+        if ($request->file('feature_image')) {
 
-        $imagePath = Image::upload( $request->file('feature_image') , '/uploads/projects/');
+            $imagePath = Image::upload($request->file('feature_image'), '/uploads/projects/');
         }
 
-        if($request->file('banner_image')){
+        if ($request->file('banner_image')) {
 
-        $imagePathBanner = Image::upload( $request->file('banner_image') , '/uploads/banner');
+            $imagePathBanner = Image::upload($request->file('banner_image'), '/uploads/banner');
         }
         $project = new Project;
 
-        $project->name                              = $request->name ?? '';
-        $project->description                       = $request->description ?? '';
-        $project->price                             = $request->price ?? '';
-        $project->project_status_id                 = $request->project_status_id ?? '';
-        $project->project_type_id                   = $request->project_type_id ?? '';
-        $project->city_id                           = $request->city_id ?? '';
-        $project->feature_image                     = $imagePath ?? '';
-        $project->banner_image                      = $imagePathBanner ?? '';
-        $project->map                               = $request->map ?? '';
+        $project->name = $request->name ?? '';
+        $project->description = $request->description ?? '';
+        $project->floor = $request->floor ?? 5;
+        $project->price = $request->price ?? '';
+        $project->project_status_id = $request->project_status_id ?? '';
+        $project->project_type_id = $request->project_type_id ?? '';
+        $project->city_id = $request->city_id ?? '';
+        $project->feature_image = $imagePath ?? '';
+        $project->banner_image = $imagePathBanner ?? '';
+        $project->map = $request->map ?? '';
         $project->save();
-
-       
 
         return redirect('admin/project');
     }
@@ -84,7 +84,7 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Project  $project
+     * @param  \App\Project $project
      * @return \Illuminate\Http\Response
      */
     public function show(Project $project)
@@ -95,63 +95,58 @@ class ProjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Project  $project
+     * @param  \App\Project $project
      * @return \Illuminate\Http\Response
      */
     public function edit(Project $project)
     {
-        $facilities             = ProjectFacilities::all();
-        $cities                 = City::all();
-        $project_statuses       = ProjectStatus::all();
-        $project_types          = ProjectType::all();
-        return view('admin.projects.edit',[
-            'facilities'            => $facilities,
-            'cities'                => $cities,
-            'project_statuses'      => $project_statuses,
-            'project_types'         => $project_types,
-            'project'               => $project,
-            ]);
+        $facilities = ProjectFacilities::all();
+        $cities = City::all();
+        $project_statuses = ProjectStatus::all();
+        $project_types = ProjectType::all();
+        return view('admin.projects.edit', [
+            'facilities' => $facilities,
+            'cities' => $cities,
+            'project_statuses' => $project_statuses,
+            'project_types' => $project_types,
+            'project' => $project,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Project  $project
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Project $project
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Project $project)
     {
-         if($request->file('feature_image')){
+        if ($request->file('feature_image')) {
 
-        $imagePath = Image::upload( $request->file('feature_image') , '/uploads/projects/');
-        }
-        else
-        {
+            $imagePath = Image::upload($request->file('feature_image'), '/uploads/projects/');
+        } else {
             $imagePath = $request->prev_image;
         }
 
-        if($request->file('banner_image')){
+        if ($request->file('banner_image')) {
 
-        $imagePathBanner = Image::upload( $request->file('banner_image') , '/uploads/banner');
-        }
-        else
-        {
+            $imagePathBanner = Image::upload($request->file('banner_image'), '/uploads/banner');
+        } else {
             $imagePathBanner = $request->prev_image;
         }
-        
-        $project->name                              = $request->name ?? '';
-        $project->description                       = $request->description ?? '';
-        $project->price                             = $request->price ?? '';
-        $project->project_status_id                 = $request->project_status_id ?? '';
-        $project->project_type_id                   = $request->project_type_id ?? '';
-        $project->city_id                           = $request->city_id ?? '';
-        $project->feature_image                     = $imagePath ?? '';
-        $project->banner_image                      = $imagePathBanner ?? '';
-        $project->map                               = $request->map ?? '';
+
+        $project->name = $request->name ?? '';
+        $project->description = $request->description ?? '';
+        $project->price = $request->price ?? '';
+        $project->project_status_id = $request->project_status_id ?? '';
+        $project->project_type_id = $request->project_type_id ?? '';
+        $project->city_id = $request->city_id ?? '';
+        $project->feature_image = $imagePath ?? '';
+        $project->banner_image = $imagePathBanner ?? '';
+        $project->map = $request->map ?? '';
         $project->save();
 
-       
 
         return redirect('admin/project');
     }
@@ -159,7 +154,7 @@ class ProjectController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Project  $project
+     * @param  \App\Project $project
      * @return \Illuminate\Http\Response
      */
     public function destroy(Project $project)

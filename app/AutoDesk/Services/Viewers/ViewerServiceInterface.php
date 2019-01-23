@@ -16,6 +16,6 @@ interface ViewerServiceInterface
 {
     function upload($pathToFile, $fileName) : ProjectFile;
     function postSvf(ProjectFile $projectFile);
-    function render($view, $projectFile);
+    function render($view, $projectFile, $param = []);
     function getManifest(ProjectFile $projectFile) : ResponseInterface;
 }

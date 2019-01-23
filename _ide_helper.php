@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.6.39 on 2019-01-17 12:55:32.
+ * Generated for Laravel 5.6.39 on 2019-01-22 17:37:02.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -7131,6 +7131,57 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
+         * Release a reserved job back onto the queue.
+         *
+         * @param string $queue
+         * @param \Illuminate\Queue\Jobs\DatabaseJobRecord $job
+         * @param int $delay
+         * @return mixed 
+         * @static 
+         */ 
+        public static function release($queue, $job, $delay)
+        {
+            return \Illuminate\Queue\DatabaseQueue::release($queue, $job, $delay);
+        }
+        
+        /**
+         * Delete a reserved job from the queue.
+         *
+         * @param string $queue
+         * @param string $id
+         * @return void 
+         * @throws \Exception|\Throwable
+         * @static 
+         */ 
+        public static function deleteReserved($queue, $id)
+        {
+            \Illuminate\Queue\DatabaseQueue::deleteReserved($queue, $id);
+        }
+        
+        /**
+         * Get the queue or return the default.
+         *
+         * @param string|null $queue
+         * @return string 
+         * @static 
+         */ 
+        public static function getQueue($queue)
+        {
+            return \Illuminate\Queue\DatabaseQueue::getQueue($queue);
+        }
+        
+        /**
+         * Get the underlying database instance.
+         *
+         * @return \Illuminate\Database\Connection 
+         * @static 
+         */ 
+        public static function getDatabase()
+        {
+            return \Illuminate\Queue\DatabaseQueue::getDatabase();
+        }
+        
+        /**
          * Get the expiration timestamp for an object-based queue handler.
          *
          * @param mixed $job
@@ -7140,7 +7191,7 @@ namespace Illuminate\Support\Facades {
         public static function getJobExpiration($job)
         {
             //Method inherited from \Illuminate\Queue\Queue            
-            return \Illuminate\Queue\SyncQueue::getJobExpiration($job);
+            return \Illuminate\Queue\DatabaseQueue::getJobExpiration($job);
         }
         
         /**
@@ -7153,7 +7204,7 @@ namespace Illuminate\Support\Facades {
         public static function setContainer($container)
         {
             //Method inherited from \Illuminate\Queue\Queue            
-            \Illuminate\Queue\SyncQueue::setContainer($container);
+            \Illuminate\Queue\DatabaseQueue::setContainer($container);
         }
          
     }

@@ -50,7 +50,7 @@
 
                                 <div id="toolbar" style="margin-bottom: 10px;">
                                     <button id="remove" class="btn btn-warning">
-                                        <i class="ion-ios-plus"></i><a href="{{ action('RoomController@create') }}"> Add New
+                                        <i class="ion-ios-plus"></i><a href="{{ action('RoomTypeController@create') }}"> Add New
                                     </a></button>
                                 </div>
 
@@ -65,16 +65,16 @@
                                     </thead>
                                     <tbody>
                                     <?php $no=1; ?>
-                                        @foreach($rooms as $room)
+                                        @foreach($roomTypes as $roomType)
 
                                             <tr class="odd gradeX">
                                                 <td>{{ $no++ }}</td>
-                                                <td>{{ $room->name }}</td>
+                                                <td>{{ $roomType->name }}</td>
                                                 <td>
-                                                    <form action="{{action('RoomController@destroy',        $room->id) }}" method="Post">
+                                                    <form action="{{action('RoomTypeController@destroy',        $roomType->id) }}" method="Post">
                                                         <input type="hidden" name="_method" value="delete">
                                                         {{ csrf_field() }}
-                                                        <a class="btn btn-warning" href="{{action('RoomController@edit',        $room->id) }}">Edit</a>
+                                                        <a class="btn btn-warning" href="{{action('RoomTypeController@edit',        $roomType->id) }}">Edit</a>
 
                                                         <input type="submit" class="btn btn-danger" value="Delete">
                                                     </form>

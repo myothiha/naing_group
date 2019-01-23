@@ -18,6 +18,10 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\RoomFeature whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\RoomFeature whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string $name
+ * @property string $icon
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\RoomFeature whereIcon($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\RoomFeature whereName($value)
  */
 
 class RoomFeature extends Model

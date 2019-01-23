@@ -2,9 +2,9 @@
 
 @section('content')
 
-@include('layouts.menu')
+    @include('layouts.menu')
 
- <!-- Breadcrumb Bar -->
+    <!-- Breadcrumb Bar -->
     <section class="bg-gray">
         <div class="container pt-2">
             <nav aria-label="breadcrumb">
@@ -24,20 +24,34 @@
         </div>
 
         <div class="row">
+
+            @foreach($projects as $project)
+                <div class="col-md-{{ $project->banner_layout }}">
+                    <figure class="" data-aos="fade-right">
+                        <a href="{{ action('FrontController@projectdetail', $project->id) }}">
+                            <img src="{{ $project->feature_image }}" class="img-fluid"
+                                 alt="A generic square placeholder image with rounded corners in a figure.">
+                            <figcaption class="figure-caption">{{ $project->name }}</figcaption>
+                        </a>
+                    </figure>
+                </div>
+            @endforeach
+
             <div class="col-md-4">
                 <figure class="" data-aos="fade-right">
                     <a href="/projectdetail">
-                        <img src="images/erc.jpg" class="img-fluid" alt="A generic square placeholder image with rounded corners in a figure.">
+                        <img src="images/erc.jpg" class="img-fluid"
+                             alt="A generic square placeholder image with rounded corners in a figure.">
                         <figcaption class="figure-caption">ERC Project</figcaption>
                     </a>
                 </figure>
-
             </div>
 
             <div class="col-md-8">
                 <figure class="" data-aos="fade-left">
                     <a href="">
-                        <img src="images/bridge.jpg" class="img-fluid" alt="A generic square placeholder image with rounded corners in a figure.">
+                        <img src="images/bridge.jpg" class="img-fluid"
+                             alt="A generic square placeholder image with rounded corners in a figure.">
                         <figcaption class="figure-caption">A caption for the above image.</figcaption>
                     </a>
                 </figure>
@@ -46,7 +60,8 @@
             <div class="col-md-8">
                 <figure class="" data-aos="fade-right">
                     <a href="">
-                        <img src="images/hospital.jpg" class="img-fluid" alt="A generic square placeholder image with rounded corners in a figure.">
+                        <img src="images/hospital.jpg" class="img-fluid"
+                             alt="A generic square placeholder image with rounded corners in a figure.">
                         <figcaption class="figure-caption">A caption for the above image.</figcaption>
                     </a>
                 </figure>
@@ -55,7 +70,8 @@
             <div class="col-md-4">
                 <figure class="" data-aos="fade-left">
                     <a href="">
-                        <img src="images/kbz.jpg" class="img-fluid" alt="A generic square placeholder image with rounded corners in a figure.">
+                        <img src="images/kbz.jpg" class="img-fluid"
+                             alt="A generic square placeholder image with rounded corners in a figure.">
                         <figcaption class="figure-caption">ERC Project</figcaption>
                     </a>
                 </figure>
@@ -65,7 +81,8 @@
             <div class="col-md-4">
                 <figure class="" data-aos="fade-left">
                     <a href="">
-                        <img src="images/merchant.jpg" class="img-fluid" alt="A generic square placeholder image with rounded corners in a figure.">
+                        <img src="images/merchant.jpg" class="img-fluid"
+                             alt="A generic square placeholder image with rounded corners in a figure.">
                         <figcaption class="figure-caption">ERC Project</figcaption>
                     </a>
                 </figure>
@@ -75,7 +92,8 @@
             <div class="col-md-8">
                 <figure class="" data-aos="fade-right">
                     <a href="">
-                        <img src="images/gv.jpg" class="img-fluid" alt="A generic square placeholder image with rounded corners in a figure.">
+                        <img src="images/gv.jpg" class="img-fluid"
+                             alt="A generic square placeholder image with rounded corners in a figure.">
                         <figcaption class="figure-caption">A caption for the above image.</figcaption>
                     </a>
                 </figure>
@@ -83,7 +101,8 @@
             <div class="col-md-12">
                 <figure class="" data-aos="fade-down">
                     <a href="">
-                        <img src="images/sule-tower.jpg" class="img-fluid" alt="A generic square placeholder image with rounded corners in a figure.">
+                        <img src="images/sule-tower.jpg" class="img-fluid"
+                             alt="A generic square placeholder image with rounded corners in a figure.">
                         <figcaption class="figure-caption">A caption for the above image.</figcaption>
                     </a>
                 </figure>
