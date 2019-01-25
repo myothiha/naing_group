@@ -17,7 +17,7 @@ class CreateHomeslidesTable extends Migration
             $table->string('title1')->nullable();
             $table->string('title2')->nullable();
             $table->text('image')->nullable();
-            $table->text('url')->nullable();
+            $table->text('link')->nullable();
             $table->timestamps();
         });
     }

@@ -70,6 +70,16 @@
 		                                </div>
 		                            </div>
 
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="form-group ">
+                                                <label for="title2">Link URL</label>
+                                                <input type="text"  name="link"
+                                                       placeholder="Enter URL for Check Button" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+
 		                            <div class="row">
 		                                <div class="col-lg-12">
 		                                    <div class="form-group">

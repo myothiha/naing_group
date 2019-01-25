@@ -13,11 +13,11 @@
                         </div>
 
                         <div class="mx-4">
-                            <i class="fas fa-phone mx-2"><span class="phone">+951 248 082</span></i>
+                            <i class="fas fa-phone mx-2"><span class="phone">{{ $contact->phone }}</span></i>
                         </div>
 
                         <div class="mx-4">
-                            <i class="far fa-envelope-open mx-2"><span class="phone">example@help.com</span></i>
+                            <i class="far fa-envelope-open mx-2"><span class="phone">{{ $contact->mail }}</span></i>
                         </div>
                     </ul>
                 </div>

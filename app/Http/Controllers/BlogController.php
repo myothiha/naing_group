@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Blog;
 use App\Blogcategory;
+use App\Blogimage;
 use App\Tag;
 use Illuminate\Http\Request;
 use App\Util\Uploader\Image;

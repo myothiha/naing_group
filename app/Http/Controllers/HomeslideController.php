@@ -17,11 +17,11 @@ class HomeslideController extends Controller
      */
     public function index()
     {
-        $homeslides      = Homeslide::orderBy('created_at', 'desc')->paginate(10);
-        return view('admin.homeslides.index',[
-            'homeslides'     => $homeslides,
-            'menu'           => 'active',
-            ]);
+        $homeslides = Homeslide::orderBy('created_at', 'desc')->paginate(10);
+        return view('admin.homeslides.index', [
+            'homeslides' => $homeslides,
+            'menu' => 'active',
+        ]);
     }
 
     /**
@@ -37,21 +37,23 @@ class HomeslideController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        if($request->file('image')){
+        if ($request->file('image')) {
 
-        $imagePath = Image::upload( $request->file('image') , '/uploads/homeslides/');
+            $imagePath = Image::upload($request->file('image'), '/uploads/homeslides/');
         }
+
         $homeslide = new Homeslide;
 
-        $homeslide->title1           = $request->title1 ?? '';
-        $homeslide->title2           = $request->title2 ?? '';
-        $homeslide->image            = $imagePath ?? '';
-        $homeslide->save();
+        $homeslide->title1 = $request->title1 ?? '';
+        $homeslide->title2 = $request->title2 ?? '';
+        $homeslide->image = $imagePath ?? '';
+        $homeslide->link = $request->link;
+            $homeslide->save();
 
         return redirect('admin/homeslide');
     }
@@ -59,7 +61,7 @@ class HomeslideController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Homeslide  $homeslide
+     * @param  \App\Homeslide $homeslide
      * @return \Illuminate\Http\Response
      */
     public function show(Homeslide $homeslide)
@@ -70,7 +72,7 @@ class HomeslideController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Homeslide  $homeslide
+     * @param  \App\Homeslide $homeslide
      * @return \Illuminate\Http\Response
      */
     public function edit(Homeslide $homeslide)
@@ -78,30 +80,28 @@ class HomeslideController extends Controller
         return view('admin.homeslides.edit', [
 
             'homeslide' => $homeslide
-            ]);
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Homeslide  $homeslide
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Homeslide $homeslide
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Homeslide $homeslide)
     {
-        if($request->file('image')) 
-        {
-            $imagePath = Image::upload( $request->file('image') , '/uploads/homeslide/');
-        }
-        else
-        {
+        if ($request->file('image')) {
+            $imagePath = Image::upload($request->file('image'), '/uploads/homeslide/');
+        } else {
             $imagePath = $request->prev_image;
         }
 
-        $homeslide->title1          = $request->title1 ?? '';
-        $homeslide->title2          = $request->title2 ?? '';
-        $homeslide->image           = $imagePath ?? '';
+        $homeslide->title1 = $request->title1 ?? '';
+        $homeslide->title2 = $request->title2 ?? '';
+        $homeslide->link = $request->link;
+        $homeslide->image = $imagePath ?? '';
         $homeslide->save();
 
         return redirect('admin/homeslide');
@@ -110,7 +110,7 @@ class HomeslideController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Homeslide  $homeslide
+     * @param  \App\Homeslide $homeslide
      * @return \Illuminate\Http\Response
      */
     public function destroy(Homeslide $homeslide)

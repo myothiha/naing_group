@@ -15,7 +15,7 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-         View::composer('layouts.footer', function ($view) {
+         View::composer('*', function ($view) {
 
             $contact = Contact::find(1);
 

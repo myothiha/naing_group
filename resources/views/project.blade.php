@@ -37,7 +37,7 @@
                 </div>
             @endforeach
 
-            <div class="col-md-4">
+            {{--<div class="col-md-4">
                 <figure class="" data-aos="fade-right">
                     <a href="/projectdetail">
                         <img src="images/erc.jpg" class="img-fluid"
@@ -46,7 +46,6 @@
                     </a>
                 </figure>
             </div>
-
             <div class="col-md-8">
                 <figure class="" data-aos="fade-left">
                     <a href="">
@@ -56,7 +55,6 @@
                     </a>
                 </figure>
             </div>
-
             <div class="col-md-8">
                 <figure class="" data-aos="fade-right">
                     <a href="">
@@ -66,7 +64,6 @@
                     </a>
                 </figure>
             </div>
-
             <div class="col-md-4">
                 <figure class="" data-aos="fade-left">
                     <a href="">
@@ -77,7 +74,6 @@
                 </figure>
 
             </div>
-
             <div class="col-md-4">
                 <figure class="" data-aos="fade-left">
                     <a href="">
@@ -88,7 +84,6 @@
                 </figure>
 
             </div>
-
             <div class="col-md-8">
                 <figure class="" data-aos="fade-right">
                     <a href="">
@@ -106,7 +101,7 @@
                         <figcaption class="figure-caption">A caption for the above image.</figcaption>
                     </a>
                 </figure>
-            </div>
+            </div>--}}
 
         </div>
 
