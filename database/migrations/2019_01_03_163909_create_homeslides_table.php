@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
@@ -18,6 +17,7 @@ class CreateHomeslidesTable extends Migration
             $table->string('title1')->nullable();
             $table->string('title2')->nullable();
             $table->text('image')->nullable();
+            $table->text('url')->nullable();
             $table->timestamps();
         });
     }
