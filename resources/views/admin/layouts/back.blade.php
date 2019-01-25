@@ -141,6 +141,11 @@
                         </a>
                     </li>
                     <li class="menu__item" role="menuitem">
+                        <a class="menu__link" href="/admin/room-features">
+                            <i class="icon ion-ios-albums-outline"></i> Room Feature
+                        </a>
+                    </li>
+                    <li class="menu__item" role="menuitem">
                         <a class="menu__link" href="/admin/city">
                             <i class="icon ion-ios-alarm-outline"></i> City
                         </a>
@@ -405,6 +410,12 @@
                                                             <a class="dropdown-item"
                                                                href="/admin/gallery">
                                                                 Projects Gallery
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="dropdown-item"
+                                                               href="/admin/room-features">
+                                                                Room Feature
                                                             </a>
                                                         </li>
                                                        

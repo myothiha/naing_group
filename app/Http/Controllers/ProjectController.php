@@ -78,8 +78,9 @@ class ProjectController extends Controller
         $project->map = $request->map ?? '';
         $project->priority = $request->priority;
         $project->layout   = $request->layout ?? 4;
-
+        $facilities        = $request->facilities;    
         $project->save();
+        $project->facilities()->sync($facilities);
 
         return redirect('admin/project');
     }
@@ -150,7 +151,10 @@ class ProjectController extends Controller
         $project->map = $request->map ?? '';
         $project->priority = $request->priority;
         $project->layout   = $request->layout ?? 4;
+        $facilities        = $request->facilities; 
         $project->save();
+
+        $project->facilities()->sync($facilities);
 
 
         return redirect('admin/project');

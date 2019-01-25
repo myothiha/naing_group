@@ -49,7 +49,6 @@
                                           action="{{ action('RoomController@update', [ $project->id, $room->id]) }}"
                                           method="post" enctype="multipart/form-data">
                                         {{ csrf_field() }}
-
                                         <input type="hidden" name="_method" value="PUT">
 
                                         <hr class="m-t-0">
@@ -140,6 +139,18 @@
     		                                    </div>
     		                                </div>
     		                            </div>
+                                         <div class="row">
+                                            <div class="col-lg-12">
+                                                <label for="status">Facility</label>
+                                                @foreach($roomfeatures as $roomfeature)
+                                                    <div class="checkbox">
+                                                        <input type="checkbox" id="chkRemember" name="roomfeature[]"
+                                                               value="{{ $roomfeature->id }}">
+                                                        <label for="chkRemember">{{ $roomfeature->name }}</label>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
 
                                         <div class="row m-t-20">
                                             <div class="col-lg-12">

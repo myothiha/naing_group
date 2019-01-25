@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Project;
 use App\Room;
+use App\RoomFeature;
 
 class RoomController extends Controller
 {
@@ -32,8 +33,10 @@ class RoomController extends Controller
      */
     public function create(Project $project)
     {
+        $roomfeatures = RoomFeature::get();
         return view('admin.rooms.create', [
-            'project' => $project
+            'project' => $project,
+            'roomfeatures' => $roomfeatures,
         ]);
     }
 
@@ -57,7 +60,10 @@ class RoomController extends Controller
         $room->floor = $request->floor ?? '';
         $room->video = $request->video ?? '';
         $room->project_id = $request->project_id ?? '';
+
         $room->save();
+
+        $room->feature()->sync($request->roomfeature);
 
         return redirect("admin/project/$request->project_id/room");
     }
@@ -82,9 +88,12 @@ class RoomController extends Controller
      */
     public function edit(Project $project, Room $room)
     {
+        $roomfeatures = RoomFeature::get();
+
         return view('admin.rooms.edit', [
             'project' => $project,
-            'room' => $room
+            'room' => $room,
+            'roomfeatures' => $roomfeatures
         ]);
     }
 
@@ -108,6 +117,8 @@ class RoomController extends Controller
         $room->video = $request->video ?? '';
         $room->project_id = $project->id ?? '';
         $room->save();
+        $room->feature()->sync($request->roomfeature);
+
 
         return redirect("admin/project/{$request->project_id}/room");
     }

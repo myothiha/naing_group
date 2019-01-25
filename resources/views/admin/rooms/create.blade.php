@@ -109,6 +109,7 @@
 		                                    </div>
 		                                </div>
 		                            </div>
+
                                     <div class="row">
 		                                <div class="col-12">
 		                                    <div class="form-group">
@@ -118,12 +119,14 @@
 		                                    </div>
 		                                </div>
 		                            </div>
+                                    @php  $f = $project->floor @endphp  
+
                                     <div class="row">
 		                                <div class="col-12">
 		                                    <div class="form-group">
 		                                        <label for="floor">Floor</label>
 		                                        	<select name="floor" class = "form-control">
-		                                        		@for($i=1; $i<=8 ; $i++ )
+		                                        		@for($i=1; $i<=$f ; $i++ )
 		                                        		<option value="{{ $i }}"> {{ $i }}  Floor </option>
 		                                        	    @endfor
 		                                        	</select>
@@ -139,6 +142,18 @@
 		                                    </div>
 		                                </div>
 		                            </div>
+		                            <div class="row">
+                                            <div class="col-lg-12">
+                                                <label for="status">Facility</label>
+                                                @foreach($roomfeatures as $roomfeature)
+                                                    <div class="checkbox">
+                                                        <input type="checkbox" id="chkRemember" name="roomfeature[]"
+                                                               value="{{ $roomfeature->id }}">
+                                                        <label for="chkRemember">{{ $roomfeature->name }}</label>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
 
 		                            <div class="row m-t-20">
 		                                <div class="col-lg-12">
