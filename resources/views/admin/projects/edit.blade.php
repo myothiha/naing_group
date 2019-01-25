@@ -119,6 +119,29 @@
 		                            </div>
 
 		                            <div class="row">
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label for="priority">Priority</label>
+                                                    <input name="priority" placeholder="Priority"
+                                                           type="text" class="form-control" value = " {{ $project->priority}} ">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label for="layout">Layout</label>
+                                                    <select name="layout" class="form-control" type="select">
+                                                        <option value="4">4 Column</option>
+                                                        <option value="8">8 Column</option>
+                                                        <option value="12">12 Column</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+		                            <div class="row">
 		                                <div class="col-12">
 		                                    <div class="form-group">
 		                                        <label for="city">City</label>

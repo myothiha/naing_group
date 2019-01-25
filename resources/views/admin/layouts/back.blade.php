@@ -47,8 +47,8 @@
                         <img src="http://via.placeholder.com/128x128" class="img-circle rounded-circle" alt="perfectin.co"/>
                     </div>
                     <div class="profile-user-info">
-                        <span class="profile-user-name">Administrator</span>
-                        <span class="profile-user-email">Perfectin</span>
+                        <span class="profile-user-name"> {{ \Illuminate\Support\Facades\Auth::user()->name ?? '' }}</span>
+                        <!-- <span class="profile-user-email">Perfectin</span> -->
                     </div>
                 </div>
             </div>
@@ -159,11 +159,7 @@
                 </ul>
                 <ul data-menu="submenu-3" id="submenu-3" class="menu__level" tabindex="-1" role="menu"
                     aria-label="Pages">
-                    <li class="menu__item" role="menuitem">
-                        <a class="menu__link" href="/admin/teamcategory">
-                            <i class="icon ion-ios-paper-outline"></i> Teams Gategory
-                        </a>
-                    </li>
+                   
                     <li class="menu__item" role="menuitem">
                         <a class="menu__link" href="/admin/team">
                             <i class="icon ion-log-in"></i> Our Teams
@@ -189,7 +185,7 @@
                         </a>
                     </li>
                     <li class="menu__item" role="menuitem">
-                        <a class="menu__link" href="sm_scrumboard.html">
+                        <a class="menu__link" href="/admin/blog">
                             <i class="icon ion-ios-rose-outline"></i> Blog
                         </a>
                     </li>
@@ -212,13 +208,12 @@
                                         <div class="aux-text d-none d-md-inline-block">
                                             <ul class="inline-links inline-links--style-1">
                                                 <li class="d-none d-lg-inline-block">
-                                                    <a href="javascript:void(0)"><i class="fa fa-phone"></i> +91 915 954
-                                                        7048</a>
+                                                    <a href="javascript:void(0)"><i class="fa fa-phone"></i> +95 09-</a>
                                                 </li>
                                                 <li>
-                                                    <a href="http://perfectin.co/" target="_blank"><i
+                                                    <a href="#" target="_blank"><i
                                                             class="fa fa-globe"></i>
-                                                        perfectin.co</a>
+                                                        Naing Group </a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -241,7 +236,7 @@
                                                        data-hover="dropdown"
                                                        aria-expanded="false">
                                                         <span class="dropdown-text strong-600 d-none d-lg-inline-block d-xl-inline-block">
-                                                            <i class="fa fa-user"></i> Admin
+                                                            <i class="fa fa-user"></i>   {{ \Illuminate\Support\Facades\Auth::user()->name ?? '' }}
                                                         </span>
                                                         <span class="dropdown-text strong-600 d-xl-none d-lg-none d-md-inline-block">
                                                             <i class="fa fa-user"></i>
@@ -260,9 +255,17 @@
                                                             <i class="ion-ios-gear-outline icon-lg text-primary"></i>Settings
                                                         </a>
                                                         <div class="dropdown-divider" role="presentation"></div>
-                                                        <a class="dropdown-item" href="/login">
-                                                            <i class="ion-log-out icon-lg text-primary"></i>Logout
+
+                                                       
+                                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                                       onclick="event.preventDefault();
+                                                                     document.getElementById('logout-form').submit();">
+                                                        <i class="ion-log-out icon-lg text-primary" ></i> {{ __('Logout') }}
                                                         </a>
+
+                                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                            @csrf
+                                                        </form>
                                                     </div>
                                                 </li>
                                             </ul>
@@ -438,12 +441,7 @@
                                             <div class="dropdown-menu">
                                                 <div class="mega-dropdown-menu row row-no-padding">
                                                     <ul class="megadropdown-links">
-                                                        <li>
-                                                            <a class="dropdown-item"
-                                                               href="/admin/teamcategory">
-                                                                Teams Category
-                                                            </a>
-                                                        </li>
+                                                       
                                                         <li>
                                                             <a class="dropdown-item"
                                                                href="/admin/team">
@@ -537,7 +535,7 @@
                                                     <a href="index.html" class="p-l-0">Home</a>
                                                 </li>
                                                 <li>
-                                                    <a href="http://perfectin.co/">Website</a>
+                                                    <a href="#">Website</a>
                                                 </li>
                                                 <li>
                                                     <a href="javascript:void(0)">Portfolio</a>
@@ -547,7 +545,7 @@
                                             <div class="copyright mt-1">
                                                 <ul class="copy-links">
                                                     <li>
-                                                        © 2018 <a href="http://perfectin.co/" target="_blank">Perfectin</a>
+                                                        © 2018 <a href="#" target="_blank"> Naing Group </a>
                                                     </li>
                                                     <li>
                                                         <a href="javascript:void(0)">Terms</a>

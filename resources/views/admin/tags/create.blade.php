@@ -43,7 +43,7 @@
 		                            </a>
 		                        </div>
 		                        <h6 class="sm-header">
-		                            Blog Category Form
+		                            Blog Tag Form
 		                        </h6>
 		                    </div>
 		                    <div class="sm-box">
@@ -55,7 +55,7 @@
 		                                <div class="col-12">
 		                                    <div class="form-group">
 		                                        <label for="name">Name</label>
-		                                        <input name="name" placeholder="Enter name of category "
+		                                        <input name="name" placeholder="Enter name of tag "
 		                                               type="text" class="form-control">
 		                                    </div>
 		                                </div>

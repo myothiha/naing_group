@@ -167,8 +167,6 @@ class FrontController extends Controller
     }
 
     public function contact() {
-    	return view('contact',[
-            'contact'  => $contact,
-        ]);
+    	return view('contact');
     }
 }

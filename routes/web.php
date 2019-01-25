@@ -16,6 +16,7 @@ use Routes\HMT;
 Route::get('/', function () {
     return view('welcome');
 });
+Auth::routes();
 
 Route::get('/test', 'TestController@test');
 

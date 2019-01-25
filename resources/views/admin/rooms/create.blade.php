@@ -49,6 +49,8 @@
 		                    	<form  action="{{ action('RoomController@store', $project->id) }}" method="post" enctype="multipart/form-data">
 		                    	{{ csrf_field() }}
 
+		                    	
+
 		                            <hr class="m-t-0">
 		                            <div class="row">
 		                                <div class="col-12">
@@ -120,8 +122,11 @@
 		                                <div class="col-12">
 		                                    <div class="form-group">
 		                                        <label for="floor">Floor</label>
-		                                        <input name="floor" placeholder="Enter name of Floor "
-		                                               type="text" class="form-control">
+		                                        	<select name="floor" class = "form-control">
+		                                        		@for($i=1; $i<=8 ; $i++ )
+		                                        		<option value="{{ $i }}"> {{ $i }}  Floor </option>
+		                                        	    @endfor
+		                                        	</select>
 		                                    </div>
 		                                </div>
 		                            </div>

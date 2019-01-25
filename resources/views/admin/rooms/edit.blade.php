@@ -120,14 +120,17 @@
     		                                </div>
     		                            </div>
                                         <div class="row">
-    		                                <div class="col-12">
-    		                                    <div class="form-group">
-    		                                        <label for="floor">Floor</label>
-    		                                        <input name="floor" placeholder="Enter name of Floor "
-    		                                               type="text" class="form-control" value="{{ $room->floor }}">
-    		                                    </div>
-    		                                </div>
-    		                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label for="floor">Floor</label>
+                                                        <select name="floor" class = "form-control">
+                                                            @for($i=1; $i<=8 ; $i++ )
+                                                            <option value="{{ $i }}"> {{ $i }}  Floor </option>
+                                                            @endfor
+                                                        </select>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="row">
     		                                <div class="col-12">
     		                                    <div class="form-group">

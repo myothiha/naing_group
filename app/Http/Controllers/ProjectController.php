@@ -76,6 +76,9 @@ class ProjectController extends Controller
         $project->feature_image = $imagePath ?? '';
         $project->banner_image = $imagePathBanner ?? '';
         $project->map = $request->map ?? '';
+        $project->priority = $request->priority;
+        $project->layout   = $request->layout ?? 4;
+
         $project->save();
 
         return redirect('admin/project');
@@ -145,6 +148,8 @@ class ProjectController extends Controller
         $project->feature_image = $imagePath ?? '';
         $project->banner_image = $imagePathBanner ?? '';
         $project->map = $request->map ?? '';
+        $project->priority = $request->priority;
+        $project->layout   = $request->layout ?? 4;
         $project->save();
 
 

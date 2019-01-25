@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Teamcategory;
+// use App\Teamcategory;
 use Illuminate\Http\Request;
 
 class TeamcategoryController extends Controller
@@ -17,7 +17,7 @@ class TeamcategoryController extends Controller
         $teamcategorys = Teamcategory::orderBy('created_at','desc')->get();
 
         return view('admin.teamcategorys.index',[
-            'teamcategorys' => $teamcategorys,
+            // 'teamcategorys' => $teamcategorys,
             'mainteam'       => 'active',
             ]);
     }
