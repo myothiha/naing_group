@@ -20,6 +20,7 @@ use App\Tag;
 use App\Team;
 use App\Project;
 use App\Whychoose;
+use App\Room;
 
 class FrontController extends Controller
 {
@@ -114,18 +115,22 @@ class FrontController extends Controller
     {
 
         $projects = Project::orderBy('priority')->get();
-
         return view('project', [
             'projects' => $projects,
         ]);
     }
+   
 
     public function projectdetail(Project $project)
     {
+        $rooms = $project->rooms()->OrderBy('created_at', 'desc')->get();
+              
         return view('projectdetail', [
             'project' => $project,
+            'rooms'    => $rooms,
         ]);
     }
+   
 
     public function business()
     {

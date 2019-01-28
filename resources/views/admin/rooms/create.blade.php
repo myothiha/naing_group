@@ -147,7 +147,7 @@
                                                 <label for="status">Facility</label>
                                                 @foreach($roomfeatures as $roomfeature)
                                                     <div class="checkbox">
-                                                        <input type="checkbox" id="chkRemember" name="roomfeature[]"
+                                                        <input type="checkbox" name="roomfeature[]"
                                                                value="{{ $roomfeature->id }}">
                                                         <label for="chkRemember">{{ $roomfeature->name }}</label>
                                                     </div>
