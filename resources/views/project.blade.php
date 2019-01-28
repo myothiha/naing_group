@@ -24,9 +24,8 @@
         </div>
 
         <div class="row">
-
             @foreach($projects as $project)
-                <div class="col-md-{{ $project->banner_layout }}">
+                <div class="col-md-{{ $project->layout }}">
                     <figure class="" data-aos="fade-right">
                         <a href="{{ action('FrontController@projectdetail', $project->id) }}">
                             <img src="{{ $project->feature_image }}" class="img-fluid"

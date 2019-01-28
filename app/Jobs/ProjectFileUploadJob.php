@@ -44,6 +44,7 @@ class ProjectFileUploadJob implements ShouldQueue
         $projectFile = $viewer->upload($this->pathToFile, $this->filename);
         $this->project->projectFile()->save($projectFile);
         $this->project->updateFileStatus(Constant::UPLOADED);
+        unlink($this->pathToFile);
 //        $derivativeFile = $this->viewer->postSvf($projectFile);
         //Dispatch Project File to Derivative queue
         ProjectFileDerivativeJob::dispatch($this->project);

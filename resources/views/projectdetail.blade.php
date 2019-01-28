@@ -1,14 +1,15 @@
 @extends('layouts.front')
 
 @section('css')
-    <link rel="stylesheet" href="https://developer.api.autodesk.com/modelderivative/v2/viewers/6.*/style.min.css" type="text/css">
+    <link rel="stylesheet" href="https://developer.api.autodesk.com/modelderivative/v2/viewers/6.*/style.min.css"
+          type="text/css">
 @endsection
 
 @section('content')
 
-@include('layouts.menu')
+    @include('layouts.menu')
 
-<!-- Breadcrumb Bar -->
+    <!-- Breadcrumb Bar -->
     <section class="bg-gray">
         <div class="container pt-2">
             <nav aria-label="breadcrumb">
@@ -21,8 +22,8 @@
     </section>
 
     <!-- 3D condo -->
-    <div id="MyViewerDiv">
-        {{--<img src="/images/3d-condo.jpg" alt="" class="img-fluid condo">--}}
+    <div>
+        <img src="{{ $project->banner_image }}" alt="" class="img-fluid condo">
     </div>
 
     <div class="container my-3">
@@ -30,12 +31,12 @@
         <div class="row p-3">
 
             <div class="col-md-8">
-                <h2 class="title my-5">Project Name</h2>
+                <h2 class="title my-5">{{ $project->name }}</h2>
                 <p class="my-3">
-                    Open space, floor-to-ceiling windows. The best appliances. A great variety of light schemes and amazing functionality of each section. Style, quality. functionality
+                    {{ $project->description }}
                 </p>
 
-                <ul class="project-list">
+                {{--<ul class="project-list">
                     <li><span class="project-listinfo">Address</span><span class="project-infotext">wewewewe</span></li>
                     <li><span class="project-listinfo">Location</span><span class="project-infotext">wewewewe</span></li>
                     <li><span class="project-listinfo">Building</span><span class="project-infotext">wewewewe</span></li>
@@ -43,8 +44,7 @@
                     <li><span class="project-listinfo">Total Lift</span><span class="project-infotext">wewewewe</span></li>
                     <li><span class="project-listinfo">Facilities</span><span class="project-infotext">Gymnasium , Activities Room , Dancing Room , Yoga , Sauna Room , Jacuzzi , Function Room , Business Centre and Swimming Pool.</span>
                     </li>
-
-                </ul>
+                </ul>--}}
 
                 <h5 class="my-3">CEP Rooms</h5>
 
@@ -53,8 +53,8 @@
                         <div class="mb-0">
                             <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne">
                                 <a class="card-title">
-                                                1st Floor
-                                            </a>
+                                    1st Floor
+                                </a>
                             </div>
                             <div id="collapseOne" class="card-body collapse show" data-parent="#accordion">
                                 <a href="project-details.html">
@@ -71,10 +71,11 @@
                                 <div class="room sold">12A <span></span></div>
                                 <div class="room sold">12A <span></span></div>
                             </div>
-                            <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                            <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion"
+                                 href="#collapseTwo">
                                 <a class="card-title">
-                                            2nd Floor
-                                            </a>
+                                    2nd Floor
+                                </a>
                             </div>
                             <div id="collapseTwo" class="card-body collapse" data-parent="#accordion">
 
@@ -92,10 +93,11 @@
                                 <div class="room sold">12A <span></span></div>
 
                             </div>
-                            <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                            <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion"
+                                 href="#collapseThree">
                                 <a class="card-title">
-                                            3rd Floor
-                                            </a>
+                                    3rd Floor
+                                </a>
                             </div>
                             <div id="collapseThree" class="collapse" data-parent="#accordion">
                                 <div class="card-body">
@@ -119,38 +121,22 @@
                     <!-- panel-group -->
                 </div>
 
-
-
-
-
                 <h5 class="my-3">Facilities</h5>
                 <div class="row">
-                    <div class="d-fex facilities-icon">
-                        <i class="fas fa-swimming-pool fa-3x"></i><br>
-                        <span class="facilities-text">Swimming Pool</span>
-                    </div>
-                    <div class="d-fex facilities-icon">
-                        <i class="fas fa-dumbbell fa-3x"></i><br>
-                        <span class="facilities-text">Gymnasium</span>
-                    </div>
-                    <div class="d-fex facilities-icon">
-                        <i class="fas fas fa-bath fa-3x"></i><br>
-                        <span class="facilities-text">Sauna Room</span>
-                    </div>
-                    <div class="d-fex facilities-icon">
-                        <i class="fab fa-yoast fa-3x"></i><br>
-                        <span class="facilities-text">Yoga Room</span>
-                    </div>
-                    <div class="d-fex facilities-icon">
-                        <i class="fas fa-shapes fa-3x"></i><br>
-                        <span class="facilities-text">Play Ground</span>
-                    </div>
+
+                    @foreach($project->facilities as $facility)
+                        <div class="d-fex facilities-icon">
+                            <i class="{{ $facility->icon }} fa-3x"></i><br>
+                            <span class="facilities-text">{{ $facility->name }}</span>
+                        </div>
+                    @endforeach
+
                 </div>
 
-
                 <h5 class="my-3">Map</h5>
-                <img src="images/map.jpg" alt="" class="img-fluid my-4">
-
+                <div class="map">
+                    {!! $project->map !!}
+                </div>
 
             </div>
 
@@ -162,22 +148,25 @@
                         <option>Status</option>
                         <option>Yangon</option>
                         <option>Mandalay</option>
-                      </select>
+                    </select>
                     <select class="form-control form-control my-2 slect">
                         <option>Type</option>
                         <option>Yangon</option>
                         <option>Mandalay</option>
-                      </select>
+                    </select>
                     <select class="form-control form-control mb-2 slect">
                         <option>City</option>
                         <option>Yangon</option>
                         <option>Mandalay</option>
-                      </select>
+                    </select>
 
                     <!-- Range slider: -->
                     <div class="form-group range">
                         <label for="formControlRange">MMK(Lakh)- <span><output id="js-output"></output></span></label>
-                        <input type="range" class="form-control-range" id="formControlRange" min="10" // default 0 max="1000" // default 100 step="10" // default 1 value="300" // default min + (max-min)/2 data-orientation="vertical" // default horizontal>
+                        <input type="range" class="form-control-range" id="formControlRange" min="10"/>
+                        {{--// default 0 max="1000" // default 100 step="10"
+                        // default 1 value="300" // default min + (max-min)/2 data-orientation="vertical"
+                        // default horizontal>--}}
                     </div>
 
                     <button type="submit" class="btn btn-primary btn-block mb-3">Search Now</button>
@@ -187,13 +176,12 @@
                 <h2 class="title my-5">Featured Properties</h2>
                 <div class="row my-3">
                     <div class="col-5">
-                        <img src="images/erc.jpg" alt="" class="img-fluid">
+                        <img src="images/erc.jpg" alt="" class="img-fluid"/>
                     </div>
                     <div class="col-7">
                         <h6>Featured Properties Name</h6>
                         <p>Yangon, No 123 , Maharbandoola Rd, Pabadan Township.</p>
                         <button type="button" class="btn btn-primary btn-block">Price on request</button>
-
                     </div>
                 </div>
                 <div class="row my-3">
@@ -220,84 +208,11 @@
                 </div>
 
                 <h2 class="title my-5">Our Guides</h2>
-                <img src="images/giude.jpg" alt="" class="img-fluid my-3">
-
+                <img src="/images/giude.jpg" alt="" class="img-fluid my-3">
             </div>
-
 
         </div>
 
     </div>
 
-@endsection
-
-@section('scripts')
-    <!-- The Viewer JS -->
-    <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/6.*/viewer3D.min.js"></script>
-
-    <!-- Developer JS -->
-    <script>
-        var viewerApp;
-        var options = {
-            env: 'AutodeskProduction',
-            api: 'derivativeV2',
-            // TODO: for models uploaded to EMEA change this option to 'derivativeV2_EU'
-            getAccessToken: function(onGetAccessToken) {
-                //
-                // TODO: Replace static access token string below with call to fetch new token from your backend
-                // Both values are provided by Forge's Authentication (OAuth) API.
-                //
-                // Example Forge's Authentication (OAuth) API return value:
-                // {
-                //    "access_token": "<YOUR_APPLICATION_TOKEN>",
-                //    "token_type": "Bearer",
-                //    "expires_in": 86400
-                // }
-                //
-                var accessToken = '{{$access_token}}';
-                var expireTimeSeconds = 60 * 30;
-                onGetAccessToken(accessToken, expireTimeSeconds);
-            }
-
-        };
-        var documentId = 'urn:{{$urn}}';
-        Autodesk.Viewing.Initializer(options, function onInitialized(){
-            viewerApp = new Autodesk.Viewing.ViewingApplication('MyViewerDiv');
-            viewerApp.registerViewer(viewerApp.k3D, Autodesk.Viewing.Private.GuiViewer3D);
-            viewerApp.loadDocument(documentId, onDocumentLoadSuccess, onDocumentLoadFailure);
-        });
-
-        function onDocumentLoadSuccess(doc) {
-
-            // We could still make use of Document.getSubItemsWithProperties()
-            // However, when using a ViewingApplication, we have access to the **bubble** attribute,
-            // which references the root node of a graph that wraps each object from the Manifest JSON.
-            var viewables = viewerApp.bubble.search({'type':'geometry'});
-            if (viewables.length === 0) {
-                console.error('Document contains no viewables.');
-                return;
-            }
-
-            // Choose any of the avialble viewables
-            viewerApp.selectItem(viewables[0].data, onItemLoadSuccess, onItemLoadFail);
-        }
-
-        function onDocumentLoadFailure(viewerErrorCode) {
-            console.error('onDocumentLoadFailure() - errorCode:' + viewerErrorCode);
-        }
-
-        function onItemLoadSuccess(viewer, item) {
-            console.log('onItemLoadSuccess()!');
-            console.log(viewer);
-            console.log(item);
-
-            // Congratulations! The viewer is now ready to be used.
-            console.log('Viewers are equal: ' + (viewer === viewerApp.getCurrentViewer()));
-        }
-
-        function onItemLoadFail(errorCode) {
-            console.error('onItemLoadFail() - errorCode:' + errorCode);
-        }
-
-    </script>
 @endsection

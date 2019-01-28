@@ -26,7 +26,7 @@
     <!-- Nav Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-yellow">
         <div class="container">
-            <a class="navbar-brand" href="#"><img src="images/logo.png" alt=""></a>
+            <a class="navbar-brand" href="#"><img src="/images/logo.png" alt=""></a>
             <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
                     </button>

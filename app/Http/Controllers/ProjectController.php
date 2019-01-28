@@ -9,7 +9,7 @@ use App\ProjectType;
 use App\ProjectStatus;
 use Illuminate\Http\Request;
 use App\Util\Uploader\Image;
-use Carbon\Carbon;
+use Storage;
 
 class ProjectController extends Controller
 {
@@ -127,14 +127,12 @@ class ProjectController extends Controller
     public function update(Request $request, Project $project)
     {
         if ($request->file('feature_image')) {
-
             $imagePath = Image::upload($request->file('feature_image'), '/uploads/projects/');
         } else {
             $imagePath = $request->prev_image;
         }
 
         if ($request->file('banner_image')) {
-
             $imagePathBanner = Image::upload($request->file('banner_image'), '/uploads/banner');
         } else {
             $imagePathBanner = $request->prev_image;

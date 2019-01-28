@@ -25,7 +25,7 @@ class CreateProjectsTable extends Migration
             $table->unsignedInteger('price');
             $table->unsignedInteger('floor');
             $table->unsignedInteger('priority');
-            $table->unsignedInteger('banner_layout')->default(4);
+            $table->unsignedInteger('layout')->default(4);
             $table->string('file_status')->default(\App\Constant::NO_FILE);
             $table->timestamps();
         });

@@ -25,7 +25,7 @@
     <!-- Owlcarousel CSS -->
     <link rel="stylesheet" href="\owlcarousel/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="\owlcarousel/assets/owl.theme.default.min.css">
-    <link rel="icon" href="favicon.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="/images/favicon.png" sizes="16x16" type="image/png">
 
     @yield('css')
 
