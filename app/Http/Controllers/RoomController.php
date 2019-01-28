@@ -17,7 +17,7 @@ class RoomController extends Controller
      */
     public function index(Project $project)
     {
-        $rooms = $project->rooms()->get();
+        $rooms = $project->rooms()->OrderBy('created_at', 'desc')->get();
 
         return view('admin.rooms.index', [
             'project' => $project,

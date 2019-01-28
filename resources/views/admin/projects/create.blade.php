@@ -191,14 +191,15 @@
 
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                <label for="status">Facility</label>
-                                                @foreach($facilities as $facility)
-                                                    <div class="checkbox">
-                                                        <input type="checkbox" id="chkRemember" name="facilities[]"
-                                                               value="{{ $facility->id }}">
-                                                        <label for="chkRemember">{{ $facility->name }}</label>
+                                                <label for="status">Facility</label>                                              
+                                                  
+                                                    @foreach($facilities as $facility)
+                                                    <div class = "checkbox">
+                                                        <input type="checkbox" value = "{{ $facility->id }}" name = "facilities[]">
+                                                        <label> {{ $facility->name }} </label>
                                                     </div>
-                                                @endforeach
+                                                    @endforeach
+
                                             </div>
                                         </div>
 

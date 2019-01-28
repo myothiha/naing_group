@@ -118,12 +118,14 @@
     		                                    </div>
     		                                </div>
     		                            </div>
+                                      @php  $f = $project->floor @endphp  
+
                                         <div class="row">
                                             <div class="col-12">
                                                 <div class="form-group">
                                                     <label for="floor">Floor</label>
                                                         <select name="floor" class = "form-control">
-                                                            @for($i=1; $i<=8 ; $i++ )
+                                                            @for($i=1; $i<=$f ; $i++ )
                                                             <option value="{{ $i }}"> {{ $i }}  Floor </option>
                                                             @endfor
                                                         </select>

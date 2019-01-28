@@ -21,6 +21,7 @@
         </div>
     </section>
 
+
     <!-- 3D condo -->
     <div>
         <img src="{{ $project->banner_image }}" alt="" class="img-fluid condo">
@@ -50,71 +51,33 @@
 
                 <div class="collp">
                     <div id="accordion" class="accordion">
+                    @php
+                      $no = 1;
+                      $f = $project->floor
+                    @endphp  
                         <div class="mb-0">
-                            <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne">
-                                <a class="card-title">
-                                    1st Floor
-                                </a>
-                            </div>
-                            <div id="collapseOne" class="card-body collapse show" data-parent="#accordion">
-                                <a href="project-details.html">
-                                    <div class="room sale">12A <span></span></div>
-                                </a>
-                                <div class="room sold">12A <span></span></div>
-                                <div class="room sold">12A <span></span></div>
-                                <div class="room sold">12A <span></span></div>
-                                <div class="room sold">12A <span></span></div>
-                                <div class="room sold">12A <span></span></div>
-                                <div class="room sold">12A <span></span></div>
-                                <div class="room sold">12A <span></span></div>
-                                <div class="room sold">12A <span></span></div>
-                                <div class="room sold">12A <span></span></div>
-                                <div class="room sold">12A <span></span></div>
-                            </div>
-                            <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion"
-                                 href="#collapseTwo">
-                                <a class="card-title">
-                                    2nd Floor
-                                </a>
-                            </div>
-                            <div id="collapseTwo" class="card-body collapse" data-parent="#accordion">
+                    @for($i = 1; $i<= $f ; $i++)
 
-                                <div class="room sold">12A <span></span></div>
-                                <div class="room sold">12A <span></span></div>
-                                <div class="room sale">12A <span></span></div>
-                                <div class="room sold">12A <span></span></div>
-                                <div class="room sold">12A <span></span></div>
-                                <div class="room sold">12A <span></span></div>
-                                <div class="room sold">12A <span></span></div>
-                                <div class="room sold">12A <span></span></div>
-                                <div class="room sold">12A <span></span></div>
-                                <div class="room sold">12A <span></span></div>
-                                <div class="room sold">12A <span></span></div>
-                                <div class="room sold">12A <span></span></div>
-
-                            </div>
-                            <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion"
-                                 href="#collapseThree">
+                            <div class="card-header collapsed" data-toggle="collapse" href="#a{{ $no }}">
                                 <a class="card-title">
-                                    3rd Floor
+                                    {{ $i }} Floor
                                 </a>
                             </div>
-                            <div id="collapseThree" class="collapse" data-parent="#accordion">
+                            <div id="a{{ $no++ }}" class="card-body collapse" data-parent="#accordion">
                                 <div class="card-body">
-                                    <div class="room sold">12A <span></span></div>
-                                    <div class="room sold">12A <span></span></div>
-                                    <div class="room sale">12A <span></span></div>
-                                    <div class="room sold">12A <span></span></div>
-                                    <div class="room sold">12A <span></span></div>
-                                    <div class="room sold">12A <span></span></div>
-                                    <div class="room sold">12A <span></span></div>
-                                    <div class="room sold">12A <span></span></div>
-                                    <div class="room sold">12A <span></span></div>
-                                    <div class="room sold">12A <span></span></div>
-                                    <div class="room sold">12A <span></span></div>
-                                    <div class="room sold">12A <span></span></div>
-                                </div>
-                            </div>
+                                    @foreach($rooms as $room)
+                                     @if($i == $room->floor)
+                                        <a href="project-details.html">
+                                            <div class="room sale"> {{ $room->name }} <span></span></div>
+                                        </a>
+                                     @endif   
+                                    @endforeach
+                                </div>                              
+
+                                <!-- <div class="room sold"> {{ $room->name }}  <span></span></div> -->
+                            </div>  
+                    @endfor
+
                         </div>
                     </div>
 

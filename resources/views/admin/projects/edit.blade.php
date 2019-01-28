@@ -132,10 +132,10 @@
                                             <div class="col-12">
                                                 <div class="form-group">
                                                     <label for="layout">Layout</label>
-                                                    <select name="layout" class="form-control" type="select">
-                                                        <option value="4">4 Column</option>
-                                                        <option value="8">8 Column</option>
-                                                        <option value="12">12 Column</option>
+                                                    <select name="layout" class="form-control" type="select">                                                
+                                                        <option value="4" {{ 4== $project->layout ? 'selected' : ''}}>4 Column</option>
+                                                        <option value="8" {{ 8== $project->layout ? 'selected' : ''}} >8 Column</option>
+                                                        <option value="12"{{ 12== $project->layout ? 'selected': ''}}>12 Column</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -187,16 +187,17 @@
 		                            </div>
 
 		                            <div class="row">
-                                        <div class="col-lg-12">
-                                        	<label for="status">Facility</label>
-                                        	@foreach($facilities as $facility)
-                                            <div class="checkbox">
+                                            <div class="col-lg-12">
+                                                <label for="status">Facility</label>                                              
+                                                  
+                                                    @foreach($facilities as $facility)
+                                                    <div class = "checkbox">
+                                                        <input type="checkbox" value = "{{ $facility->id }}" name = "facilities[]">
+                                                        <label> {{ $facility->name }} </label>
+                                                    </div>
+                                                    @endforeach
 
-                                                <input type="checkbox" id="chkRemember" name="facilities[]" value="{{ $facility->id }}" checked>
-                                                <label for="chkRemember">{{ $facility->name }}</label>
                                             </div>
-                                             @endforeach
-                                        </div>
                                     </div>
 
 		                            <div class="row m-t-20">
