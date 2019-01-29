@@ -209,16 +209,17 @@
                 <div class="">
                     <div id="accordion" class="accordion">
                         <div class="mb-0">
-                            @foreach($faq as $data)
-                            <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne">
+                            @foreach($faq as $key =>$faq)
+                            <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne{{ $faq->id }}" data-parent="#accordion">
                                 <a class="card-title">
-                                                {{ $data->question }}
-                                            </a>
+                                            {{ $faq->question }}
+                                        </a>
                             </div>
-                            <div id="collapseOne" class="card-body collapse show" data-parent="#accordion">
-                                <p>{{ $data->answer }}
+                            <div id="collapseOne{{ $faq->id }}" class="card-body collapse {{ $key ==0 ? "show" : "" }}" data-parent="#accordion">
+                                <p>{{ $faq->answer }}
                                 </p>
                             </div>
+
                             @endforeach
                             
                         </div>

@@ -9,7 +9,7 @@
         <div class="container pt-2">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
                     <li class="breadcrumb-item active" aria-current="page">FAQ</li>
                 </ol>
             </nav>
@@ -23,15 +23,16 @@
         </div>
 
         <div class="collp">
+
             <div id="accordion" class="accordion">
                 <div class="mb-0">
-                    @foreach($faqs as $faq)
-                    <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne">
+                    @foreach($faqs as $key =>$faq)
+                    <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne{{ $faq->id }}" data-parent="#accordion">
                         <a class="card-title">
                                     {{ $faq->question }}
                                 </a>
                     </div>
-                    <div id="collapseOne" class="card-body collapse show" data-parent="#accordion">
+                    <div id="collapseOne{{ $faq->id }}" class="card-body collapse {{ $key ==0 ? "show" : "" }}" data-parent="#accordion">
                         <p>{{ $faq->answer }}
                         </p>
                     </div>
@@ -40,6 +41,7 @@
                     
                 </div>
             </div>
+
 
             <!-- panel-group -->
         </div>

@@ -39,31 +39,32 @@ class FrontController extends Controller
     public function index()
     {
 
-        $homeslides = Homeslide::all();
-        $about = About::find(1);
-        $projects = Project::all();
-        $whychoose = Whychoose::get();
-        $indexdata = Indexdata::first();
-        $business = Business::get();
-        $faq = Faq::get();
-      
+
+        $homeslides     = Homeslide::all();
+        $about          = About::find(1);
+        $projects       = Project::all();
+        $whychoose      = Whychoose::get();
+        $indexdata      = Indexdata::find(1);
+        $business       = Business::get();
+        $faq            = Faq::Limit(3)->get();
+
         return view('index', [
-            'homeslides' => $homeslides,
-            'about' => $about,
-            'projects' => $projects,
-            'whychoose' => $whychoose,
-            'indexdata' => $indexdata,
-            'business' => $business,
-            'faq' => $faq,
+            'homeslides'    => $homeslides,
+            'about'         => $about,
+            'projects'      => $projects,
+            'whychoose'     => $whychoose,
+            'indexdata'     => $indexdata,
+            'business'      => $business,
+            'faq'           => $faq,
         ]);
     }
 
     public function about()
     {
-        $about = About::find(1);
-        $whychoose = Whychoose::get();
+        $about      = About::find(1);
+        $whychoose  = Whychoose::get();
         return view('about', [
-            'about' => $about,
+            'about'     => $about,
             'whychoose' => $whychoose,
         ]);
     }
@@ -79,18 +80,18 @@ class FrontController extends Controller
     public function team()
     {
 
-        $founder = Team::where('type', '=', 'FEC')->get();
-        $organization = Team::where('type', '=', 'Honorable')->get();
-        $represent = Team::where('type', '=', 'Representative')->get();
-        $about = About::first();
-        $founders = Team::first();
+        $founder        = Team::where('type', '=', 'FEC')->get();
+        $organization   = Team::where('type', '=', 'Honorable')->get();
+        $represent      = Team::where('type', '=', 'Representative')->get();
+        $about          = About::first();
+        $founders       = Team::first();
         // return response($founder);
         return view('team', [
-            'founder' => $founder,
-            'organization' => $organization,
-            'represent' => $represent,
-            'about' => $about,
-            'founders' => $founders
+            'founder'       => $founder,
+            'organization'  => $organization,
+            'represent'     => $represent,
+            'about'         => $about,
+            'founders'      => $founders
         ]);
     }
 
@@ -145,8 +146,8 @@ class FrontController extends Controller
     {
         $businesses = Business::limit(3)->get();
         return view('businessdetail', [
-            'business' => $business,
-            'businesses' => $businesses,
+            'business'      => $business,
+            'businesses'    => $businesses,
         ]);
     }
 
@@ -160,26 +161,26 @@ class FrontController extends Controller
 
     public function blog()
     {
-        $blogs = Blog::orderBy('created_at', 'desc')->paginate(6);
-        $blogcategorys = Blogcategory::all();
+        $blogs          = Blog::orderBy('created_at', 'desc')->paginate(6);
+        $blogcategorys  = Blogcategory::all();
         $tags = Tag::all();
         return view('blog', [
-            'blogs' => $blogs,
+            'blogs'         => $blogs,
             'blogcategorys' => $blogcategorys,
-            'tags' => $tags
+            'tags'          => $tags
         ]);
     }
 
     public function blogdetail(Blog $blog)
     {
-        $blogs = Blog::limit(3)->orderBy('id', 'desc')->get();
-        $blogcategorys = Blogcategory::all();
-        $tags = Tag::all();
+        $blogs          = Blog::limit(3)->orderBy('id', 'desc')->get();
+        $blogcategorys  = Blogcategory::all();
+        $tags           = Tag::all();
         return view('blogdetail', [
-            'blog' => $blog,
-            'blogs' => $blogs,
+            'blog'          => $blog,
+            'blogs'         => $blogs,
             'blogcategorys' => $blogcategorys,
-            'tags' => $tags
+            'tags'          => $tags
         ]);
     }
 

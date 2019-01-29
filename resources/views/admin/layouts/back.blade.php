@@ -44,7 +44,7 @@
             <div class="sm-profile">
                 <div class="sm-profile-user-wrapper">
                     <div class="profile-user-image">
-                        <img src="http://via.placeholder.com/128x128" class="img-circle rounded-circle" alt="perfectin.co"/>
+                        <img src="/images/logo.png" class="img-circle rounded-circle" alt="perfectin.co"/>
                     </div>
                     <div class="profile-user-info">
                         <span class="profile-user-name"> {{ \Illuminate\Support\Facades\Auth::user()->name ?? '' }}</span>
@@ -253,14 +253,8 @@
                                                             <span class="float-right badge badge-primary">4</span>
                                                             <i class="ion-ios-email-outline icon-lg text-primary"></i>Messages
                                                         </a>
-                                                        <a class="dropdown-item" href="javascript:void(0)">
-                                                            <i class="ion-ios-person-outline icon-lg text-primary"></i>Profile
-                                                        </a>
-                                                        <a class="dropdown-item" href="javascript:void(0)">
-                                                            <i class="ion-ios-gear-outline icon-lg text-primary"></i>Settings
-                                                        </a>
-                                                        <div class="dropdown-divider" role="presentation"></div>
-
+                                                        
+                                                        
                                                        
                                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                                        onclick="event.preventDefault();
@@ -320,7 +314,7 @@
                             <div class="container navbar-container">
                                 <!-- BEGIN LOGO -->
                                 <a class="navbar-brand" href="index.html">
-                                    <img src="http://via.placeholder.com/106x20" class="" alt="perfectin.co">
+                                    <img src="/images/logo.png" class="" alt="perfectin.co">
                                 </a>
                                 <!--END LOGO-->
 
@@ -402,6 +396,12 @@
                                                         </li>
                                                         <li>
                                                             <a class="dropdown-item"
+                                                               href="/admin/room-features">
+                                                                Room Feature
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="dropdown-item"
                                                                href="/admin/project">
                                                                 Our Projects
                                                             </a>
@@ -412,12 +412,7 @@
                                                                 Projects Gallery
                                                             </a>
                                                         </li>
-                                                        <li>
-                                                            <a class="dropdown-item"
-                                                               href="/admin/room-features">
-                                                                Room Feature
-                                                            </a>
-                                                        </li>
+                                                        
                                                        
                                                     </ul>
                                                 </div>
@@ -489,12 +484,6 @@
                                                     <ul class="megadropdown-links">
                                                         <li>
                                                             <a class="dropdown-item"
-                                                               href="/admin/blog">
-                                                                Blog
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="dropdown-item"
                                                                href="/admin/blogcategory">
                                                                 Category
                                                             </a>
@@ -503,6 +492,12 @@
                                                             <a class="dropdown-item"
                                                                href="/admin/tag">
                                                                 Popular Tag
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="dropdown-item"
+                                                               href="/admin/blog">
+                                                                Blog
                                                             </a>
                                                         </li>
                                                        
