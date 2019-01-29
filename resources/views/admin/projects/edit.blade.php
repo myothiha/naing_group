@@ -168,14 +168,21 @@
 
 		                            <div class="row">
                                             <div class="col-lg-12">
-                                                <label for="status">Facility</label>                                              
-                                                  
+                                                <label for="status">Facility</label>  
+                                               
+
+                                                    @php $no = 1; @endphp
                                                     @foreach($facilities as $facility)
                                                     <div class = "checkbox">
-                                                        <input type="checkbox" value = "{{ $facility->id }}" name = "facilities[]">
-                                                        <label> {{ $facility->name }} </label>
+                                                        <input type="checkbox" id = "facility{{ $no }}" value = "{{ $facility->id }}" name = "facilities[]"
+														@foreach($projectfacilities as $data)
+															{{ $facility->id == $data->project_facilities_id ? 'checked' : ''}}																
+														@endforeach
+                                                        >
+                                                        <label for = "facility{{ $no++ }}"> {{ $facility->name }} </label>
                                                     </div>
                                                     @endforeach
+                                                    <!--  -->
 
                                             </div>
                                     </div>

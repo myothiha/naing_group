@@ -40,6 +40,7 @@ class FrontController extends Controller
     public function index()
     {
 
+
         $homeslides     = Homeslide::all();
         $about          = About::find(1);
         $gallerys       = Gallery::all();

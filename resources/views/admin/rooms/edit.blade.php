@@ -124,11 +124,15 @@
                                          <div class="row">
                                             <div class="col-lg-12">
                                                 <label for="status">Facility</label>
+                                                @php $no=1 @endphp
                                                 @foreach($roomfeatures as $roomfeature)
                                                     <div class="checkbox">
-                                                        <input type="checkbox" id="chkRemember" name="roomfeature[]"
-                                                               value="{{ $roomfeature->id }}">
-                                                        <label for="chkRemember">{{ $roomfeature->name }}</label>
+                                                        <input type="checkbox" id="chkRemember{{ $no }}" name="roomfeature[]"
+                                                               value="{{ $roomfeature->id }}"
+                                                                @foreach($roomfeatureid as $data)
+                                                                {{ $roomfeature->id == $data->room_feature_id ? 'checked' : ''}}
+                                                                @endforeach>
+                                                        <label for="chkRemember{{ $no++ }}">{{ $roomfeature->name }}</label>
                                                     </div>
                                                 @endforeach
                                             </div>
