@@ -19,27 +19,7 @@
                         <div class="col-lg-12">
                             <div class="sm-wrapper" data-sortable-id="sm_form_elements_1">
                                 <div class="title_box sm-header-style-1">
-                                    <div class="sm-actions">
-                                        <a href="javascript:void(0)"
-                                           class="tooltip_cus fullscreen_element">
-                                            <span class="extra-tooltip">Fullscreen</span>
-                                            <i class="material-icons">fullscreen</i>
-                                        </a>
-                                        <a href="javascript:void(0)"
-                                           class="tooltip_cus refresh_element">
-                                            <span class="extra-tooltip">Refresh</span>
-                                            <i class="material-icons">refresh</i>
-                                        </a>
-                                        <a href="javascript:void(0)"
-                                           class="tooltip_cus minimize_element">
-                                            <span class="extra-tooltip">Collapse / Expand</span>
-                                            <i class="material-icons">import_export</i>
-                                        </a>
-                                        <a href="javascript:void(0)" class="tooltip_cus remove_element">
-                                            <span class="extra-tooltip">Remove</span>
-                                            <i class="material-icons">close</i>
-                                        </a>
-                                    </div>
+                                    
                                     <h6 class="sm-header">
                                         Edit Room Form
                                     </h6>

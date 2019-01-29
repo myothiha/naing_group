@@ -21,27 +21,7 @@
                         <div class="col-lg-12">
                             <div class="sm-wrapper">
                                 <div class="title_box sm-header-style-1">
-                                    <div class="sm-actions">
-                                        <a href="javascript:void(0)"
-                                           class="tooltip_cus fullscreen_element">
-                                            <span class="extra-tooltip">Fullscreen</span>
-                                            <i class="material-icons">fullscreen</i>
-                                        </a>
-                                        <a href="javascript:void(0)"
-                                           class="tooltip_cus refresh_element">
-                                            <span class="extra-tooltip">Refresh</span>
-                                            <i class="material-icons">refresh</i>
-                                        </a>
-                                        <a href="javascript:void(0)"
-                                           class="tooltip_cus minimize_element">
-                                            <span class="extra-tooltip">Collapse / Expand</span>
-                                            <i class="material-icons">import_export</i>
-                                        </a>
-                                        <a href="javascript:void(0)" class="tooltip_cus remove_element">
-                                            <span class="extra-tooltip">Remove</span>
-                                            <i class="material-icons">close</i>
-                                        </a>
-                                    </div>
+                                    
                                     <h6 class="sm-header">
                                         DataTables Project
                                     </h6>
@@ -104,10 +84,10 @@
 
                                                         {{ csrf_field() }}
 
-                                                        <a class="btn btn-warning"
+                                                        <a class="btn btn-warning mb-2"
                                                            href="{{action('RoomController@index', $project->id) }}">Rooms</a>
 
-                                                        <a class="btn btn-warning"
+                                                        <a class="btn btn-warning mb-2"
                                                            href="{{action('ProjectController@edit', $project->id) }}">Edit</a>
 
                                                         <input type="submit" class="btn btn-danger" value="Delete">

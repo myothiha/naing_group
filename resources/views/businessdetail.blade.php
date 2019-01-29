@@ -9,8 +9,9 @@
         <div class="container pt-2">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/business">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Our Business Units</li>
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/business">Business Units</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ $business->title }}</li>
                 </ol>
             </nav>
         </div>
@@ -31,12 +32,12 @@
 
     <!-- ACCOMMODATION -->
     <section class="gallery-block grid-gallery" data-aos="fade-up">
-        <div class="container">
+        <div class="container my-3">
             <h6 class="" data-aos="fade-right">GALLERY Our Business Gallery</h6>
 
             <div class="row">
                 @foreach($business->businessimages as $image)
-                <div class="col-md-3 col-6 item">
+                <div class="col-md-3 col-6 item my-1">
                     <a class="lightbox" href="{{ $image->image }}" data-aos="fade-left">
                         <img class="img-fluid image scale-on-hover" src="{{ $image->image }}">
                     </a>

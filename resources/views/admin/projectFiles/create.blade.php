@@ -24,42 +24,74 @@
 
 @section('content')
 
-    <!-- Content Section -->
-    <form action="{{ action('ProjectFileController@store', $project->id) }}" method="post" enctype="multipart/form-data">
+   
+    <section id="main_content" class="bg slice-sm sct-color-1">
+    <div class="container" id="container">
+        <!--BEGIN BREADCRUMB-->
+        <div class="breadcrumb-pageheader">
+            <ol class="breadcrumb sm-breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ action('ProjectController@index') }}">DataTable</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Add New Upload</li>
+            </ol>
+            <h6 class="sm-pagetitle--style-1 has_page_title">Add New Upload</h6>
+        </div>
 
-        {{ csrf_field() }}
+        <div class="sm-content">
+            <div class="sm-content-box">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="sm-wrapper" data-sortable-id="sm_form_elements_1">
+                            <div class="title_box sm-header-style-1">
+                                
+                                <h6 class="sm-header">
+                                   Upload Form
+                                </h6>
+                            </div>
+                            <div class="sm-box">
+                                 <form action="{{ action('ProjectFileController@store', $project->id) }}" method="post" enctype="multipart/form-data">
 
-        <div class="form-group row">
-            <label for="type" class="col-sm-2 col-form-label">Title</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="title" name="title" placeholder="Project Title">
+                                    {{ csrf_field() }}
+
+                                    <div class="form-group row">
+                                        <label for="type" class="col-sm-2 col-form-label">Title</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="title" name="title" placeholder="Project Title">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group row">
+                                        <label for="type" class="col-sm-2 col-form-label">File</label>
+                                        <div class="col-sm-10">
+                                            <input type="hidden" name="filename" id="filename">
+                                            <input type="file" class="form-control" id="file" name="file" onchange="uploadFile()" placeholder="Upload Project File">
+                                        </div>
+                                    </div>
+
+                                    <div class="progress">
+                                        <div class="progress-bar bg-secondary" id="progress" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+
+
+                                    <h3 id="status"></h3>
+                                    <p id="loaded_n_total"></p>
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-10">
+                                            <button type="submit" class="btn btn-primary">Save</button>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
+</section>
 
-
-        <div class="form-group row">
-            <label for="type" class="col-sm-2 col-form-label">File</label>
-            <div class="col-sm-10">
-                <input type="hidden" name="filename" id="filename">
-                <input type="file" class="form-control" id="file" name="file" onchange="uploadFile()" placeholder="Upload Project File">
-            </div>
-        </div>
-
-        <div class="progress">
-            <div class="progress-bar bg-secondary" id="progress" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-
-
-        <h3 id="status"></h3>
-        <p id="loaded_n_total"></p>
-
-        <div class="form-group row">
-            <div class="col-sm-10">
-                <button type="submit" class="btn btn-primary">Save</button>
-            </div>
-        </div>
-    </form>
-    <!-- /.row -->
 @endsection
 
 @section('scripts')

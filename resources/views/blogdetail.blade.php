@@ -9,7 +9,8 @@
         <div class="container pt-2">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/blog">Blog</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Blog Details</li>
                 </ol>
             </nav>
@@ -37,7 +38,7 @@
 
                         <div class="row">
                             @foreach($blog->blogimages as $image)
-                            <div class="col-md-4 col-6 item">
+                            <div class="col-md-4 col-6 item my-1">
                                 <a class="lightbox" href="{{ $image->image }}" data-aos="fade-left">
                                     <img class="img-fluid image scale-on-hover" src="{{ $image->image }}">
                                 </a>

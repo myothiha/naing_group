@@ -129,7 +129,7 @@ class ProjectController extends Controller
         if ($request->file('feature_image')) {
             $imagePath = Image::upload($request->file('feature_image'), '/uploads/projects/');
         } else {
-            $imagePath = $request->prev_image;
+            $imagePath = $request->prev_feature_image;
         }
 
         if ($request->file('banner_image')) {
