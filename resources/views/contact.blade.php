@@ -30,10 +30,10 @@
                 <div class="row my-3">
                     <div class="col-md-4" data-aos="fade-right">
                         <ul class="agent-list">
-                            <li>Real Estate Broker </li>
-                            <li>ayour@hotmaila.com
+                            <li>{{ $contacts->address }} </li>
+                            <li>{{ $contacts->mail }}
                             </li>
-                            <li>(000) 000-0000</li>
+                            <li>{{ $contacts->phone }}</li>
                             <div class="agent-social">
                                 <i class="fab fa-facebook-f mx-1"></i>
                                 <i class="fab fa-google-plus-g mx-1"></i>
