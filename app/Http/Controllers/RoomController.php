@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Project;
 use App\Room;
@@ -88,12 +87,15 @@ class RoomController extends Controller
      */
     public function edit(Project $project, Room $room)
     {
+        $roomfeatureid = \DB::table('rooms_room_features')->where('room_id',$room->id)->get();
+        
         $roomfeatures = RoomFeature::get();
 
         return view('admin.rooms.edit', [
             'project' => $project,
             'room' => $room,
-            'roomfeatures' => $roomfeatures
+            'roomfeatures' => $roomfeatures,
+            'roomfeatureid'=> $roomfeatureid
         ]);
     }
 

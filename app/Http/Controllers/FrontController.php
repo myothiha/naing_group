@@ -43,10 +43,10 @@ class FrontController extends Controller
         $about = About::find(1);
         $projects = Project::all();
         $whychoose = Whychoose::get();
-        $indexdata = Indexdata::find(1);
+        $indexdata = Indexdata::first();
         $business = Business::get();
         $faq = Faq::get();
-
+      
         return view('index', [
             'homeslides' => $homeslides,
             'about' => $about,

@@ -35,6 +35,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
+
         $facilities = ProjectFacilities::all();
         $cities = City::all();
         $project_statuses = ProjectStatus::all();
@@ -104,6 +105,11 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
+
+        $projectfacilities = \DB::table('project_project_facilities')->where('project_id',$project->id)->get();
+
+        
+            
         $facilities = ProjectFacilities::all();
         $cities = City::all();
         $project_statuses = ProjectStatus::all();
@@ -114,6 +120,7 @@ class ProjectController extends Controller
             'project_statuses' => $project_statuses,
             'project_types' => $project_types,
             'project' => $project,
+            'projectfacilities' => $projectfacilities,
         ]);
     }
 
