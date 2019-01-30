@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Contact;
 use Illuminate\Http\Request;
-
 use Carbon\Carbon;
 
 class ContactController extends Controller
@@ -106,9 +105,10 @@ class ContactController extends Controller
      */
     public function destroy($id)
     {
-        $indexdata = Indexdata::find($id);
-      $indexdata->delete();
 
-      return redirect('admin/indexdata');
+        $contact = Contact::find($id);
+        $contact->delete();
+
+      return redirect('admin/contact');
     }
 }

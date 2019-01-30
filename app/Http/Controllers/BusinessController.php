@@ -43,6 +43,15 @@ class BusinessController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(),[
+          'gallery'   => 'required',
+         
+        ]);
+          if($validator->fails()){
+            return redirect()->back()
+                             ->withErrors($validator)
+                             ->withInput();
+          }
          if($request->file('featureimage')){
 
         $imagePath = Image::upload( $request->file('featureimage') , '/uploads/business/');

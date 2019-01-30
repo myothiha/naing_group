@@ -19,6 +19,8 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="sm-wrapper" data-sortable-id="sm_form_elements_1">
+                                @include('errors.list')
+                                
                                 <div class="title_box sm-header-style-1">
                                     
                                     <h6 class="sm-header">

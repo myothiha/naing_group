@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 use App\Csrimage;
 
+
 class CsrController extends Controller
 {
     /**
@@ -43,6 +44,15 @@ class CsrController extends Controller
      */
     public function store(Request $request)
     {
+         $validator = Validator::make($request->all(),[
+          'gallery'   => 'required',
+         
+        ]);
+          if($validator->fails()){
+            return redirect()->back()
+                             ->withErrors($validator)
+                             ->withInput();
+          }
         if($request->file('featureimage')){
 
         $imagePath = Image::upload( $request->file('featureimage') , '/uploads/csrs/');

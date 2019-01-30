@@ -528,6 +528,7 @@
                     <!--END HEADER-->
 
                    @yield('content')
+                   
 
                     <!-- BEGIN FOOTER -->
                     <footer id="footer" class="footer footer-inverse">

@@ -49,6 +49,16 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(),[
+          'gallery'   => 'required',
+          'blogcategory_id' => 'required|integer'
+         
+        ]);
+          if($validator->fails()){
+            return redirect()->back()
+                             ->withErrors($validator)
+                             ->withInput();
+          }
         if ($request->file('featureimage')) {
 
             $imagePath = Image::upload($request->file('featureimage'), '/uploads/blogs/');

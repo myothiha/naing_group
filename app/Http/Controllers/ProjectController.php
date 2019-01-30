@@ -10,6 +10,7 @@ use App\ProjectStatus;
 use Illuminate\Http\Request;
 use App\Util\Uploader\Image;
 use Storage;
+use Validator;
 
 class ProjectController extends Controller
 {
@@ -56,6 +57,20 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(),[
+          'price'       => 'required|integer',
+          'project_type_id' => 'required',
+          'project_status_id'=> 'required|integer',
+          'city_id'          => 'required',
+          'priority'         => 'required|integer',
+          'facilities'       => 'required'
+        ]);
+      if($validator->fails()){
+        return redirect()->back()
+                         ->withErrors($validator)
+                         ->withInput();
+      }
+
         if ($request->file('feature_image')) {
 
             $imagePath = Image::upload($request->file('feature_image'), '/uploads/projects/');
@@ -77,9 +92,9 @@ class ProjectController extends Controller
         $project->feature_image = $imagePath ?? '';
         $project->banner_image = $imagePathBanner ?? '';
         $project->map = $request->map ?? '';
-        $project->priority = $request->priority;
+        $project->priority = $request->priority ?? '';
         $project->layout   = $request->layout ?? 4;
-        $facilities        = $request->facilities;    
+        $facilities        = $request->facilities ?? '';    
         $project->save();
         $project->facilities()->sync($facilities);
 

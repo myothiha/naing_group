@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Project;
 use App\Room;
 use App\RoomFeature;
+use Validator;
 
 class RoomController extends Controller
 {
@@ -48,6 +49,21 @@ class RoomController extends Controller
      */
     public function store(Request $request, Project $project)
     {
+         $validator = Validator::make($request->all(),[
+          'price'       => 'required|integer',
+          'width'       => 'required|integer',
+          'bedroom'     => 'required|integer',
+          'bathroom'    => 'required|integer',
+          'floor'       => 'required|integer',
+
+          
+          
+        ]);
+      if($validator->fails()){
+        return redirect()->back()
+                         ->withErrors($validator)
+                         ->withInput();
+      }
         $room = new Room;
 
         $room->name = $request->name ?? '';
