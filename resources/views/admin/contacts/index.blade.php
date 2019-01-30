@@ -50,7 +50,6 @@
                                     <tbody>
                                     <?php $no=1; ?>
                                         @foreach($contacts as $contact)
-                                        {{ $contact->id }}
 
                                             <tr class="odd gradeX">
                                                 <td>{{ $no++ }}</td>

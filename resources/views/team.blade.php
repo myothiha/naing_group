@@ -33,7 +33,9 @@
             <div class="row d-flex justify-content-center">
                 <h4 class="">Founder and Executive Chairman's</h4>
             </div>
-            
+            @if(empty($founder))
+                <h3> There is no Data</h3>
+            @else            
             @foreach($founder as $data)
             <div class="row d-flex justify-content-center my-4">
                 <div class="col-md-3" data-toggle="modal" data-target="#founder{{ $data->id }}">
@@ -85,6 +87,7 @@
             </div>
 
             @endforeach
+            @endif
 
             <!-- Our Honorable Person -->
             <div class="row d-flex justify-content-center">
@@ -92,6 +95,9 @@
             </div>
             
             <div class="row d-flex justify-content-center my-4">
+           @if(empty($organization))
+           <h3> There is no Data</h3>
+            @else
             @foreach($organization as $data)
                 <div class="col-md-3" data-toggle="modal" data-target="#honorable{{ $data->id }}">
                     <div class="card people" data-aos="fade-up">
@@ -139,6 +145,7 @@
                     </div>
                 </div>
             @endforeach
+            @endif
             </div>
         </div>
     </section>
@@ -211,11 +218,21 @@
                 <div class="col-md-8 p-5">
                     <div class="my-2">
                         <h4 class="joy-title">OUR MISSION</h4>
-                        <p class="my-3 text-white">{{ $about->mission }}
+                        <p class="my-3 text-white">
+                             @if(empty($about))
+                            <h3> There is no data </h3>
+                            @else
+                            {{ $about->mission }}
+                            @endif
                         </p>
 
                         <h6 class="joyfounder">Founder & Moderator</h6>
-                        <p class="my-3 text-white">{{ $founders->biography }}
+                        <p class="my-3 text-white">
+                        @if(empty($founders))
+                            <h3> There is no data </h3>
+                        @else
+                        {{ $founders->biography }}
+                        @endif
                         </p>
                     </div>
                 </div>

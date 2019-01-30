@@ -24,6 +24,9 @@
 
         <div class="row">
             <div class="col-md-8">
+            @if(empty($blogs))
+            <h3> Ther is no Data </h3>
+            @else
                 @foreach($blogs as $blog)
 
                 <div class="">
@@ -37,6 +40,7 @@
                 </div>
 
                 @endforeach
+            @endif
 
                
             </div>
@@ -44,11 +48,15 @@
                 <h2 class="title">POPULAR TAGS</h2>
 
                 <ul class="nav flex-column my-2">
+                    @if(empty($tags))
+                        <h3> There is no Data </h3>
+                    @else
                     @foreach($tags as $tag)
                     <li class="nav-item">
                         <a class="nav-link" href="#">{{ $tag->name }}</a>
                     </li>
                     @endforeach
+                    @endif
                     
                 </ul>
 
@@ -56,19 +64,23 @@
 
                 <div class="my-3">
                     <ul class="nav flex-column my-2">
+                        @if(empty($blogcategorys))
+                            <h3> There is no Data </h3>
+                        @else
                         @foreach($blogcategorys as $blogcategory)
                         <li class="nav-item">
                             <a class="nav-link" href="#">{{ $blogcategory->name }}</a>
                         </li>
                         @endforeach
+                        @endif
                     </ul>
                 </div>
 
 
             </div>
-
+            @if(!empty($blog))
             {{ $blogs->links() }}
-
+            @endif
         </div>
 
 

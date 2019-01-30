@@ -11,11 +11,23 @@
                         </div>
 
                         <div class="mx-4">
-                            <i class="fas fa-phone mx-2"><span class="phone">{{ $contact->phone }}</span></i>
+                            <i class="fas fa-phone mx-2"><span class="phone">
+                                 @if(empty($contact))
+                                 There is no Data
+                                 @else
+                                 {{ $contact->phone }}
+                                 @endif
+                            </span></i>
                         </div>
 
                         <div class="mx-4">
-                            <i class="far fa-envelope-open mx-2"><span class="phone">{{ $contact->mail }}</span></i>
+                            <i class="far fa-envelope-open mx-2"><span class="phone">
+                                 @if(empty($contact))
+                                 There is no Data
+                                 @else
+                                 {{ $contact->mail }}
+                                 @endif
+                            </span></i>
                         </div>
                     </ul>
                 </div>

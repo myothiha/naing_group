@@ -22,6 +22,9 @@
         </div>
 
         <div class="row">
+            @if(empty($business))
+                <h3> There is no Data </h3>
+            @else
         	@foreach($business as $data)
             <div class="col-md-4">
                 <div class="card" data-aos="fade-up">
@@ -35,6 +38,7 @@
                 </div>
             </div>
             @endforeach
+            @endif
 
             
 
@@ -43,7 +47,9 @@
         </div>
 
         <nav aria-label="Page navigation example">
+            @if(!empty($business))
             {{ $business->links() }}
+            @endif
         </nav>
     </div>
 

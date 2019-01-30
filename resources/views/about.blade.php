@@ -18,8 +18,12 @@
     <div class="container my-3" data-aos="fade-left">
         <div class="row p-3">
             <h2 class="title">About Us</h2>
+               @if(empty($about))
+                <h3> There is no Data </h3>
+             @else
             <p>{{ $about->about }}
             </p>
+             @endif
         </div>
     </div>
 
@@ -32,8 +36,11 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6 vision-textarea">
+                            @if(empty($about))
+                            <p> There is no Data </p>
+                            @else
                             <p>{{ $about->vision }}</p>
-
+                            @endif               
                         </div>
 
                     </div>
@@ -51,7 +58,13 @@
                 <div class="col-md-8 p-5">
                     <div class="my-2" data-aos="fade-left">
                         <h4>OUR MISSION</h4>
-                        <p class="mission-textarea">{{ $about->mission }}</p>
+                        <p class="mission-textarea">
+                            @if(empty($about))
+                            <p> There is no Data </p>
+                            @else
+                            <p>{{ $about->mission }}</p>
+                            @endif    
+                        </p>
                     </div>
                 </div>
             </div>
@@ -96,6 +109,9 @@
                 <h2 class="title">About Us</h2>
             </div>
             <div class="row" data-aos="fade-down">
+                @if(empty($about))
+                <h3> There is no Data </h3>
+                @else
                  @foreach($whychoose as $data)
                 <div class="col-md-4">
                     <div class="card py-3 " data-aos="fade-up">
@@ -107,6 +123,7 @@
                     </div>
                 </div>
                 @endforeach
+                @endif
                 
             </div>
         </div>

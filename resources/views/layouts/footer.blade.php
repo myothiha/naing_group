@@ -6,7 +6,12 @@
                     <div class="col-3 align-self-center"><i class="fas fa-2x fa-map-marker "></i></div>
                     <div class="col-9">
                         <h6>ADDRESS</h6>
-                        <p class="footer-text">{{ $contact->address }}
+                        <p class="footer-text">
+                         @if(empty($contact))
+                         There is no Data
+                         @else
+                         {{ $contact->address }}
+                         @endif
                         </p>
                     </div>
                 </div>
@@ -16,7 +21,12 @@
                     <div class="col-3 align-self-center"><i class="fas fa-2x fa-mobile-alt"></i></div>
                     <div class="col-9">
                         <h6>PHONE</h6>
-                        <p class="footer-text">{{ $contact->phone }}
+                        <p class="footer-text">
+                        @if(empty($contact))
+                         There is no Data
+                         @else
+                         {{ $contact->phone }}
+                         @endif
                         </p>
                     </div>
                 </div>
@@ -26,7 +36,12 @@
                     <div class="col-3 align-self-center"><i class="fas fa-2x fa-envelope"></i></div>
                     <div class="col-9">
                         <h6>Email</h6>
-                        <p class="footer-text">{{ $contact->mail }}
+                        <p class="footer-text">
+                         @if(empty($contact))
+                         There is no Data
+                         @else
+                         {{ $contact->mail }}
+                         @endif
                         </p>
                     </div>
                 </div>
@@ -36,7 +51,12 @@
                     <div class="col-3 align-self-center"><i class="fas fa-clock fa-2x"></i></div>
                     <div class="col-9">
                         <h6>OFFICE HOURS</h6>
-                        <p class="footer-text">{{ $contact->office }}
+                        <p class="footer-text">
+                         @if(empty($contact))
+                         There is no Data
+                         @else
+                         {{ $contact->office }}
+                         @endif
                         </p>
                     </div>
                 </div>

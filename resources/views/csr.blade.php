@@ -27,7 +27,9 @@
         </div>
 
         <div class="row">
-
+            @if(empty($csrs))
+                <h3> There is no Data </h3>
+            @else
             @foreach($csrs as $csr)
             <div class="col-lg-3 col-md-6 col-6">
                 <figure class="figure">
@@ -41,12 +43,15 @@
 
             </div>
             @endforeach
+            @endif
 
             
         </div>
 
         <div class="row">
+            @if(!empty($csrs))
             {{ $csrs->links() }}
+            @endif
         </div>
 
 

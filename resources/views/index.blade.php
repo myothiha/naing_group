@@ -7,6 +7,9 @@
 
  <div id="carouselExampleIndicators" class="carousel slide banner" data-ride="carousel">
         <div class="carousel-inner banner-inner">
+            @if(empty($homeslides))
+                <h3> There is no Data </h3>
+            @else
 
             @foreach($homeslides as $key => $homeslide)
 
@@ -21,9 +24,9 @@
                 </div>
 
             </div>
-
+            
             @endforeach
-
+            @endif
             
         </div>
 
@@ -41,31 +44,65 @@
 
 
     <div class="container my-5">
+        
         <div class="row py-3">
             <div class="col-md-5">
+                 @if(empty($about))
+                   There is no Data
+                 @else
                 <img src="{{ $about->image }}" alt=" " class="img-fluid" data-aos="fade-right">
+                 @endif
             </div>
             <div class="col-md-7">
                 <h2 class="title" data-aos="fade-right">About Us</h2>
-                <p class="my-4" data-aos="fade-up">{{ $about->about }}
+                <p class="my-4" data-aos="fade-up">
+                     @if(empty($about))
+                         There is no Data
+                         @else
+                         {{ $about->about }}
+                     @endif
                 </p>
                 <div class="row ">
                     <div class="col-6" data-aos="fade-up">
                         <i class="fas fa-check about-listico"><span class="h5 about-list">Our Vision</span></i>
-                        <p class="about-text ">{{ $about->vision }}</p>
+                        <p class="about-text ">
+                             @if(empty($about))
+                                 There is no Data
+                                 @else
+                                 {{ $about->vision }}
+                             @endif
+                        </p>
                     </div>
                     <div class="col-6" data-aos="fade-up">
                         <i class="fas fa-crosshairs about-listico"><span class="h5 about-list">Our Mission</span></i>
-                        <p class="about-text">{{ $about->mission }}</p>
+                        <p class="about-text">
+                            @if(empty($about))
+                                 There is no Data
+                                 @else
+                                 {{ $about->mission }}
+                             @endif
+                        </p>
 
                     </div>
                     <div class="col-6" data-aos="fade-up">
                         <i class="fas fa-check about-listico"><span class="h5 about-list">Core Value</span></i>
-                        <p class="about-text ">{{ $about->value }}</p>
+                        <p class="about-text ">
+                            @if(empty($about))
+                                 There is no Data
+                                 @else
+                                 {{ $about->value }}
+                             @endif
+                        </p>
                     </div>
                     <div class="col-6" data-aos="fade-up">
                         <i class="fas fa-images about-listico"><span class="h5 about-list">INTERIOR</span></i>
-                        <p class="about-text ">{{ $about->interior }}</p>
+                        <p class="about-text ">
+                            @if(empty($about))
+                                 There is no Data
+                                 @else
+                                 {{ $about->interior }}
+                             @endif
+                        </p>
 
                     </div>
                 </div>
@@ -87,6 +124,11 @@
 
 
                 <div class="owl-carousel owl-theme">
+                    @if(empty($gallerys))
+                        <div class="item">
+                            There is No Data
+                        </div>
+                    @else
 
                     @foreach($gallerys as $project)
 
@@ -95,6 +137,7 @@
                     </div>
 
                     @endforeach
+                    @endif
 
                     
 
@@ -108,7 +151,17 @@
                 <h2 class="title " data-aos="fade-down">WHY CHOOSE US</h2>
             </div>
             <div class="row">
-
+                @if(empty($whychoose))
+                 <div class="col-md-4">
+                    <div class="card py-3 " data-aos="fade-up">
+                        <div class="card-body text-center">
+                            <i class="fas fa-2x {{ $data->icon }} card-icon"></i>
+                            <h5 class="card-title text-center my-3"> There is No Data </h5>
+                            <p class="card-text text-center"> There is no Data </p>
+                        </div>
+                    </div>
+                </div>
+                @else
                 @foreach($whychoose as $data)
                 <div class="col-md-4">
                     <div class="card py-3 " data-aos="fade-up">
@@ -120,6 +173,7 @@
                     </div>
                 </div>
                 @endforeach
+                @endif
 
                 
             </div>
@@ -135,15 +189,30 @@
                         <h6 class=" " data-aos="fade-left">The Construction Company</h6>
                     </div>
                     <div class="row justify-content-end">
-                        <h1 class=" " data-aos="fade-right">{{ $indexdata->title }}</h1>
+                        <h1 class=" " data-aos="fade-right"> 
+                            @if(empty($indexdata))
+                                The is no Data
+                            @else
+                            {{ $indexdata->title }}
+                            @endif
+                        </h1>
                     </div>
                     <div class="row justify-content-end">
                         <div class="col-lg-8 " data-aos="fade-down">
-                            <p class="text-right">{{ $indexdata->description }}
+                            <p class="text-right">
+                            @if(empty($indexdata))
+                                The is no Data
+                            @else
+                            {{ $indexdata->description }}
+                            @endif
 
                             </p>
                         </div>
                     </div>
+                    @if(empty($indexdata))
+                    <div class="row my-2 justify-content-end">
+                     <h3> There is No Data </h3>
+                    @else
                     <div class="row my-2 justify-content-end">
                         <div class="col-md-2 col-6 my-2">
                             <span class='numscroller' data-min='1' data-max='{{ $indexdata->project }}' data-delay='0.7' data-increment='1'></span>
@@ -167,6 +236,7 @@
                         </div>
 
                     </div>
+                    @endif
                 </div>
             </div>
 
@@ -179,6 +249,13 @@
             <div class="row d-flex justify-content-center">
                 <h2 class="title" data-aos="fade-down">Our Business Units</h2>
             </div>
+            @if(empty($business))
+            <div class="row">
+                <div class="col-md-4">
+                    There is No Data
+                </div>
+            </div>
+            @else
             <div class="row">
                 @foreach($business as $data)
                 <div class="col-md-4">
@@ -196,6 +273,7 @@
 
                 @endforeach
             </div>
+            @endif
         </div>
     </section>
 
@@ -206,6 +284,9 @@
                 <div class="row">
                     <h5 class="title text-white">Frequently Asked Questions</h5>
                 </div>
+                @if(empty($faq))
+                    <h3> There is no Data  </h3>
+                @else
                 <div class="">
                     <div id="accordion" class="accordion">
                         <div class="mb-0">
@@ -232,6 +313,7 @@
 
                     <!-- panel-group -->
                 </div>
+                @endif
 
             </div>
         </div>

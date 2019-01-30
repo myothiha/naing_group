@@ -30,10 +30,27 @@
                 <div class="row my-3">
                     <div class="col-md-4" data-aos="fade-right">
                         <ul class="agent-list">
-                            <li>{{ $contacts->address }} </li>
-                            <li>{{ $contacts->mail }}
+                            <li>
+                                @if(empty($contacts))
+                                    There is No Data
+                                @else
+                                {{ $contacts->address }} 
+                                @endif
                             </li>
-                            <li>{{ $contacts->phone }}</li>
+                            <li>
+                              @if(empty($contacts))
+                                    There is No Data
+                                @else
+                                {{ $contacts->mail }} 
+                                @endif
+                            </li>
+                            <li>
+                                 @if(empty($contacts))
+                                    There is No Data
+                                @else
+                                {{ $contacts->phone }} 
+                                @endif
+                            </li>
                             <div class="agent-social">
                                 <i class="fab fa-facebook-f mx-1"></i>
                                 <i class="fab fa-google-plus-g mx-1"></i>

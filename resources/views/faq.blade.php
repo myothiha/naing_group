@@ -26,6 +26,9 @@
 
             <div id="accordion" class="accordion">
                 <div class="mb-0">
+                    @if(empty($faq))
+                    <h3> There is No Data </h3>
+                    @else
                     @foreach($faqs as $key =>$faq)
                     <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne{{ $faq->id }}" data-parent="#accordion">
                         <a class="card-title">
@@ -36,8 +39,8 @@
                         <p>{{ $faq->answer }}
                         </p>
                     </div>
-
                     @endforeach
+                    @endif
                     
                 </div>
             </div>
