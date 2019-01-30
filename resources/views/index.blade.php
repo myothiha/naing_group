@@ -88,10 +88,10 @@
 
                 <div class="owl-carousel owl-theme">
 
-                    @foreach($projects as $project)
+                    @foreach($gallerys as $project)
 
                     <div class="item">
-                        <img src="{{ $project->feature_image }}" class="img-fluid" alt="">
+                        <img src="{{ $project->image }}" class="img-fluid" alt="">
                     </div>
 
                     @endforeach

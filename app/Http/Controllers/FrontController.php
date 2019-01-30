@@ -21,6 +21,7 @@ use App\Team;
 use App\Project;
 use App\Whychoose;
 use App\Room;
+use App\Gallery;
 
 class FrontController extends Controller
 {
@@ -42,7 +43,7 @@ class FrontController extends Controller
 
         $homeslides     = Homeslide::all();
         $about          = About::find(1);
-        $projects       = Project::all();
+        $gallerys       = Gallery::all();
         $whychoose      = Whychoose::get();
         $indexdata      = Indexdata::find(1);
         $business       = Business::get();
@@ -51,7 +52,7 @@ class FrontController extends Controller
         return view('index', [
             'homeslides'    => $homeslides,
             'about'         => $about,
-            'projects'      => $projects,
+            'gallerys'      => $gallerys,
             'whychoose'     => $whychoose,
             'indexdata'     => $indexdata,
             'business'      => $business,
@@ -186,6 +187,9 @@ class FrontController extends Controller
 
     public function contact()
     {
-        return view('contact');
+        $contacts   = Contact::first();
+        return view('contact',[
+            'contacts' => $contacts
+        ]);
     }
 }
