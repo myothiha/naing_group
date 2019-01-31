@@ -66,13 +66,17 @@
                             </div>
                             <div id="a{{ $no++ }}" class="card-body collapse" data-parent="#accordion">
                                 <div class="card-body">
+                                    @if(empty($rooms))
+                                    <h3> There is no data </h3>
+                                    @else
                                     @foreach($rooms as $room)
                                      @if($i == $room->floor)
-                                        <a href="project-details.html">
+                                        <a href="/roomdetail/{{ $room->id }}">
                                             <div class="room sale"> {{ $room->name }} <span></span></div>
                                         </a>
                                      @endif   
                                     @endforeach
+                                    @endif
                                 </div>                              
 
                                 <!-- <div class="room sold"> {{ $room->name }}  <span></span></div> -->

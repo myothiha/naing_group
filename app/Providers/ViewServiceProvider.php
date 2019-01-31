@@ -17,7 +17,7 @@ class ViewServiceProvider extends ServiceProvider
     {
          View::composer('*', function ($view) {
 
-            $contact = Contact::find(1);
+            $contact = Contact::first();
 
             $view->with('contact', $contact);
         });

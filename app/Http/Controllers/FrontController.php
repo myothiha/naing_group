@@ -132,7 +132,13 @@ class FrontController extends Controller
             'rooms'    => $rooms,
         ]);
     }
-   
+
+    public function roomdetail(Room $room){
+        
+        return view('roomdetail',[
+            'room' => $room,
+        ]);
+    }   
 
     public function business()
     {
