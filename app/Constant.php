@@ -11,4 +11,6 @@ class Constant
     const UPLOADED = "Uploaded";
     const PROCESSING = "Processing";
     const COMPLETE = "Complete";
+    const ADMIN_ROLE = "admin";
+    const CUSTOMER_ROLE = "customer";
 }

@@ -20,8 +20,12 @@ class LoginController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
+            if(Auth::user()->role == 'customer'){
+                return redirect()->intended('/customer/bookroom');
+            }else{
             // Authentication passed...
-            return redirect()->intended('admin');
+                return redirect()->intended('admin');
+            }
         }
         return redirect()->back()->withInput()->withFlashMessage("error", "Username and Password incorrect");
     }

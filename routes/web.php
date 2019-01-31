@@ -65,6 +65,12 @@ Route::get('login',    											'LoginController@login')->name('login');
 
 Route::post('admin/login',   									'LoginController@authenticated');
 
+Route::group(['prefix' => 'customer', 'middleware' => 'auth'], function(){
+
+    Route::view('/bookroom', 'customer.index');
+	Route::get('/getregister',		'CustomerController@getregister');
+	Route::post('/postregister',	'CustomerController@postregister');
+});
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
@@ -128,3 +134,4 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
 	HMT::routes();
 });
+
