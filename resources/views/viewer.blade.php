@@ -1,9 +1,9 @@
 <head>
+    <link rel="icon" href="/images/favicon.png" sizes="16x16" type="image/png">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=no" />
     <meta charset="utf-8">
 
     <!-- The Viewer CSS -->
-    <link rel="icon" href="/images/favicon.png" sizes="16x16" type="image/png">
     <link rel="stylesheet" href="https://developer.api.autodesk.com/modelderivative/v2/viewers/6.*/style.min.css" type="text/css">
 
     <!-- Developer CSS -->

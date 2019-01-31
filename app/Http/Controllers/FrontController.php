@@ -16,12 +16,15 @@ use App\Businessimage;
 use App\Csrimage;
 use App\Blogimage;
 use App\Contact;
+use App\ProjectFile;
 use App\Tag;
 use App\Team;
 use App\Project;
 use App\Whychoose;
 use App\Room;
 use App\Gallery;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Http\Request;
 
 class FrontController extends Controller
 {
@@ -133,6 +136,11 @@ class FrontController extends Controller
         ]);
     }
 
+    public function projectViewer(ProjectFile $projectFile)
+    {
+        return $this->viewer->render('viewer', $projectFile);
+    }
+   
     public function roomdetail(Room $room){
         
         return view('roomdetail',[
@@ -197,5 +205,29 @@ class FrontController extends Controller
         return view('contact',[
             'contacts' => $contacts
         ]);
+    }
+
+    public function postContact(Request $request)
+    {
+        MailconfigController::index();
+
+        $parameters['name']    = $request->name;
+        $parameters['email']   = $request->email;
+        $parameters['message'] = $request->message;
+        $title                 = "Customer Contact message from website";
+
+        $Subject  = "Customer Contact message from website";
+        $bcc      = [];
+
+        Mail::send('emails.contactmail', array('parameters' => $parameters, 'title' => $title), function ($message) use ($bcc, $Subject, $request) {
+            $message->from($request->email, $request->name)
+                ->bcc($bcc)
+                ->replyTo($request->email, $request->name)
+                ->subject($Subject);
+
+        });
+
+//        flash()->success('Thanks for your contact message. ');
+        return redirect()->back();
     }
 }
