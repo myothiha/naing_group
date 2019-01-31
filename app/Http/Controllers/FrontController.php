@@ -139,6 +139,12 @@ class FrontController extends Controller
         return $this->viewer->render('viewer', $projectFile);
     }
    
+    public function roomdetail(Room $room){
+        
+        return view('roomdetail',[
+            'room' => $room,
+        ]);
+    }   
 
     public function business()
     {

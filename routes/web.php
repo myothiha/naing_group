@@ -14,6 +14,8 @@
 
 use Routes\HMT;
 
+Route::view('/roomdetail', 'roomdetail');
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -40,6 +42,8 @@ Route::get('/project',						'FrontController@project');
 Route::get('/projectdetail/{project}',		'FrontController@projectdetail');
 
 Route::get('/project-viewer/{projectFile}',		'FrontController@projectViewer');
+
+Route::get('/roomdetail/{room}',			'FrontController@roomdetail');
 
 Route::get('/business',						'FrontController@business');
 
