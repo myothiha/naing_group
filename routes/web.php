@@ -39,6 +39,8 @@ Route::get('/project',						'FrontController@project');
 
 Route::get('/projectdetail/{project}',		'FrontController@projectdetail');
 
+Route::get('/project-viewer/{projectFile}',		'FrontController@projectViewer');
+
 Route::get('/business',						'FrontController@business');
 
 Route::get('/businessdetail/{business}',	'FrontController@businessdetail');
