@@ -59,26 +59,27 @@
                         </ul>
                     </div>
                     <div class="col-md-8" data-aos="fade-left">
-                        <form>
+                        <form action="{{ action('FrontController@postContact') }}" method="POST">
+                            {{ csrf_field() }}
                             <div class="form-row">
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="First name">
+                                    <input type="text" name="name" class="form-control" placeholder="Your name">
                                 </div>
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="Last name">
+                                    <input type="text" name="email" class="form-control" placeholder="Email">
                                 </div>
                             </div>
 
                             <div class="form-row my-3">
                                 <div class="col">
 
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Massage" rows="3"></textarea>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" name="message" placeholder="Massage" rows="3"></textarea>
 
                                 </div>
 
                             </div>
 
-                            <button type="button" class="btn btn-primary float-right">Submit</button>
+                            <input type="submit" class="btn btn-primary float-right" value="Send Mail">
                         </form>
                     </div>
                 </div>

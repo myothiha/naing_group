@@ -23,7 +23,7 @@ Route::get('/test', 'TestController@test');
 
 Route::get('/invcaptcha', 'TestController@invcaptcha');
 
-Route::get('/',						'FrontController@index');
+Route::get('/',								'FrontController@index');
 
 Route::get('/about',						'FrontController@about');
 
@@ -50,6 +50,8 @@ Route::get('/blog',							'FrontController@blog');
 Route::get('/blogdetail/{blog}',			'FrontController@blogdetail');
 
 Route::get('/contact',						'FrontController@contact');
+
+Route::post('/contact', 					'FrontController@postContact');
 
 Route::resource('/projectFiles', 'ProjectFileController');
 
@@ -120,7 +122,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
 	Route::resource('contact',									'ContactController');
 
-	Route::resource('room-features',								'roomfeatureController');
+	Route::resource('room-features',							'roomfeatureController');
 
 	HMT::routes();
 });
