@@ -32,7 +32,13 @@
 
         <div class="row p-3">
 
-            <div class="col-md-8">
+            <div class="col-md-8 flex-column">
+                @if( $project->projectFile )
+                    <div>
+                        <a href="{{ action('FrontController@projectViewer', $project->projectFile) }}"
+                           class="btn btn-primary">View 3D</a>
+                    </div>
+                @endif
                 <h2 class="title my-5">{{ $project->name }}</h2>
                 <p class="my-3">
                     {{ $project->description }}
@@ -52,32 +58,36 @@
 
                 <div class="collp">
                     <div id="accordion" class="accordion">
-                    @php
-                      $no = 1;
-                      $f = $project->floor
-                    @endphp  
+                        @php
+                            $no = 1;
+                            $f = $project->floor
+                        @endphp
                         <div class="mb-0">
-                    @for($i = 1; $i<= $f ; $i++)
+                            @for($i = 1; $i<= $f ; $i++)
 
-                            <div class="card-header collapsed" data-toggle="collapse" href="#a{{ $no }}">
-                                <a class="card-title">
-                                    {{ $i }} Floor
-                                </a>
-                            </div>
-                            <div id="a{{ $no++ }}" class="card-body collapse" data-parent="#accordion">
-                                <div class="card-body">
-                                    @foreach($rooms as $room)
-                                     @if($i == $room->floor)
-                                        <a href="project-details.html">
-                                            <div class="room sale"> {{ $room->name }} <span></span></div>
-                                        </a>
-                                     @endif   
-                                    @endforeach
-                                </div>                              
+                                <div class="card-header collapsed" data-toggle="collapse" href="#a{{ $no }}">
+                                    <a class="card-title">
+                                        {{ $i }} Floor
+                                    </a>
+                                </div>
+                                <div id="a{{ $no++ }}" class="card-body collapse" data-parent="#accordion">
+                                    <div class="card-body">
+                                        @if(empty($rooms))
+                                            <h3> There is no data </h3>
+                                        @else
+                                            @foreach($rooms as $room)
+                                                @if($i == $room->floor)
+                                                    <a href="/roomdetail/{{ $room->id }}">
+                                                        <div class="room sale"> {{ $room->name }} <span></span></div>
+                                                    </a>
+                                                @endif
+                                            @endforeach
+                                        @endif
+                                    </div>
 
-                                <!-- <div class="room sold"> {{ $room->name }}  <span></span></div> -->
-                            </div>  
-                    @endfor
+                                <!-- <div class="room sold"> {{ $room->name }} <span></span></div> -->
+                                </div>
+                            @endfor
 
                         </div>
                     </div>

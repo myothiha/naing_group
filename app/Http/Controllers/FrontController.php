@@ -16,6 +16,7 @@ use App\Businessimage;
 use App\Csrimage;
 use App\Blogimage;
 use App\Contact;
+use App\ProjectFile;
 use App\Tag;
 use App\Team;
 use App\Project;
@@ -134,7 +135,18 @@ class FrontController extends Controller
             'rooms'    => $rooms,
         ]);
     }
+
+    public function projectViewer(ProjectFile $projectFile)
+    {
+        return $this->viewer->render('viewer', $projectFile);
+    }
    
+    public function roomdetail(Room $room){
+        
+        return view('roomdetail',[
+            'room' => $room,
+        ]);
+    }   
 
     public function business()
     {
