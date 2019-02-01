@@ -438,14 +438,13 @@ hr {
     height: 64px;
     text-align: center;
 }
-.feature{
+.feature {
     background-color: #EABB3D;
     display: inline-block;
-    width: 150px;
-    /*height: 64px;*/
     text-align: center;
-
+    padding-top:32px;
 }
+
 
 .sale::after {
     content: "SALE";

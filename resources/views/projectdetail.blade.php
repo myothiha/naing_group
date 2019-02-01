@@ -83,7 +83,11 @@
                                                         @elseif($room->status == 1)
                                                         <div class="room sold"> {{ $room->name }} <span></span></div>
                                                         @else
-                                                        <div class="room feature"> {{ $room->name }} <span></span></div>
+                                                          <div class="room feature"> 
+                                                             <div>{{ $room->name }}</div>
+                                                            <span></span>
+                                                           </div> 
+
                                                         @endif
 
 
