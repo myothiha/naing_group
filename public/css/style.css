@@ -406,6 +406,13 @@ hr {
     border-right: 2px solid;
 }
 
+.room-feature{
+    padding: 10px 15px;
+    text-align: center;
+    color: #EABB3D;
+    border-right: 2px solid;
+}
+
 .facilities-text {
     color: #38332C;
 }
@@ -431,17 +438,27 @@ hr {
     height: 64px;
     text-align: center;
 }
+.feature{
+    background-color: #EABB3D;
+    display: inline-block;
+    width: 150px;
+    /*height: 64px;*/
+    text-align: center;
+
+}
 
 .sale::after {
     content: "SALE";
 }
 
-.sold {
-    background-color: #38332C;
+.sold{
+
+    background-color: #000;
     display: inline-block;
     width: 64px;
     height: 64px;
     text-align: center;
+    
 }
 
 .sold::after {

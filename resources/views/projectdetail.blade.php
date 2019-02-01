@@ -78,7 +78,15 @@
                                             @foreach($rooms as $room)
                                                 @if($i == $room->floor)
                                                     <a href="/roomdetail/{{ $room->id }}">
+                                                        @if($room->status == 0 )
                                                         <div class="room sale"> {{ $room->name }} <span></span></div>
+                                                        @elseif($room->status == 1)
+                                                        <div class="room sold"> {{ $room->name }} <span></span></div>
+                                                        @else
+                                                        <div class="room feature"> {{ $room->name }} <span></span></div>
+                                                        @endif
+
+
                                                     </a>
                                                 @endif
                                             @endforeach

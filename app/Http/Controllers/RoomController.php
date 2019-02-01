@@ -55,6 +55,7 @@ class RoomController extends Controller
           'bedroom'     => 'required|integer',
           'bathroom'    => 'required|integer',
           'floor'       => 'required|integer',
+          'status'      => 'required|integer'
 
           
           
@@ -73,8 +74,9 @@ class RoomController extends Controller
         $room->bedroom = $request->bedroom ?? '';
         $room->bathroom = $request->bathroom ?? '';
         $room->floor = $request->floor ?? '';
-        $room->video = $request->video ?? '';
+        // $room->video = $request->video ?? '';
         $room->project_id = $request->project_id ?? '';
+        $room->status     = $request->status;
 
         $room->save();
 
@@ -132,8 +134,9 @@ class RoomController extends Controller
         $room->bedroom = $request->bedroom ?? '';
         $room->bathroom = $request->bathroom ?? '';
         $room->floor = $request->floor ?? '';
-        $room->video = $request->video ?? '';
+        // $room->video = $request->video ?? '';
         $room->project_id = $project->id ?? '';
+        $room->status     = $request->status;        
         $room->save();
         $room->feature()->sync($request->roomfeature);
 

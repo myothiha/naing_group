@@ -115,7 +115,7 @@
 		                                    </div>
 		                                </div>
 		                            </div>
-                                    <div class="row">
+                                    <!-- <div class="row">
 		                                <div class="col-12">
 		                                    <div class="form-group">
 		                                        <label for="video">Video</label>
@@ -123,7 +123,20 @@
 		                                               type="text" class="form-control">
 		                                    </div>
 		                                </div>
-		                            </div>
+		                            </div> -->
+		                           <div class="row">
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label for="status"> Status </label>
+                                                    <select name="status" class="form-control" type="select">
+                                                       <option value="" class = "form-control"> Select One </option>
+                                                       <option value="0"> Sale </option>
+                                                       <option value="1">  Sold  </option>
+                                                       <option value="2"> Faiclity Room </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                    </div>
 		                            <div class="row">
                                             <div class="col-lg-12">
                                                 <label for="status">Facility</label>
