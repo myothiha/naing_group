@@ -19,7 +19,7 @@
     <div class="container my-3">
         <div class="row p-3" data-aos="fade-left">
             <div class="col-md-12">
-                <h2 class="page-title my-5">Our Mindstone</h2>
+                <h2 class="page-title my-5">Our Milestones</h2>
             </div>
         </div>
     </div>

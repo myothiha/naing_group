@@ -159,9 +159,9 @@
                         <h5>Contacnt Me</h5>
                         <ul class="agent-list">
                             <li>Real Estate Broker </li>
-                            <li>{{ $contact->mail }}
+                            <li>{{ $contact->mail ?? 'No Data' }}
                             </li>
-                            <li> {{ $contact->phone }} </li>
+                            <li> {{ $contact->phone ?? 'No Data' }} </li>
                             <div class="agent-social">
                                 <i class="fab fa-facebook-f mx-1"></i>
                                 <i class="fab fa-google-plus-g mx-1"></i>
@@ -268,9 +268,6 @@
                 <img src="images/giude.jpg" alt="" class="img-fluid my-3">
 
             </div>
-
-
         </div>
-
     </div>
 @endsection

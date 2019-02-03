@@ -70,9 +70,10 @@
 
     <div class="bg-gray py-2">
         <div class="container">
-            <p class="copy my-2">©{{ \Carbon\Carbon::now()->year }}  by Naing Group Construction, Developed by
+            <p class="copy my-2">© {{ \Carbon\Carbon::now()->year }}  by Naing Group Construction, Developed by
                 <a href="http://www.upsalute.com" target="_blank" style="color: whitesmoke;">UpSalute Co.Ltd </a>
-                    & Naing Techlabs
+                    &
+                <a href="http://naingtechlabs.com" target="_blank" style="color: whitesmoke;">Naing Techlabs </a>
             </p>
         </div>
     </div>

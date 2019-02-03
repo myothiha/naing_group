@@ -217,6 +217,7 @@ h3 {
 .navbar-light .navbar-nav .nav-link {
     color: #fff;
     margin: 0px 5px;
+    text-shadow: black 0px 0px 1px;
 }
 
 .barnner {
