@@ -29,18 +29,16 @@
 
     @yield('css')
 
-    <title>Welcom to - Naing Group</title>
+    <title>Welcome to Naing Group Construction</title>
 </head>
 
 <body>
 
-    {{--<a href="#0" class="cd-top js-cd-top cd-top--fade-out cd-top--show">Top</a>--}}
+    <a href="#0" class="cd-top js-cd-top cd-top--fade-out cd-top--show">Top</a>
 
 @yield('content')
 
-
 @include('layouts.footer')
-
 
     <script src="\js/backtotop.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
@@ -102,11 +100,6 @@
             }
         })
     </script>
-
-
-
-
-
 
     <!-- NumScroller -->
     <script src="js/jquery-1.10.2.min.js"></script>

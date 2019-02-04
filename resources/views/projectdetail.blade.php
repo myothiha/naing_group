@@ -111,7 +111,7 @@
                 <div class="row">
 
                     @foreach($project->facilities as $facility)
-                        <div class="d-fex facilities-icon">
+                        <div class="d-fex facilities-icon col-4">
                             <i class="{{ $facility->icon }} fa-3x"></i><br>
                             <span class="facilities-text">{{ $facility->name }}</span>
                         </div>
