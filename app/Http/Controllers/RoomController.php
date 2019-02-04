@@ -15,13 +15,21 @@ class RoomController extends Controller
      * @param Project $project
      * @return \Illuminate\Http\Response
      */
-    public function index(Project $project)
+    public function floor(Project $project){
+
+        return view('admin.rooms.floor',[
+            'project' => $project
+        ]);
+    }
+    public function index(Project $project,$floor)
     {
-        $rooms = $project->rooms()->OrderBy('created_at', 'desc')->get();
+
+        $rooms = $project->rooms()->where('floor',$floor)->OrderBy('created_at', 'desc')->get();
 
         return view('admin.rooms.index', [
             'project' => $project,
             'rooms' => $rooms,
+            'floor' => $floor,
         ]);
     }
 
@@ -31,12 +39,13 @@ class RoomController extends Controller
      * @param Project $project
      * @return \Illuminate\Http\Response
      */
-    public function create(Project $project)
+    public function create(Project $project,$floor)
     {
         $roomfeatures = RoomFeature::get();
         return view('admin.rooms.create', [
             'project' => $project,
             'roomfeatures' => $roomfeatures,
+            'floor'        => $floor,
         ]);
     }
 
@@ -49,6 +58,9 @@ class RoomController extends Controller
      */
     public function store(Request $request, Project $project)
     {
+
+
+
          $validator = Validator::make($request->all(),[
           // 'price'       => 'required|integer',
           // 'width'       => 'required|integer',
@@ -82,7 +94,7 @@ class RoomController extends Controller
 
         $room->feature()->sync($request->roomfeature);
 
-        return redirect("admin/project/$request->project_id/room");
+        return redirect("/admin/project/$request->project_id/floor/$request->floor");
     }
 
     /**
@@ -113,7 +125,7 @@ class RoomController extends Controller
             'project' => $project,
             'room' => $room,
             'roomfeatures' => $roomfeatures,
-            'roomfeatureid'=> $roomfeatureid
+            'roomfeatureid'=> $roomfeatureid,
         ]);
     }
 
@@ -141,7 +153,8 @@ class RoomController extends Controller
         $room->feature()->sync($request->roomfeature);
 
 
-        return redirect("admin/project/{$request->project_id}/room");
+        return redirect("/admin/project/$request->project_id/floor/$request->floor");
+        
     }
 
     /**
@@ -156,6 +169,7 @@ class RoomController extends Controller
     public function destroy(Request $request, Project $project, Room $room)
     {
         $room->delete();
-        return redirect("admin/project/{$project->id}/room");
+        return redirect("/admin/project/$project->id/floor/$room->floor");
+
     }
 }

@@ -128,7 +128,7 @@ class FrontController extends Controller
 
     public function projectdetail(Project $project)
     {
-        $rooms = $project->rooms()->OrderBy('created_at', 'desc')->get();
+        $rooms = $project->rooms()->OrderBy('created_at', 'asc')->get();
               
         return view('projectdetail', [
             'project' => $project,

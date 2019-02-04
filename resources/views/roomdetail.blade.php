@@ -26,7 +26,7 @@
             <div class="col-md-8">
                 <h2 class="my-5 properties-title"> {{ $room->name }} </h2><span class="forsale">For Sale</span>
                 <div class="my-3">
-                    <h5 class="price mt-2"> {{ $room->price }}</h5><span class="sq"> {{ $room->width }}</span>
+                    <h5 class="price mt-2">{{ $room->price }} Lkhs </h5><span class="sq"> {{ $room->width }}</span>
 
                 </div>
                 <p class="my-3">

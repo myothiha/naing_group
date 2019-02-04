@@ -10,7 +10,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Our People</li>
+                    <li class="breadcrumb-item active" aria-current="page">Milestone</li>
                 </ol>
             </nav>
         </div>

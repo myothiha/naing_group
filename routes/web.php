@@ -135,6 +135,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 	Route::resource('contact',									'ContactController');
 
 	Route::resource('room-features',							'roomfeatureController');
+	
 
 	HMT::routes();
 });

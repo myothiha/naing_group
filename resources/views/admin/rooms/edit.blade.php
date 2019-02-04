@@ -98,7 +98,8 @@
     		                                    </div>
     		                                </div>
     		                            </div>
-                                      @php  $f = $project->floor @endphp  
+                                        <input type="hidden" value = "{{ $room->floor }}" name = "floor">
+                                     <!--  @php  $f = $project->floor @endphp  
 
                                         <div class="row">
                                             <div class="col-12">
@@ -111,7 +112,7 @@
                                                         </select>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <!-- <div class="row">
     		                                <div class="col-12">
     		                                    <div class="form-group">

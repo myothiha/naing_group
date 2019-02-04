@@ -308,9 +308,7 @@ h5 {
     content: ': ';
 }
 
-.list-price::before {
-    content: '$';
-}
+
 
 .list-year::before {
     content: 'Years';
@@ -346,9 +344,6 @@ h5 {
     display: initial;
 }
 
-.price::before {
-    content: '$';
-}
 
 .sq {
     background-color: #38332C;
@@ -357,9 +352,6 @@ h5 {
     border-radius: 4px;
 }
 
-.sq::before {
-    content: '$';
-}
 
 .sq::after {
     content: '/ Sq ft';
@@ -436,13 +428,14 @@ hr {
     display: inline-block;
     width: 64px;
     height: 64px;
+    font-size: 16px;
     text-align: center;
 }
 .feature {
     background-color: #EABB3D;
     display: inline-block;
     text-align: center;
-    padding-top:32px;
+    padding-top:34px;
 }
 
 
@@ -456,6 +449,7 @@ hr {
     display: inline-block;
     width: 64px;
     height: 64px;
+    font-size:16px;
     text-align: center;
     
 }
@@ -767,9 +761,6 @@ p {
     color: #333333;
 }
 
-.dollor:after {
-    content: '$';
-}
 
 .pernight:after {
     content: '/ night';

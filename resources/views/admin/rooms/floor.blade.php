@@ -28,40 +28,38 @@
                             <div class="sm-box">
 
 
-                                <div id="toolbar" style="margin-bottom: 10px;">
-                                    <button id="remove" class="btn btn-warning">
-                                        <i class="ion-ios-plus"></i><a href="/admin/project/{{ $project->id }}/floor/{{ $floor }}/create"> Add New
-                                    </a></button>
-                                </div>
+                               <!--  -->
 
 
                                 <table id="data-table" class="table table-striped table-bordered">
                                     <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Title</th>
+                                        <th>Floor</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <?php $no=1; ?>
-                                        @foreach($rooms as $room)
-                                            
+                                    @php
+                                    $no    = 1;
+                                    $floor = $project->floor
+                                    @endphp
+                                       
+                                        @for($i =1; $i<= $floor; $i++ )
                                             <tr class="odd gradeX">
                                                 <td>{{ $no++ }}</td>
-                                                <td>{{ $room->name }}</td>
+                                                <td>{{ $i }} Floor </td>
                                                 <td>
-                                                    <form action="{{action('RoomController@destroy',       [$project->id, $room->id]) }}" method="Post">
-                                                        <input type="hidden" name="_method" value="delete">
-                                                        {{ csrf_field() }}
-                                                        <a class="btn btn-warning" href="{{action('RoomController@edit', [$project->id, $room->id]) }}">Edit</a>
+                                                   
+                                                        <a class="btn btn-warning" href="/admin/project/{{ $project->id }}/floor/{{ $i }}">View</a>
 
-                                                        <input type="submit" class="btn btn-danger" value="Delete">
+                                                       
                                                     </form>
                                                 </td>
                                             </tr>
+                                        @endfor
 
-                                        @endforeach
+                                        
                                     </tbody>
                                 </table>
 

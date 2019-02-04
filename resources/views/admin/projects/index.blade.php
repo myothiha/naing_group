@@ -85,7 +85,7 @@
                                                         {{ csrf_field() }}
 
                                                         <a class="btn btn-warning mb-2"
-                                                           href="{{action('RoomController@index', $project->id) }}">Rooms</a>
+                                                           href="{{action('RoomController@floor', $project->id) }}">Rooms</a>
 
                                                         <a class="btn btn-warning mb-2"
                                                            href="{{action('ProjectController@edit', $project->id) }}">Edit</a>
