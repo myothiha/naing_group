@@ -1,5 +1,4 @@
 @extends('layouts.front')
-
 @section('content')
 @include('layouts.menu')
 
@@ -34,62 +33,7 @@
                     Address : 5078 Jensen Key, Port Kaya, WV 73505
                 </p>
 
-                <!-- Item Slider -->
-
-                <div id="sync1" class="owl-carousel owl-theme">
-                    <div class="item">
-                        <img src="/images/inner-01.jpg" class="img-fluid" alt="">
-                    </div>
-                    <div class="item">
-                        <img src="/images/inner-01.jpg" class="img-fluid" alt="">
-                    </div>
-                    <div class="item">
-                        <img src="/images/inner-01.jpg" class="img-fluid" alt="">
-                    </div>
-                    <div class="item">
-                        <img src="/images/inner-01.jpg" class="img-fluid" alt="">
-                    </div>
-                    <div class="item">
-                        <img src="/images/inner-01.jpg" class="img-fluid" alt="">
-                    </div>
-                    <div class="item">
-                        <img src="/images/inner-01.jpg" class="img-fluid" alt="">
-                    </div>
-                    <div class="item">
-                        <img src="/images/inner-01.jpg" class="img-fluid" alt="">
-                    </div>
-                    <div class="item">
-                        <img src="/images/inner-01.jpg" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-                <div id="sync2" class="owl-carousel owl-theme">
-                    <div class="item">
-                        <img src="/images/inner-01.jpg" class="img-fluid" alt="">
-                    </div>
-                    <div class="item">
-                        <img src="/images/inner-01.jpg" class="img-fluid" alt="">
-                    </div>
-                    <div class="item">
-                        <img src="/images/inner-01.jpg" class="img-fluid" alt="">
-                    </div>
-                    <div class="item">
-                        <img src="/images/inner-01.jpg" class="img-fluid" alt="">
-                    </div>
-                    <div class="item">
-                        <img src="/images/inner-01.jpg" class="img-fluid" alt="">
-                    </div>
-                    <div class="item">
-                        <img src="/images/inner-01.jpg" class="img-fluid" alt="">
-                    </div>
-                    <div class="item">
-                        <img src="/images/inner-01.jpg" class="img-fluid" alt="">
-                    </div>
-                    <div class="item">
-                        <img src="/images/inner-01.jpg" class="img-fluid" alt="">
-                    </div>
-                </div>
-
+                
 
                 <h5 class="my-3">Description</h5>
                 <p>
@@ -129,9 +73,11 @@
                     @foreach($room->feature as $feature)
 
                     <div class="col-md-4">
-                        <ul class="property-list">
+                        <div class = "room-feature">
+                           <ul class="property-list">
                             <li><span class="{{ $feature->icon }}"></span> {{ $feature->name }} </li>
-                        </ul>
+                          </ul>
+                        </div>
                     </div>
                     @endforeach
                     
@@ -150,18 +96,18 @@
 
                 <hr>
 
-                <h5 class="my-3">Property Video</h5>
+                <!-- <h5 class="my-3">Property Video</h5>
                    <iframe width="560" height="315" src="{{ $room->video }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <hr>
+                <hr> -->
 
                 <div class="row">
                     <div class="col-md-4">
                         <h5>Contacnt Me</h5>
                         <ul class="agent-list">
                             <li>Real Estate Broker </li>
-                            <li>{{ $contact->mail ?? 'No Data' }}
-                            </li>
+                            <li>{{ $contact->mail ?? 'No Data' }}</li>
                             <li> {{ $contact->phone ?? 'No Data' }} </li>
+
                             <div class="agent-social">
                                 <i class="fab fa-facebook-f mx-1"></i>
                                 <i class="fab fa-google-plus-g mx-1"></i>

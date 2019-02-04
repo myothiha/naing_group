@@ -50,11 +50,12 @@ class RoomController extends Controller
     public function store(Request $request, Project $project)
     {
          $validator = Validator::make($request->all(),[
-          'price'       => 'required|integer',
-          'width'       => 'required|integer',
-          'bedroom'     => 'required|integer',
-          'bathroom'    => 'required|integer',
+          // 'price'       => 'required|integer',
+          // 'width'       => 'required|integer',
+          // 'bedroom'     => 'required|integer',
+          // 'bathroom'    => 'required|integer',
           'floor'       => 'required|integer',
+          'status'      => 'required|integer'
 
           
           
@@ -68,13 +69,14 @@ class RoomController extends Controller
 
         $room->name = $request->name ?? '';
         $room->description = $request->description ?? '';
-        $room->price = $request->price ?? '';
-        $room->width = $request->width ?? '';
-        $room->bedroom = $request->bedroom ?? '';
-        $room->bathroom = $request->bathroom ?? '';
+        $room->price = $request->price ?? 1;
+        $room->width = $request->width ?? 1;
+        $room->bedroom = $request->bedroom ?? 1;
+        $room->bathroom = $request->bathroom ?? 1;
         $room->floor = $request->floor ?? '';
-        $room->video = $request->video ?? '';
+        // $room->video = $request->video ?? '';
         $room->project_id = $request->project_id ?? '';
+        $room->status     = $request->status;
 
         $room->save();
 
@@ -132,8 +134,9 @@ class RoomController extends Controller
         $room->bedroom = $request->bedroom ?? '';
         $room->bathroom = $request->bathroom ?? '';
         $room->floor = $request->floor ?? '';
-        $room->video = $request->video ?? '';
+        // $room->video = $request->video ?? '';
         $room->project_id = $project->id ?? '';
+        $room->status     = $request->status;        
         $room->save();
         $room->feature()->sync($request->roomfeature);
 
