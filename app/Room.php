@@ -51,4 +51,11 @@ class Room extends Model
     {
         return $this->belongsTo('App\Project');
     }
+    public function roomimage(){
+    	return $this->hasMany('App\RoomImage');
+    }
+
+    public function floorplan(){
+        return $this->belongsTo('App\FloorPlan');
+    }
 }

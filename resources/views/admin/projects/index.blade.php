@@ -44,8 +44,8 @@
                                             <th>Name</th>
                                             <th>Description</th>
                                             <th>Feature Image</th>
-                                            <th>City</th>
                                             <th>Status</th>
+                                            <th>City</th>
                                             <th>Type</th>
                                             <th>3D File</th>
                                             <th>Action</th>

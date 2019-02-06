@@ -69,12 +69,22 @@ Route::get('login',    											'LoginController@login')->name('login');
 
 Route::post('admin/login',   									'LoginController@authenticated');
 
+// customer 
+
 Route::group(['prefix' => 'customer', 'middleware' => 'auth'], function(){
 
-    Route::view('/bookroom', 'customer.index');
-	Route::get('/getregister',		'CustomerController@getregister');
-	Route::post('/postregister',	'CustomerController@postregister');
+	Route::resource('/room/{room}/booking',	'BookingController');
+	Route::get('/bookedroom',				'CustomerController@getbookroom');
+	
+
 });
+Route::get('/getregister',		'CustomerController@getregister');
+Route::post('/postregister',	'CustomerController@postregister');
+
+
+	// Route::view('/bookroom',	'bookroom');
+//end customer
+
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
@@ -135,7 +145,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 	Route::resource('contact',									'ContactController');
 
 	Route::resource('room-features',							'roomfeatureController');
-	
+
+	Route::resource('room/{room}/roomimage',					'RoomImageController');
+
+	Route::resource('room/{room}/floorplan',					'FloorPlanController');
+
 
 	HMT::routes();
 });

@@ -20,7 +20,7 @@
                 <div class="card-header"> User Register </div>
 
                 <div class="card-body">
-                    <form method="POST" action="/customer/postregister">
+                    <form method="POST" action="/postregister">
                         @csrf
 
                         <div class="form-group row">

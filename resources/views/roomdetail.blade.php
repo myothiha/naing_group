@@ -15,14 +15,45 @@
     </section>
 
     <!-- 3D condo -->
-    <section>
-        <img src="images/project-details.jpg" alt="" class="img-fluid condo">
-    </section>
+    <div id="carouselExampleIndicators" class="carousel slide banner" data-ride="carousel">
+        <div class="carousel-inner banner-inner">
+            
+            @if(!empty($roomimages))
+            @foreach($roomimages as $key => $roomimage)
+
+            <div class="carousel-item {{ $key ==0 ? "active" : "" }}">
+                <img class="d-block w-100 " src="{{ $roomimage->image }}" alt="First slide">
+
+            </div>
+            
+            @endforeach
+            @endif
+            
+        </div>
+
+        <div>
+            <!-- <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a> -->
+        </div>
+    </div>
+    <!-- <section>
+        <img src="{{ Request::root() }}/images/project-details.jpg" alt="" class="img-fluid condo">
+    </section> -->
 
     <div class="container my-3">
-
         <div class="row p-3">
-
+        @if( $room->status == 1 )
+            <div class="col-md-8">
+                <h2> Thanks For Your Interesting.</h2>
+                <h6> It is sold out!!</h6>
+            </div>
+        @else      
             <div class="col-md-8">
                 <h2 class="my-5 properties-title"> {{ $room->name }} </h2><span class="forsale">For Sale</span>
                 <div class="my-3">
@@ -30,7 +61,8 @@
 
                 </div>
                 <p class="my-3">
-                    Address : 5078 Jensen Key, Port Kaya, WV 73505
+                    <!-- Address : 5078 Jensen Key, Port Kaya, WV 73505 -->
+                    <a href="/customer/room/{{ $room->id }}/booking/create" class = "btn btn-primary"> Book Now </a>
                 </p>
 
                 
@@ -87,9 +119,11 @@
                 <h5 class="my-3">Floor Plans</h5>
                 <section class="gallery-block grid-gallery" data-aos="fade-up">
                     <div class="col-12 item">
-                        <a class="lightbox" href="images/floor.jpg" data-aos="fade-left">
-                            <img class="img-fluid image scale-on-hover" src="images/floor.jpg">
+                        @foreach($floor_plans as $floorplan)
+                        <a class="lightbox" href="{{ $floorplan->floor_plans}}" data-aos="fade-left">
+                            <img class="img-fluid image scale-on-hover" src="{{ $floorplan->floor_plans}}">
                         </a>
+                        @endforeach
                     </div>
                 </section>
 
@@ -139,11 +173,8 @@
                         </form>
                     </div>
                 </div>
-
-
-
-
             </div>
+            @endif
 
             <div class="col-md-4">
                 <h2 class="title my-5">Search Properties</h2>

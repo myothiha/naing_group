@@ -57,6 +57,10 @@
                                                         <a class="btn btn-warning" href="{{action('RoomController@edit', [$project->id, $room->id]) }}">Edit</a>
 
                                                         <input type="submit" class="btn btn-danger" value="Delete">
+                                                        <a class="btn btn-primary" href="{{action('RoomImageController@index', [$room->id]) }}"> Image Slider </a>
+                                                        <a class="btn btn-primary" href="{{action('FloorPlanController@index', [$room->id]) }}"> Floor Plan </a>
+
+
                                                     </form>
                                                 </td>
                                             </tr>

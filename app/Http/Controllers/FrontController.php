@@ -23,6 +23,11 @@ use App\Project;
 use App\Whychoose;
 use App\Room;
 use App\Gallery;
+use App\ProjectType;
+use App\City;
+use App\ProjectStatus;
+use App\RoomImage;
+use App\FloorPlan;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 
@@ -129,10 +134,16 @@ class FrontController extends Controller
     public function projectdetail(Project $project)
     {
         $rooms = $project->rooms()->OrderBy('created_at', 'asc')->get();
+        $types = ProjectType::get();
+        $cities= City::get();
+        $status = ProjectStatus::get();
               
         return view('projectdetail', [
             'project' => $project,
             'rooms'    => $rooms,
+            'types'    => $types,
+            'cities'   => $cities,
+            'status'   => $status,
         ]);
     }
 
@@ -143,8 +154,12 @@ class FrontController extends Controller
    
     public function roomdetail(Room $room){
         
+        $roomimages = RoomImage::where('room_id',$room->id)->get();  
+        $floorplans  = FloorPlan::where('room_id',$room->id)->get();      
         return view('roomdetail',[
             'room' => $room,
+            'roomimages' => $roomimages,
+            'floor_plans' => $floorplans
         ]);
     }   
 

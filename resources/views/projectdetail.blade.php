@@ -63,7 +63,7 @@
                             $f = $project->floor
                         @endphp
                         <div class="mb-0">
-                            @for($i = 1; $i<= $f ; $i++)
+                            @for($i = $f; $i>= 1 ; $i--)
 
                                 <div class="card-header collapsed" data-toggle="collapse" href="#a{{ $no }}">
                                     <a class="card-title">
@@ -132,18 +132,24 @@
 
                     <select class="form-control form-control mt-3 slect">
                         <option>Status</option>
-                        <option>Yangon</option>
-                        <option>Mandalay</option>
+                        @foreach($status as $data)
+                        <option value=""> {{ $data->name }} </option>
+                        @endforeach
+                        
                     </select>
                     <select class="form-control form-control my-2 slect">
-                        <option>Type</option>
-                        <option>Yangon</option>
-                        <option>Mandalay</option>
+                        <option>City</option>
+                         @foreach($cities as $city)
+                          <option value=""> {{ $city->name }} </option>
+                          @endforeach
+                       
                     </select>
                     <select class="form-control form-control mb-2 slect">
-                        <option>City</option>
-                        <option>Yangon</option>
-                        <option>Mandalay</option>
+                        <option> Type </option>
+
+                        @foreach($types as $type)
+                        <option value=""> {{ $type->name }} </option>
+                        @endforeach>
                     </select>
 
                     <!-- Range slider: -->
