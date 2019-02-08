@@ -71,7 +71,7 @@ Route::post('admin/login',   									'LoginController@authenticated');
 
 // customer 
 
-Route::group(['prefix' => 'customer', 'middleware' => 'auth'], function(){
+Route::group(['prefix' => 'customer', 'middleware' => 'customer'], function(){
 
 	Route::resource('/room/{room}/booking',	'BookingController');
 	Route::get('/bookedroom',				'CustomerController@getbookroom');
@@ -86,7 +86,7 @@ Route::post('/postregister',	'CustomerController@postregister');
 //end customer
 
 
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function() {
 
 	Route::get('/',												'HomeslideController@index');
 

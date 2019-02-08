@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Util\Uploader\Image;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
+use Auth;
 
 class HomeslideController extends Controller
 {

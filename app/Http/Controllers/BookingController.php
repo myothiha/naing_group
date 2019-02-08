@@ -26,8 +26,9 @@ class BookingController extends Controller
      */
     public function create(Room $room)
     {
-        //
-        return view('bookroom',compact('room'));
+        
+            
+             return view('bookroom',compact('room'));
     }
 
     /**
