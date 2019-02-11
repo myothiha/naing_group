@@ -7,12 +7,14 @@ use App\Room;
 use App\User;
 use App\Booking;
 use App\Constant;
+use Auth;
 
 class CustomerController extends Controller
 {
     //
     public function getbookroom(){
-        $bookedrooms = Booking::get();
+
+        $bookedrooms = Booking::where('customer_id',Auth::id())->get();
         return view('customer.index',[
             'bookedrooms' => $bookedrooms
         ]);

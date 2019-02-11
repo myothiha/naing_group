@@ -47,6 +47,8 @@
 				  </div>
 				</form>
             </div>
+            <a href="/getregister"> If you do not have user account, Please register</a>
+
         </div>
     </div>
 </div>
