@@ -1,7 +1,5 @@
-@extends('layouts.front')
+@extends('admin.layouts.back')
 @section('content')
-@include('layouts.menu')
-
 	<section class="bg-gray">
         <div class="container pt-2">
             <nav aria-label="breadcrumb">
@@ -20,36 +18,7 @@
                 <h2 class="title my-5" data-aos="fade-left"> Book Room </h2>
 
                 <div class="row my-3">
-                    <div class="col-md-4" data-aos="fade-right">
-                        <ul class="agent-list">
-                            <li>
-                                @if(empty($contacts))
-                                    There is No Data
-                                @else
-                                {{ $contacts->address }} 
-                                @endif
-                            </li>
-                            <li>
-                              @if(empty($contacts))
-                                    There is No Data
-                                @else
-                                {{ $contacts->mail }} 
-                                @endif
-                            </li>
-                            <li>
-                                 @if(empty($contacts))
-                                    There is No Data
-                                @else
-                                {{ $contacts->phone }} 
-                                @endif
-                            </li>
-                            <div class="agent-social">
-                                <i class="fab fa-facebook-f mx-1"></i>
-                                <i class="fab fa-google-plus-g mx-1"></i>
-                                <i class="fab fa-twitter mx-1"></i>
-                            </div>
-                        </ul>
-                    </div>
+                    
                     <div class="col-md-8" data-aos="fade-left">
                         <form action="/customer/room/{{ $room->id }}/booking " method="POST">
                             {{ csrf_field() }}

@@ -15,8 +15,9 @@ class BookingController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {        //
+        $bookings = Booking::get();
+        return view('admin.booking.index',compact('bookings'));
     }
 
     /**

@@ -150,6 +150,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function() {
 
 	Route::resource('room/{room}/floorplan',					'FloorPlanController');
 
+	Route::get('/booking',										'BookingController@index');
+
 
 	HMT::routes();
 });

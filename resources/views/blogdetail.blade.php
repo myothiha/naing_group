@@ -18,15 +18,7 @@
     </section>
 
     <div class="container my-3">
-        <div class="row" data-aos="fade-left">
-            <h2 class="title">
-                     @if(empty($blog))
-                            <p> There is no Data </p>
-                            @else
-                            <p>{{ $blog->title }}</p>
-                     @endif
-             </h2>
-        </div>
+       
 
         <div class="row">
             <div class="col-md-8">

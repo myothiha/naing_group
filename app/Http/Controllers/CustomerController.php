@@ -31,6 +31,6 @@ class CustomerController extends Controller
     	$user->password = bcrypt($request->password);
     	$user->save();
 
-    	return redirect('/login');
+    	return redirect('/customer/bookedroom');
     }
 }
