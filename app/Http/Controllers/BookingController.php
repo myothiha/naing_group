@@ -53,7 +53,7 @@ class BookingController extends Controller
         $booking->location        = $request->location ?? '';
         $booking->save();
 
-        return redirect('/');
+        return redirect('/customer/bookedroom');
     }
 
     /**

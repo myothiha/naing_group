@@ -224,27 +224,11 @@
                                         
                                         
                                         <li class="nav-item dropdown {{ $mainblog ?? "" }}">
-                                            <a class="nav-link dropdown-toggle" href="javascript:void(0)"
-                                               data-toggle="dropdown"
-                                               aria-haspopup="true" aria-expanded="false">
+                                            <a class="nav-link">
                                                 <i class="icon ion-ios-chatbubble-outline"></i> Booked Room
                                             </a>
 
-                                            <div class="dropdown-menu">
-                                                <div class="mega-dropdown-menu row row-no-padding">
-                                                    <ul class="megadropdown-links">
-                                                        <li>
-                                                            <a class="dropdown-item"
-                                                               href="/admin/blogcategory">
-                                                                Category
-                                                            </a>
-                                                        </li>
-                                                        
-                                                        
-                                                       
-                                                    </ul>
-                                                </div>
-                                            </div>
+                                            
                                         </li>
 
                                     </ul>

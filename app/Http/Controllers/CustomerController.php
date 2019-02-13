@@ -31,6 +31,11 @@ class CustomerController extends Controller
     	$user->password = bcrypt($request->password);
     	$user->save();
 
-    	return redirect('/customer/bookedroom');
+         $credentials = $request->only('email', 'password');
+
+
+        if (Auth::attempt($credentials)) {
+                return redirect()->intended('/customer/bookedroom');
+        }       
     }
 }

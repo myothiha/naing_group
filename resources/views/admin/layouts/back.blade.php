@@ -460,6 +460,12 @@
                                                                 Contact Us
                                                             </a>
                                                         </li>
+                                                         <li>
+                                                            <a class="dropdown-item"
+                                                               href="/admin/booking">
+                                                                Booking
+                                                            </a>
+                                                        </li>
                                                        
                                                     </ul>
                                                 </div>

@@ -1,4 +1,4 @@
-@extends('admin.layouts.back')
+@extends('customer.layouts.back')
 @section('content')
 	<section class="bg-gray">
         <div class="container pt-2">
