@@ -50,10 +50,10 @@ class FrontController extends Controller
 
 
         $homeslides     = Homeslide::all();
-        $about          = About::find(1);
+        $about          = About::first();
         $gallerys       = Gallery::all();
         $whychoose      = Whychoose::get();
-        $indexdata      = Indexdata::find(1);
+        $indexdata      = Indexdata::first();
         $business       = Business::get();
         $faq            = Faq::Limit(3)->get();
 
@@ -154,8 +154,11 @@ class FrontController extends Controller
    
     public function roomdetail(Room $room){
         
+        session_start();
+        $_SESSION['room'] = $room;
         $roomimages = RoomImage::where('room_id',$room->id)->get();  
-        $floorplans  = FloorPlan::where('room_id',$room->id)->get();      
+        $floorplans  = FloorPlan::where('room_id',$room->id)->get(); 
+             
         return view('roomdetail',[
             'room' => $room,
             'roomimages' => $roomimages,

@@ -22,7 +22,8 @@ class CreateRoomsTable extends Migration
             $table->unsignedInteger('bedroom');
             $table->unsignedInteger('bathroom');
             $table->unsignedInteger('floor');
-            $table->text('video');
+            $table->string('floor_plan');
+            $table->unsignedInteger('status');
             $table->timestamps();
 
             $table->foreign('project_id')

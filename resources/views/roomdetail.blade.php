@@ -136,9 +136,8 @@
 
                 <div class="row">
                     <div class="col-md-4">
-                        <h5>Contacnt Me</h5>
+                        <h5>Contact Me</h5>
                         <ul class="agent-list">
-                            <li>Real Estate Broker </li>
                             <li>{{ $contact->mail ?? 'No Data' }}</li>
                             <li> {{ $contact->phone ?? 'No Data' }} </li>
 

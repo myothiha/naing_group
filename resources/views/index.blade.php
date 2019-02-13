@@ -19,8 +19,7 @@
                 <div class="carousel-caption d-none d-md-block d-flex justify-content-center">
                     <h3 class="banner-title">{{ $homeslide->title1 }}</h3>
                     <h3 class="banner-title">{{ $homeslide->title2 }} </h3>
-                    <button type="button" class="btn btn-warning banner-btn"><a href="{{ action('FrontController@project') }}">Check Projects</a></button>
-
+                    <a class = "btn btn-warning banner-btn" href="{{ action('FrontController@project') }}">Check Projects</a>
                 </div>
 
             </div>

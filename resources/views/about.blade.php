@@ -21,8 +21,8 @@
                @if(empty($about))
                 <h3> There is no Data </h3>
              @else
-            <p>{{ $about->about }}
-            </p>
+
+             <p> {{ $about->about }} </p>
              @endif
         </div>
     </div>

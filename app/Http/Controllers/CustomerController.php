@@ -35,7 +35,17 @@ class CustomerController extends Controller
 
 
         if (Auth::attempt($credentials)) {
-                return redirect()->intended('/customer/bookedroom');
+             session_start();
+                if(isset($_SESSION['room'])){
+                    $room = $_SESSION['room'];
+                }
+               session_destroy();
+                if(!empty($room)){
+                return redirect()->intended("/customer/room/$room->id/booking/create");
+                }
+                else{
+                    return redirect()->intended('/customer/bookedroom');
+                }
         }       
     }
 }

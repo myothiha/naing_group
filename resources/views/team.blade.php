@@ -21,7 +21,7 @@
             <div class="col-md-12">
                 <h2 class="page-title my-5">Our People</h2>
                 <p class="my-4">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book has survived.
+                   
                 </p>
             </div>
         </div>
