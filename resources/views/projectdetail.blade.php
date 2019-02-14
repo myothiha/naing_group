@@ -97,7 +97,6 @@
                                         @endif
                                     </div>
 
-                                <!-- <div class="room sold"> {{ $room->name }} <span></span></div> -->
                                 </div>
                             @endfor
 
@@ -128,37 +127,32 @@
 
             <div class="col-md-4">
                 <h2 class="title my-5">Search Properties</h2>
-                <form>
-
-                    <select class="form-control form-control mt-3 slect">
-                        <option>Status</option>
+                <form action="/search" method = "POST">
+                    {{ csrf_field() }}
+                    <select class="form-control form-control mt-3 slect" name = "status">
+                        <option value = "">Status</option>
                         @foreach($status as $data)
-                        <option value=""> {{ $data->name }} </option>
+                            <option value="{{ $data->id }}"> {{ $data->name }}</option>
                         @endforeach
-                        
-                    </select>
-                    <select class="form-control form-control my-2 slect">
-                        <option>City</option>
-                         @foreach($cities as $city)
-                          <option value=""> {{ $city->name }} </option>
-                          @endforeach
-                       
-                    </select>
-                    <select class="form-control form-control mb-2 slect">
-                        <option> Type </option>
-
-                        @foreach($types as $type)
-                        <option value=""> {{ $type->name }} </option>
-                        @endforeach>
-                    </select>
+                      </select>
+                    <select class="form-control form-control my-2 slect" name = "city">
+                        <option value = ""> City </option>
+                        @foreach($cities as $data )
+                            <option value="{{ $data->id }}"> {{ $data->name }}</option>
+                        @endforeach
+                      </select>
+                    <select class="form-control form-control mb-2 slect" name = "type">
+                        <option value = ""> Type </option>
+                        @foreach($types as $data)
+                            <option value="{{ $data->id }}"> {{ $data->name }}</option>
+                        @endforeach                            
+                      </select>
 
                     <!-- Range slider: -->
                     <div class="form-group range">
                         <label for="formControlRange">MMK(Lakh)- <span><output id="js-output"></output></span></label>
-                        <input type="range" class="form-control-range" id="formControlRange" min="10"/>
-                        {{--// default 0 max="1000" // default 100 step="10"
-                        // default 1 value="300" // default min + (max-min)/2 data-orientation="vertical"
-                        // default horizontal>--}}
+                        <input type = "input" name = "price">
+                       <!--  type="range" class="form-control-range" id="formControlRange" min="10" // default 0 max="1000" // default 100 step="10" // default 1 value="300" // default min + (max-min)/2 data-orientation="vertical" // default horizontal -->
                     </div>
 
                     <button type="submit" class="btn btn-primary btn-block mb-3">Search Now</button>

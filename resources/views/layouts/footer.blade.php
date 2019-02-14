@@ -8,7 +8,7 @@
                         <h6>ADDRESS</h6>
                         <p class="footer-text">
                          @if(empty($contact))
-                         There is no Data
+                         Coming Soon
                          @else
                          {{ $contact->address }}
                          @endif
@@ -23,7 +23,7 @@
                         <h6>PHONE</h6>
                         <p class="footer-text">
                         @if(empty($contact))
-                         There is no Data
+                         Coming Soon
                          @else
                          {{ $contact->phone }}
                          @endif
@@ -38,7 +38,7 @@
                         <h6>Email</h6>
                         <p class="footer-text">
                          @if(empty($contact))
-                         There is no Data
+                         Coming Soon
                          @else
                          {{ $contact->mail }}
                          @endif
@@ -53,7 +53,7 @@
                         <h6>OFFICE HOURS</h6>
                         <p class="footer-text">
                          @if(empty($contact))
-                         There is no Data
+                         Coming Soon
                          @else
                          {{ $contact->office }}
                          @endif

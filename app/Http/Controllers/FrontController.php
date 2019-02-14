@@ -70,7 +70,7 @@ class FrontController extends Controller
 
     public function about()
     {
-        $about      = About::find(1);
+        $about      = About::first();
         $whychoose  = Whychoose::get();
         return view('about', [
             'about'     => $about,
@@ -156,13 +156,20 @@ class FrontController extends Controller
         
         session_start();
         $_SESSION['room'] = $room;
+        $types = ProjectType::get();
+        $cities= City::get();
+        $status = ProjectStatus::get();
+        
         $roomimages = RoomImage::where('room_id',$room->id)->get();  
         $floorplans  = FloorPlan::where('room_id',$room->id)->get(); 
              
         return view('roomdetail',[
             'room' => $room,
             'roomimages' => $roomimages,
-            'floor_plans' => $floorplans
+            'floor_plans' => $floorplans,
+            'types'    => $types,
+            'cities'   => $cities,
+            'status'   => $status,
         ]);
     }   
 
@@ -247,5 +254,25 @@ class FrontController extends Controller
 
 //        flash()->success('Thanks for your contact message. ');
         return redirect()->back();
+    }
+
+    public function search(Request $request){
+
+
+        $projects = Project::query()->when($request->status,function($q) use ($request){
+            return $q->where('project_status_id',$request->status);
+        })
+        ->when($request->city,function($q) use($request){
+            return $q->where('city_id',$request->city);
+        })
+        ->when($request->type,function($q) use ($request){
+            return $q->where('project_type_id',$request->type);
+        })
+        ->when($request->price,function($q) use ($request){
+            return $q->where('price',$request->price);
+        })
+        ->get();
+
+      return view('search',compact('projects'));
     }
 }

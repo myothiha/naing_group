@@ -8,7 +8,7 @@
  <div id="carouselExampleIndicators" class="carousel slide banner" data-ride="carousel">
         <div class="carousel-inner banner-inner">
             @if(empty($homeslides))
-                <h3> There is no Data </h3>
+                <h3> Coming Soon </h3>
             @else
 
             @foreach($homeslides as $key => $homeslide)
@@ -47,7 +47,7 @@
         <div class="row py-3">
             <div class="col-md-5">
                  @if(empty($about))
-                   There is no Data
+                   Coming Soon
                  @else
                 <img src="{{ $about->image }}" alt=" " class="img-fluid" data-aos="fade-right">
                  @endif
@@ -56,7 +56,7 @@
                 <h2 class="title" data-aos="fade-right">About Us</h2>
                 <p class="my-4" data-aos="fade-up">
                      @if(empty($about))
-                         There is no Data
+                         Coming Soon
                          @else
                          {{ $about->about }}
                      @endif
@@ -66,7 +66,7 @@
                         <i class="fas fa-check about-listico"><span class="h5 about-list">Our Vision</span></i>
                         <p class="about-text ">
                              @if(empty($about))
-                                 There is no Data
+                                 Coming Soon
                                  @else
                                  {{ $about->vision }}
                              @endif
@@ -76,7 +76,7 @@
                         <i class="fas fa-crosshairs about-listico"><span class="h5 about-list">Our Mission</span></i>
                         <p class="about-text">
                             @if(empty($about))
-                                 There is no Data
+                                 Coming Soon
                                  @else
                                  {{ $about->mission }}
                              @endif
@@ -87,7 +87,7 @@
                         <i class="fas fa-check about-listico"><span class="h5 about-list">Core Value</span></i>
                         <p class="about-text ">
                             @if(empty($about))
-                                 There is no Data
+                                 Coming Soon
                                  @else
                                  {{ $about->value }}
                              @endif
@@ -97,7 +97,7 @@
                         <i class="fas fa-images about-listico"><span class="h5 about-list">INTERIOR</span></i>
                         <p class="about-text ">
                             @if(empty($about))
-                                 There is no Data
+                                 Coming Soon
                                  @else
                                  {{ $about->interior }}
                              @endif
@@ -125,7 +125,7 @@
                 <div class="owl-carousel owl-theme">
                     @if(empty($gallerys))
                         <div class="item">
-                            There is No Data
+                            Coming Soon
                         </div>
                     @else
 
@@ -155,8 +155,8 @@
                     <div class="card py-3 " data-aos="fade-up">
                         <div class="card-body text-center">
                             <i class="fas fa-2x {{ $data->icon }} card-icon"></i>
-                            <h5 class="card-title text-center my-3"> There is No Data </h5>
-                            <p class="card-text text-center"> There is no Data </p>
+                            <h5 class="card-title text-center my-3"> Coming Soon </h5>
+                            <p class="card-text text-center"> Coming Soon </p>
                         </div>
                     </div>
                 </div>
@@ -210,7 +210,7 @@
                     </div>
                     @if(empty($indexdata))
                     <div class="row my-2 justify-content-end">
-                     <h3> There is No Data </h3>
+                     <h3> Coming Soon </h3>
                     @else
                     <div class="row my-2 justify-content-end">
                         <div class="col-md-2 col-6 my-2">
@@ -251,7 +251,7 @@
             @if(empty($business))
             <div class="row">
                 <div class="col-md-4">
-                    There is No Data
+                    Coming Soon
                 </div>
             </div>
             @else
@@ -284,7 +284,7 @@
                     <h5 class="title text-white">Frequently Asked Questions</h5>
                 </div>
                 @if(empty($faq))
-                    <h3> There is no Data  </h3>
+                    <h3> Coming Soon  </h3>
                 @else
                 <div class="">
                     <div id="accordion" class="accordion">

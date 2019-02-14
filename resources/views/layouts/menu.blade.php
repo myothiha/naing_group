@@ -6,14 +6,13 @@
                     <ul class="nav m-2 social-bar justify-content-end">
                         <div class="mx-4">
                             <i class="fab fa-facebook-f mx-2"></i>
-                            <i class="fab fa-google-plus-g mx-2"></i>
-                            <i class="fab fa-twitter mx-2"></i>
+                            
                         </div>
 
                         <div class="mx-4">
                             <i class="fas fa-phone mx-2"><span class="phone">
                                  @if(empty($contact))
-                                 There is no Data
+                                 Coming Soon
                                  @else
                                  {{ $contact->phone }}
                                  @endif
@@ -23,7 +22,7 @@
                         <div class="mx-4">
                             <i class="far fa-envelope-open mx-2"><span class="phone">
                                  @if(empty($contact))
-                                 There is no Data
+                                 Coming Soon
                                  @else
                                  {{ $contact->mail }}
                                  @endif
