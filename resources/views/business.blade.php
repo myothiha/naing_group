@@ -15,42 +15,59 @@
             </nav>
         </div>
     </section>
-
-    <div class="container my-3">
+<div class="container my-3">
         <div class="row p-3" data-aos="fade-left">
             <h2 class="title">Our Business Units </h2>
         </div>
 
-        <div class="row">
-            @if(empty($business))
-                <h3> There is no Data </h3>
-            @else
-        	@foreach($business as $data)
-            <div class="col-md-4">
-                <div class="card" data-aos="fade-up">
-                    <a href="/businessdetail/{{ $data->id }}">
-                        <img class="card-img-top" src="{{ $data->featureimage }}" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $data->title }}</h5>
-                            <p class="card-text">{!! substr(strip_tags($data->description), 0, 400) !!}</p>
-                        </div>
-                    </a>
+        <div id="carouselExampleIndicators" class="carousel slide banner" data-ride="carousel">
+            <div class="carousel-inner banner-inner">
+                @if(empty($business))
+                    <h3> Coming Soon </h3>
+                @else
+
+                @foreach($business as $key => $data)
+
+                <div class="carousel-item {{ $key == 0 ? "active" : "" }}">
+                    <img class="d-block w-100" height = "500" src="{{ $data->featureimage }}" alt="First slide">
+
+                    <div class="carousel-caption d-none d-md-block d-flex justify-content-center">
+                        <h3 class="banner-title">{{ $data->title }}</h3>
+                        <a class = "btn btn-warning banner-btn" href="/businessdetail/{{ $data->id }}">Check Business Unit</a>
+                    </div>
                 </div>
+                @endforeach
+                @endif
             </div>
-            @endforeach
-            @endif
-
-            
-
-
-
+          <div>
         </div>
 
-        <nav aria-label="Page navigation example">
-            @if(!empty($business))
-            {{ $business->links() }}
-            @endif
-        </nav>
+         <div id="carouselExampleIndicators1" class="carousel slide banner" data-ride="carousel">
+            <div class="carousel-inner banner-inner">
+                @if(empty($business1))
+                    <h3> Coming Soon </h3>
+                @else
+
+                @foreach($business1 as $key => $data)
+
+                <div class="carousel-item {{ $key == 0 ? "active" : "" }}">
+                    <img class="d-block w-100" height = "500" src="{{ $data->featureimage }}" alt="First slide">
+
+                    <div class="carousel-caption d-none d-md-block d-flex justify-content-center">
+                        <h3 class="banner-title">{{ $data->title }}</h3>
+                        <a class = "btn btn-warning banner-btn" href="/businessdetail/{{ $data->id }}">Check Business Unit</a>
+                        
+                    </div>
+                </div>
+               
+                
+                @endforeach
+                @endif
+            </div>
+          <div>
+        </div>
     </div>
+    </div>
+</div>
 
 @endsection
