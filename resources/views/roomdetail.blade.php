@@ -65,8 +65,7 @@
                     <a href="/customer/room/{{ $room->id }}/booking/create" class = "btn btn-primary"> Book Now </a>
                 </p>
 
-                
-x
+            
                 <h5 class="my-3">Description</h5>
                 <p>
                     {{ $room->description }}

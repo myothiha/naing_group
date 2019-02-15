@@ -36,10 +36,12 @@
                                         <th>Email</th>
                                         <th>Phone</th>
                                         <th> Meeting Dates </th>
-                                        <th> Location </th>                                       
+                                        <th> Location </th>    
+                                        <th> Project </th>                                   
                                     </tr>
                                     </thead>
                                     <tbody>
+
                                         @php $i=1; @endphp
                                         @foreach($bookings as $booking)
                                         <tr>
@@ -49,7 +51,10 @@
                                             <td> {{ $booking->phone }} </td>
                                             <td> {{ $booking->meeting_dates }} </td>
                                             <td> {{ $booking->location }} </td>
+                                            <td> {{ $booking->room->project->name }} </td>
+                                            
                                         @endforeach
+
                                         </tr>                                                                       
                                     </tbody>
                                 </table>

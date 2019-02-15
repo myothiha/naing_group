@@ -13,6 +13,6 @@ class Booking extends Model
    }
 
    public function room(){
-   	return $this->belongsToMany('App\Room');   	
+   	return $this->belongsTo('App\Room');   	
    }
 }

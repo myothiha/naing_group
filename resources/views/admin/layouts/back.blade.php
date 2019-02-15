@@ -160,6 +160,13 @@
                             <i class="icon ion-ios-alarm-outline"></i> Project Gallery
                         </a>
                     </li>
+                    <li class="menu__item" role="menuitem">
+                        <a class="menu__link" href="/admin/booking">
+                            <i class="icon ion-ios-alarm-outline"></i> Booking
+                        </a>
+                    </li>
+
+
                     
                 </ul>
                 <ul data-menu="submenu-3" id="submenu-3" class="menu__level" tabindex="-1" role="menu"
@@ -412,6 +419,12 @@
                                                                 Projects Gallery
                                                             </a>
                                                         </li>
+                                                         <li>
+                                                            <a class="dropdown-item"
+                                                               href="/admin/booking">
+                                                                Booking
+                                                            </a>
+                                                        </li>
                                                         
                                                        
                                                     </ul>
@@ -460,12 +473,7 @@
                                                                 Contact Us
                                                             </a>
                                                         </li>
-                                                         <li>
-                                                            <a class="dropdown-item"
-                                                               href="/admin/booking">
-                                                                Booking
-                                                            </a>
-                                                        </li>
+                                                        
                                                        
                                                     </ul>
                                                 </div>

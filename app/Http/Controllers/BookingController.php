@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Room;
 use App\Booking;
 use Auth;
+use App\Project;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
