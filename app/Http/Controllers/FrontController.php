@@ -175,12 +175,11 @@ class FrontController extends Controller
 
     public function business()
     {
-        $business      = Business::orderby('id','desc')->skip(0)->take(3)->get();
-        $business1     = Business::orderby('id','desc')->skip(3)->take(3)->get();
+        $business = Business::get();
         return view('business', [
 
             'business' => $business,
-            'business1' => $business1
+            
         ]);
     }
 

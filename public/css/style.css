@@ -74,6 +74,16 @@ a:hover.nav-link {
     font-style: normal;
     text-shadow: black 0px 0px 20px;
 }
+.business-banner-title{
+
+    text-align: left;
+    font-size: 20px;
+    display: block;
+    font-family: roboto, sans-serif;
+    font-weight: lighter;
+    font-style: normal;
+    text-shadow: black 0px 0px 20px;
+}
 
 .slect {
     background-color: #38332C;
@@ -94,6 +104,16 @@ a:hover.nav-link {
     font-size: 24px;
     color: #38332C;
     padding: 10px 40px;
+    border-radius: 40px;
+    font-family: roboto, sans-serif;
+    font-weight: lighter;
+}
+.business-banner-btn{
+    float: left;
+    background-color: #EABB3D;
+    font-size: 15px;
+    color: #38332C;
+    padding: 10px 30px;
     border-radius: 40px;
     font-family: roboto, sans-serif;
     font-weight: lighter;
