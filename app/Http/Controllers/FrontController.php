@@ -175,11 +175,10 @@ class FrontController extends Controller
 
     public function business()
     {
-        $business = Business::get();
+        $business = Business::all()->chunk(6);
         return view('business', [
 
-            'business' => $business,
-            
+            'business' => $business,            
         ]);
     }
 
