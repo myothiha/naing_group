@@ -5,12 +5,12 @@
             <div class="row p-2">
                 <div class="col-12 home-index">
                     <ul class="nav m-2 social-bar justify-content-end">
-                        <div class="mx-4">
+                        <div class="mx-3">
                             <i class="fab fa-facebook-f mx-2"></i>
                             
                         </div>
 
-                        <div class="mx-4">
+                        <div class="mx-3">
                             <i class="fas fa-phone mx-2"><span class="phone">
                                  @if(empty($contact))
                                  There is no Data
@@ -20,13 +20,22 @@
                             </span></i>
                         </div>
 
-                        <div class="mx-4">
+                        <div class="mx-3">
                             <i class="far fa-envelope-open mx-2"><span class="phone">
                                  @if(empty($contact))
                                  There is no Data
                                  @else
                                  {{ $contact->mail }}
                                  @endif
+                            </span></i>
+                        </div>
+                         <div class="mx-3">
+                            <i class="far fa-envelope-open mx-2"><span class="phone">
+                            @if( \Illuminate\Support\Facades\Auth::user())
+                            <a href = "/customer/bookedroom" style = "color:#fff"> Dashboard</a>
+                            @else
+                            <a href = "/login" style = "color:#fff">Login</a>
+                            @endif
                             </span></i>
                         </div>
                     </ul>

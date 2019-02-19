@@ -77,22 +77,22 @@
                     <div class="col-md-4">
                         <ul class="property-list">
                             <li>Property Size<span class="list-style"></span> {{ $room->width }} <span class="list-sq"></span></li>
-                            <li>Bedrooms<span class="list-style"></span> {{ $room->bedroom }} </li>
+                            <li>Bedrooms &nbsp &nbsp <span class="list-style"></span> {{ $room->bedroom }} </li>
                             <!-- <li>Property Size<span class="list-style"></span><span class="list-price"></span>  </li> -->
                         </ul>
                     </div>
                     <div class="col-md-4">
                         <ul class="property-list">
-                            <li>Property Type<span class="list-style"></span>6</li>
-                            <li>Bathrooms<span class="list-style"></span>{{ $room->bathroom }}</li>
+                            <li>Property Type&nbsp<span class="list-style"></span>6</li>
+                            <li>Bathroom &nbsp &nbsp &nbsp &nbsp<span class="list-style"></span>{{ $room->bathroom }}</li>
                             <!-- <li>Building Age<span class="list-style"></span>2 <span class="list-year"></span></li> -->
                         </ul>
 
                     </div>
                     <div class="col-md-4">
                         <ul class="property-list">
-                            <li>Property Type<span class="list-style"></span><span class="list-sale"></span></li>
-                            <li>Property Size<span class="list-style"></span>300<span class="list-sq"></span></li>
+                            <li>Property Type &nbsp &nbsp<span class="list-style"></span><span class="list-sale"></span></li>
+                            <li>Property Size &nbsp &nbsp <span class="list-style"></span>300<span class="list-sq"></span></li>
                         </ul>
                     </div>
                 </div>
@@ -135,7 +135,7 @@
 
                 <div class="row">
                     <div class="col-md-4">
-                        <h5>Contact Me</h5>
+                        <h5>Contact Us</h5>
                         <ul class="agent-list">
                             <li>{{ $contact->mail ?? 'No Data' }}</li>
                             <li> {{ $contact->phone ?? 'No Data' }} </li>
@@ -174,8 +174,9 @@
             </div>
             @endif
 
-            <div class="col-md-4">
-                <h2 class="title my-5">Search Properties</h2>
+             <div class="col-md-4 mb-5">
+                <h2 class="title mb-5">Search Properties</h2>
+
                 <form action="/search" method = "POST">
                     {{ csrf_field() }}
                     <select class="form-control form-control mt-3 slect" name = "status">
@@ -198,55 +199,30 @@
                       </select>
 
                     <!-- Range slider: -->
-                    <div class="form-group range">
-                        <label for="formControlRange">MMK(Lakh)- <span><output id="js-output"></output></span></label>
-                        <input type="text" name = "price" class = "form-control">
-                       
-                    </div>
-                     <!-- <input type="range" class="form-control-range" id="formControlRange" min="10" // default 0 max="1000" // default 100 step="10" // default 1 value="300" // default min + (max-min)/2 data-orientation="vertical" // default horizontal> -->
-
+                  
                     <button type="submit" class="btn btn-primary btn-block mb-3">Search Now</button>
 
                 </form>
+                
 
-                <h2 class="title my-5">Featured Properties</h2>
-                <div class="row my-3">
-                    <div class="col-5">
-                        <img src="images/erc.jpg" alt="" class="img-fluid">
+                <h2 class="title my-5">Search Room </h2>
+                <form class = "mt-2" action="/search-room" method = "POST">
+                    {{ csrf_field() }}
+                    <div class="form-group range">
+                        <label for="price">MMK(Lakh)-</label>
+                        <input type = "input" name = "price" id = "price">
+                       
                     </div>
-                    <div class="col-7">
-                        <h6>Featured Properties Name</h6>
-                        <p>Yangon, No 123 , Maharbandoola Rd, Pabadan Township.</p>
-                        <button type="button" class="btn btn-primary btn-block">Price on request</button>
+                     <div class="form-group range">
+                        <label for="sqft"> Sqft &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp - </label>
+                        <input type = "input" name = "sqft" id = "sqft">
+                       
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block mb-3">Search Now</button>
 
-                    </div>
-                </div>
-                <div class="row my-3">
-                    <div class="col-5">
-                        <img src="images/erc.jpg" alt="" class="img-fluid">
-                    </div>
-                    <div class="col-7">
-                        <h6>Featured Properties Name</h6>
-                        <p>Yangon, No 123 , Maharbandoola Rd, Pabadan Township.</p>
-                        <button type="button" class="btn btn-primary btn-block">Price on request</button>
-
-                    </div>
-                </div>
-                <div class="row my-3">
-                    <div class="col-5">
-                        <img src="images/erc.jpg" alt="" class="img-fluid">
-                    </div>
-                    <div class="col-7">
-                        <h6>Featured Properties Name</h6>
-                        <p>Yangon, No 123 , Maharbandoola Rd, Pabadan Township.</p>
-                        <button type="button" class="btn btn-primary btn-block">Price on request</button>
-
-                    </div>
-                </div>
-
-                <h2 class="title my-5">Our Guides</h2>
-                <img src="images/giude.jpg" alt="" class="img-fluid my-3">
-
+                </form>
+                
+            </div>
             </div>
         </div>
     </div>

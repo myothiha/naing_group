@@ -25,20 +25,20 @@
 	                        <div class="form-group">
 	                            <div class="form-row">
 	                                <div class="col">
-	                                    <input type="text" name="name" class="form-control" placeholder="Your name">
+	                                    <input type="text" name="name" value = "{{  \Illuminate\Support\Facades\Auth::user()->name }}" class="form-control" placeholder="Your name" required>
 	                                </div>
 	                                <div class="col">
-	                                    <input type="text" name="email" class="form-control" placeholder="Email">
+	                                    <input type="email" name="email" value = "{{  \Illuminate\Support\Facades\Auth::user()->email }}" class="form-control" placeholder="Email" required>
 	                                </div>
 	                            </div>
 	                        </div>
 							<div class="form-group">
 	                            <div class="form-row">
 	                                <div class="col">
-	                                    <input type="date" name="meeting_dates" class="form-control" placeholder="Meeting Date">
+	                                    <input type="date" name="meeting_dates" class="form-control" placeholder="Meeting Date" required>
 	                                </div>
 	                                <div class="col">
-	                                    <input type="text" name="affordabletime" class="form-control" placeholder="Affordable Time">
+	                                    <input type="text" name="affordabletime" class="form-control" placeholder="Affordable Time" required>
 	                                </div>
 	                            </div>
                             </div>
@@ -46,16 +46,19 @@
                             <div class="form-group">
 	                            <div class="form-row">
 	                                <div class="col">
-	                                    <input type="text" name="phone" class="form-control" placeholder="Your Phone">
+	                                    <input type="text" name="phone" value = "{{  \Illuminate\Support\Facades\Auth::user()->phone }}" class="form-control" placeholder="Your Phone">
 	                                </div>
-	                                <div class="col">
-	                                	<select name="location" class="form-control">
-	                                		<option value=""> Select One </option>
-	                                		<option value="yangon">     Yangon </option>
-	                                		<option value="mandalay"> Mandalay </option>
-	                                	</select>
-	                                </div>
+	                                
 	                            </div>
+                            </div>
+
+                            <div class="form-row my-3">
+                                <div class="col">
+
+                                    <textarea class="form-control"  name="location" placeholder="Enter Location" rows="3"></textarea>
+
+                                </div>
+
                             </div>
 
                             <div class="form-row my-3">

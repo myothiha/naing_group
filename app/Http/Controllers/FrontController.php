@@ -275,4 +275,23 @@ class FrontController extends Controller
 
       return view('search',compact('projects'));
     }
+
+    public function searchRoom(Request $request){
+
+        $types = ProjectType::get();
+        $cities= City::get();
+        $status = ProjectStatus::get();
+
+        $rooms = Room::query()->when($request->price,function($q) use ($request){
+            return $q->where('price',$request->price);
+        })->when($request->sqft,function($q) use ($request){
+            return $q->where('width',$request->sqft);
+        })->get();
+        return view('roomsearch',[
+            'rooms' => $rooms,
+            'types' => $types,
+            'cities'=> $cities,
+            'status'=> $status
+        ]);
+    }
 }

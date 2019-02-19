@@ -125,8 +125,9 @@
 
             </div>
 
-            <div class="col-md-4">
-                <h2 class="title my-5">Search Properties</h2>
+             <div class="col-md-4 mb-5">
+                <h2 class="title mb-5">Search Properties</h2>
+
                 <form action="/search" method = "POST">
                     {{ csrf_field() }}
                     <select class="form-control form-control mt-3 slect" name = "status">
@@ -149,52 +150,29 @@
                       </select>
 
                     <!-- Range slider: -->
-                    <div class="form-group range">
-                        <label for="formControlRange">MMK(Lakh)- <span><output id="js-output"></output></span></label>
-                        <input type = "input" name = "price">
-                       <!--  type="range" class="form-control-range" id="formControlRange" min="10" // default 0 max="1000" // default 100 step="10" // default 1 value="300" // default min + (max-min)/2 data-orientation="vertical" // default horizontal -->
-                    </div>
-
+                  
                     <button type="submit" class="btn btn-primary btn-block mb-3">Search Now</button>
 
                 </form>
+                
 
-                <h2 class="title my-5">Featured Properties</h2>
-                <div class="row my-3">
-                    <div class="col-5">
-                        <img src="images/erc.jpg" alt="" class="img-fluid"/>
+                <h2 class="title my-5">Search Room </h2>
+                <form class = "mt-2" action="/search-room" method = "POST">
+                    {{ csrf_field() }}
+                    <div class="form-group range">
+                        <label for="price">MMK(Lakh)-</label>
+                        <input type = "input" name = "price" id = "price">
+                       
                     </div>
-                    <div class="col-7">
-                        <h6>Featured Properties Name</h6>
-                        <p>Yangon, No 123 , Maharbandoola Rd, Pabadan Township.</p>
-                        <button type="button" class="btn btn-primary btn-block">Price on request</button>
+                     <div class="form-group range">
+                        <label for="sqft"> Sqft &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp - </label>
+                        <input type = "input" name = "sqft" id = "sqft">
+                       
                     </div>
-                </div>
-                <div class="row my-3">
-                    <div class="col-5">
-                        <img src="images/erc.jpg" alt="" class="img-fluid">
-                    </div>
-                    <div class="col-7">
-                        <h6>Featured Properties Name</h6>
-                        <p>Yangon, No 123 , Maharbandoola Rd, Pabadan Township.</p>
-                        <button type="button" class="btn btn-primary btn-block">Price on request</button>
+                    <button type="submit" class="btn btn-primary btn-block mb-3">Search Now</button>
 
-                    </div>
-                </div>
-                <div class="row my-3">
-                    <div class="col-5">
-                        <img src="images/erc.jpg" alt="" class="img-fluid">
-                    </div>
-                    <div class="col-7">
-                        <h6>Featured Properties Name</h6>
-                        <p>Yangon, No 123 , Maharbandoola Rd, Pabadan Township.</p>
-                        <button type="button" class="btn btn-primary btn-block">Price on request</button>
-
-                    </div>
-                </div>
-
-                <h2 class="title my-5">Our Guides</h2>
-                <img src="/images/giude.jpg" alt="" class="img-fluid my-3">
+                </form>
+                
             </div>
 
         </div>

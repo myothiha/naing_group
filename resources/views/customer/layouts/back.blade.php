@@ -59,7 +59,7 @@
                 <ul data-menu="main" class="menu__level" tabindex="-1" role="menu" aria-label="All">
                     
                     <li class="menu__item" role="menuitem">
-                        <a class="menu__link" href="/customer/bookroom">
+                        <a class="menu__link" href="/project">
                             <i class="icon ion-ios-analytics-outline"></i> Book Room
                         </a>
                     </li>
@@ -69,7 +69,7 @@
                 <ul data-menu="submenu-1" id="submenu-1" class="menu__level" tabindex="-1" role="menu"
                     aria-label="Dashboard">
                     <li class="menu__item" role="menuitem">
-                        <a class="menu__link" href="#">
+                        <a class="menu__link" href="/project">
                             <i class="icon ion-ios-pie-outline"></i>Book Room
                         </a>
                     </li>
@@ -109,14 +109,7 @@
                                     <div class="col-md-6">
                                         <nav class="top-navbar-menu">
                                             <ul class="top-menu">
-                                                <li class="d-none d-lg-inline-block">
-                                                    <a href="/admin/user">Create account</a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:void(0)" id="btn-search">
-                                                        <i class="fa fa-search"></i>
-                                                    </a>
-                                                </li>
+                                               
                                                 <li class="dropdown">
                                                     <a class="dropdown-toggle has-badge" href="javascript:void(0)"
                                                        data-toggle="dropdown"
@@ -224,7 +217,7 @@
                                         
                                         
                                         <li class="nav-item dropdown {{ $mainblog ?? "" }}">
-                                            <a class="nav-link">
+                                            <a class="nav-link" href = "/project">
                                                 <i class="icon ion-ios-chatbubble-outline"></i> Booked Room
                                             </a>
 

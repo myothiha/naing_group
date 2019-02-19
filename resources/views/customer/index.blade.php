@@ -34,7 +34,7 @@
                                         <th> Meeting Dates </th>
                                         <th> Affordable Time </th>
                                         <th> Location </th>
-                                        <!-- <th>Action </th> -->
+                                        <th> Room </th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -45,6 +45,7 @@
                                                 <td> {{ $bookedroom->meeting_dates }} </td>
                                                 <td> {{ $bookedroom->affordable_time }} </td>
                                                 <td> {{ $bookedroom->location }} </td>
+                                                <td> {{ $bookedroom->room->project->name }} ( {{ $bookedroom->room->name }} ) </td>
                                                 
                                             </tr>
                                         @endforeach

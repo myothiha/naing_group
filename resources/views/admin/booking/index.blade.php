@@ -36,6 +36,7 @@
                                         <th>Email</th>
                                         <th>Phone</th>
                                         <th> Meeting Dates </th>
+                                        <th> Time </th>
                                         <th> Location </th>    
                                         <th> Project </th>                                   
                                     </tr>
@@ -50,8 +51,9 @@
                                             <td> {{ $booking->email }} </td>
                                             <td> {{ $booking->phone }} </td>
                                             <td> {{ $booking->meeting_dates }} </td>
+                                            <td> {{ $booking->affordable_time }} </td>
                                             <td> {{ $booking->location }} </td>
-                                            <td> {{ $booking->room->project->name }} </td>
+                                            <td> {{ $booking->room->project->name }} ({{ $booking->room->name }}) </td>
                                             
                                         @endforeach
 

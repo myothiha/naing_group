@@ -28,6 +28,7 @@ class CustomerController extends Controller
     	$user->name = $request->name;
     	$user->email = $request->email;
     	$user->role  = Constant::CUSTOMER_ROLE;
+        $user->phone = $request->phone;
     	$user->password = bcrypt($request->password);
     	$user->save();
 

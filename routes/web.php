@@ -71,6 +71,8 @@ Route::post('admin/login',   									'LoginController@authenticated');
 
 Route::post('/search',						'FrontController@search');
 
+Route::post('/search-room',					'FrontController@searchRoom');
+
 // customer 
 
 Route::group(['prefix' => 'customer', 'middleware' => 'customer'], function(){

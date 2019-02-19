@@ -234,14 +234,12 @@
                                     <div class="col-md-6">
                                         <nav class="top-navbar-menu">
                                             <ul class="top-menu">
-                                                <li class="d-none d-lg-inline-block">
-                                                    <a href="/admin/user">Create account</a>
-                                                </li>
-                                                <li>
+                                               
+                                               <!--  <li>
                                                     <a href="javascript:void(0)" id="btn-search">
                                                         <i class="fa fa-search"></i>
                                                     </a>
-                                                </li>
+                                                </li> -->
                                                 <li class="dropdown">
                                                     <a class="dropdown-toggle has-badge" href="javascript:void(0)"
                                                        data-toggle="dropdown"
