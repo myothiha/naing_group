@@ -161,12 +161,12 @@
                     {{ csrf_field() }}
                     <div class="form-group range">
                         <label for="price">MMK(Lakh)-</label>
-                        <input type = "input" name = "price" id = "price">
+                        <input type = "input" name = "price" id = "price" style="float:right;">
                        
                     </div>
                      <div class="form-group range">
-                        <label for="sqft"> Sqft &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp - </label>
-                        <input type = "input" name = "sqft" id = "sqft">
+                        <label for="sqft"> Sqft- </label>
+                        <input type = "input" name = "sqft" id = "sqft" style="float:right;">
                        
                     </div>
                     <button type="submit" class="btn btn-primary btn-block mb-3">Search Now</button>

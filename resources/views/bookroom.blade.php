@@ -52,15 +52,24 @@
 	                            </div>
                             </div>
 
+                            <div class="form-row">
+                                <div class="col">
+                                    <select name="location" class = "form-control" id="location" onChange="disable()">
+                                        <option value="0"> Select Location </option>
+                                        <option value="Naing Group Head Office"> Naing Group Head Office </option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+
                             <div class="form-row my-3">
                                 <div class="col">
 
-                                    <textarea class="form-control"  name="location" placeholder="Enter Location" rows="3"></textarea>
+                                    <textarea class="form-control" id="locat" name="location" placeholder="Enter Location" rows="3"></textarea>
 
                                 </div>
 
                             </div>
-
                             <div class="form-row my-3">
                                 <div class="col">
 
@@ -77,5 +86,17 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+       
+            function disable() {
+                var location = document.getElementById('location').value;  
+                if(location == 0){                   
+                    document.getElementById("locat").disabled= "false";
+                }else{
+                    document.getElementById("locat").disabled="true";                 
+
+                }
+            }
+    </script>
 
 @endsection
