@@ -79,8 +79,7 @@ Route::group(['prefix' => 'customer', 'middleware' => 'customer'], function(){
 
 	Route::resource('/room/{room}/booking',	'BookingController');
 	Route::get('/bookedroom',				'CustomerController@getbookroom');
-	
-
+	Route::get('/booking/{booking}',		'BookingController@edit');
 });
 Route::get('/getregister',		'CustomerController@getregister');
 Route::post('/postregister',	'CustomerController@postregister');

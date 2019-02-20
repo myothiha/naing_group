@@ -77,6 +77,9 @@ class BookingController extends Controller
     public function edit(Booking $booking)
     {
         //
+
+        $projects = Project::get();
+        return view('editbookroom',compact('booking'));
     }
 
     /**
@@ -86,9 +89,21 @@ class BookingController extends Controller
      * @param  \App\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Booking $booking)
+    public function update(Request $request, Room $room,Booking $booking)
     {
         //
+        $booking->customer_id =  Auth::id() ?? 1;
+        $booking->room_id = $room->id;
+        $booking->name    = $request->name ?? '';
+        $booking->email   = $request->email?? '';
+        $booking->phone   = $request->phone?? '';
+        $booking->meeting_dates = $request->meeting_dates ?? '';
+        $booking->dos           = $request->dos ?? '';
+        $booking->affordable_time = $request->affordabletime ?? '';
+        $booking->location        = $request->location ?? '';
+        $booking->save();
+
+        return redirect('/customer/bookedroom');
     }
 
     /**

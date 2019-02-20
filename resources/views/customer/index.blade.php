@@ -35,6 +35,7 @@
                                         <th> Affordable Time </th>
                                         <th> Location </th>
                                         <th> Room </th>
+                                        <th> Action </th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -46,6 +47,7 @@
                                                 <td> {{ $bookedroom->affordable_time }} </td>
                                                 <td> {{ $bookedroom->location }} </td>
                                                 <td> {{ $bookedroom->room->project->name }} ( {{ $bookedroom->room->name }} ) </td>
+                                                <td> <a href = "/customer/booking/{{ $bookedroom->id }}" class = "btn btn-warning mb-2"> Edit </a></td>
                                                 
                                             </tr>
                                         @endforeach
