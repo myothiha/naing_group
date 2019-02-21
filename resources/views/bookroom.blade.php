@@ -65,7 +65,7 @@
                             <div class="form-row my-3">
                                 <div class="col">
 
-                                    <textarea class="form-control" id="locat" name="location" placeholder="Enter Location" rows="3"></textarea>
+                                    <textarea class="form-control locat" id="locat" name="location" placeholder="Enter Location" rows="3"></textarea>
 
                                 </div>
 
@@ -90,10 +90,15 @@
        
             function disable() {
                 var location = document.getElementById('location').value;  
-                if(location == 0){                   
-                    document.getElementById("locat").disabled= "false";
+                
+                if(location == 0){
+                    
+                    document.getElementById("locat").readOnly = false;
+                    
                 }else{
-                    document.getElementById("locat").disabled="true";                 
+
+                    document.getElementById("locat").readOnly = true;
+                                  
 
                 }
             }
